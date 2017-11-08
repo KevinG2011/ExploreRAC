@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A32D2DF1FB2B14D0085742F /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D2D31FB2B1090085742F /* ReactiveObjC.framework */; };
-		2A32D2E01FB2B14D0085742F /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D2D31FB2B1090085742F /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0B12C7D11FB36109001738A0 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; };
+		0B12C7D21FB36109001738A0 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
 		72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881F18618A2E00DDD30A /* CoreGraphics.framework */; };
@@ -23,65 +23,65 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2A32D2CE1FB2B1090085742F /* PBXContainerItemProxy */ = {
+		0B12C7C11FB360E3001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D04725EA19E49ED7006002AA;
 			remoteInfo = "ReactiveObjC-macOS";
 		};
-		2A32D2D01FB2B1090085742F /* PBXContainerItemProxy */ = {
+		0B12C7C31FB360E3001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D04725F519E49ED7006002AA;
 			remoteInfo = "ReactiveObjC-macOSTests";
 		};
-		2A32D2D21FB2B1090085742F /* PBXContainerItemProxy */ = {
+		0B12C7C51FB360E3001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D047260C19E49F82006002AA;
 			remoteInfo = "ReactiveObjC-iOS";
 		};
-		2A32D2D41FB2B1090085742F /* PBXContainerItemProxy */ = {
+		0B12C7C71FB360E3001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D047261619E49F82006002AA;
 			remoteInfo = "ReactiveObjC-iOSTests";
 		};
-		2A32D2D61FB2B1090085742F /* PBXContainerItemProxy */ = {
+		0B12C7C91FB360E3001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A9B315541B3940610001CB9C;
 			remoteInfo = "ReactiveObjC-watchOS";
 		};
-		2A32D2D81FB2B1090085742F /* PBXContainerItemProxy */ = {
+		0B12C7CB1FB360E3001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 57A4D2411BA13D7A00F7D4B1;
 			remoteInfo = "ReactiveObjC-tvOS";
 		};
-		2A32D2DA1FB2B1090085742F /* PBXContainerItemProxy */ = {
+		0B12C7CD1FB360E3001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 7DFBED031CDB8C9500EE435B;
 			remoteInfo = "ReactiveObjC-tvOSTests";
 		};
-		2A32D2DC1FB2B1150085742F /* PBXContainerItemProxy */ = {
+		0B12C7CF1FB360FB001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D047260B19E49F82006002AA;
 			remoteInfo = "ReactiveObjC-iOS";
 		};
-		2A32D2E11FB2B14D0085742F /* PBXContainerItemProxy */ = {
+		0B12C7D31FB36109001738A0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+			containerPortal = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = D047260B19E49F82006002AA;
 			remoteInfo = "ReactiveObjC-iOS";
@@ -95,7 +95,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2A32D2E01FB2B14D0085742F /* ReactiveObjC.framework in Embed Frameworks */,
+				0B12C7D21FB36109001738A0 /* ReactiveObjC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,7 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = SOURCE_ROOT; };
+		0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = SOURCE_ROOT; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -132,31 +132,31 @@
 				72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */,
 				72A2882218618A2E00DDD30A /* UIKit.framework in Frameworks */,
 				72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */,
-				2A32D2DF1FB2B14D0085742F /* ReactiveObjC.framework in Frameworks */,
+				0B12C7D11FB36109001738A0 /* ReactiveObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A32D2C31FB2B0F80085742F /* Vendor */ = {
+		0B12C7B61FB360DC001738A0 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */,
+				0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		2A32D2C51FB2B1090085742F /* Products */ = {
+		0B12C7B81FB360E3001738A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A32D2CF1FB2B1090085742F /* ReactiveObjC.framework */,
-				2A32D2D11FB2B1090085742F /* ReactiveObjCTests.xctest */,
-				2A32D2D31FB2B1090085742F /* ReactiveObjC.framework */,
-				2A32D2D51FB2B1090085742F /* ReactiveObjCTests.xctest */,
-				2A32D2D71FB2B1090085742F /* ReactiveObjC.framework */,
-				2A32D2D91FB2B1090085742F /* ReactiveObjC.framework */,
-				2A32D2DB1FB2B1090085742F /* ReactiveObjCTests.xctest */,
+				0B12C7C21FB360E3001738A0 /* ReactiveObjC.framework */,
+				0B12C7C41FB360E3001738A0 /* ReactiveObjCTests.xctest */,
+				0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */,
+				0B12C7C81FB360E3001738A0 /* ReactiveObjCTests.xctest */,
+				0B12C7CA1FB360E3001738A0 /* ReactiveObjC.framework */,
+				0B12C7CC1FB360E3001738A0 /* ReactiveObjC.framework */,
+				0B12C7CE1FB360E3001738A0 /* ReactiveObjCTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				72A2882318618A2E00DDD30A /* RWReactivePlayground */,
-				2A32D2C31FB2B0F80085742F /* Vendor */,
 				72A2881C18618A2E00DDD30A /* Frameworks */,
 				72A2881B18618A2E00DDD30A /* Products */,
 			);
@@ -200,6 +199,7 @@
 				72A2883218618A2E00DDD30A /* RWViewController.h */,
 				72A2883318618A2E00DDD30A /* RWViewController.m */,
 				72A2883518618A2E00DDD30A /* Images.xcassets */,
+				0B12C7B61FB360DC001738A0 /* Vendor */,
 				72A2882418618A2E00DDD30A /* Supporting Files */,
 				72A2885218620EA100DDD30A /* RWDummySignInService.h */,
 				72A2885318620EA100DDD30A /* RWDummySignInService.m */,
@@ -233,8 +233,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A32D2DD1FB2B1150085742F /* PBXTargetDependency */,
-				2A32D2E21FB2B14D0085742F /* PBXTargetDependency */,
+				0B12C7D01FB360FB001738A0 /* PBXTargetDependency */,
+				0B12C7D41FB36109001738A0 /* PBXTargetDependency */,
 			);
 			name = RWReactivePlayground;
 			productName = RWReactivePlayground;
@@ -269,8 +269,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 2A32D2C51FB2B1090085742F /* Products */;
-					ProjectRef = 2A32D2C41FB2B1090085742F /* ReactiveObjC.xcodeproj */;
+					ProductGroup = 0B12C7B81FB360E3001738A0 /* Products */;
+					ProjectRef = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -281,53 +281,53 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		2A32D2CF1FB2B1090085742F /* ReactiveObjC.framework */ = {
+		0B12C7C21FB360E3001738A0 /* ReactiveObjC.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReactiveObjC.framework;
-			remoteRef = 2A32D2CE1FB2B1090085742F /* PBXContainerItemProxy */;
+			remoteRef = 0B12C7C11FB360E3001738A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A32D2D11FB2B1090085742F /* ReactiveObjCTests.xctest */ = {
+		0B12C7C41FB360E3001738A0 /* ReactiveObjCTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ReactiveObjCTests.xctest;
-			remoteRef = 2A32D2D01FB2B1090085742F /* PBXContainerItemProxy */;
+			remoteRef = 0B12C7C31FB360E3001738A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A32D2D31FB2B1090085742F /* ReactiveObjC.framework */ = {
+		0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReactiveObjC.framework;
-			remoteRef = 2A32D2D21FB2B1090085742F /* PBXContainerItemProxy */;
+			remoteRef = 0B12C7C51FB360E3001738A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A32D2D51FB2B1090085742F /* ReactiveObjCTests.xctest */ = {
+		0B12C7C81FB360E3001738A0 /* ReactiveObjCTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ReactiveObjCTests.xctest;
-			remoteRef = 2A32D2D41FB2B1090085742F /* PBXContainerItemProxy */;
+			remoteRef = 0B12C7C71FB360E3001738A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A32D2D71FB2B1090085742F /* ReactiveObjC.framework */ = {
+		0B12C7CA1FB360E3001738A0 /* ReactiveObjC.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReactiveObjC.framework;
-			remoteRef = 2A32D2D61FB2B1090085742F /* PBXContainerItemProxy */;
+			remoteRef = 0B12C7C91FB360E3001738A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A32D2D91FB2B1090085742F /* ReactiveObjC.framework */ = {
+		0B12C7CC1FB360E3001738A0 /* ReactiveObjC.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ReactiveObjC.framework;
-			remoteRef = 2A32D2D81FB2B1090085742F /* PBXContainerItemProxy */;
+			remoteRef = 0B12C7CB1FB360E3001738A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2A32D2DB1FB2B1090085742F /* ReactiveObjCTests.xctest */ = {
+		0B12C7CE1FB360E3001738A0 /* ReactiveObjCTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ReactiveObjCTests.xctest;
-			remoteRef = 2A32D2DA1FB2B1090085742F /* PBXContainerItemProxy */;
+			remoteRef = 0B12C7CD1FB360E3001738A0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -361,15 +361,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2A32D2DD1FB2B1150085742F /* PBXTargetDependency */ = {
+		0B12C7D01FB360FB001738A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "ReactiveObjC-iOS";
-			targetProxy = 2A32D2DC1FB2B1150085742F /* PBXContainerItemProxy */;
+			targetProxy = 0B12C7CF1FB360FB001738A0 /* PBXContainerItemProxy */;
 		};
-		2A32D2E21FB2B14D0085742F /* PBXTargetDependency */ = {
+		0B12C7D41FB36109001738A0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "ReactiveObjC-iOS";
-			targetProxy = 2A32D2E11FB2B14D0085742F /* PBXContainerItemProxy */;
+			targetProxy = 0B12C7D31FB36109001738A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -38,9 +38,14 @@
   
   // initially hide the failure message
   self.signInFailureText.hidden = YES;
-  [self.usernameTextField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
-    NSLog(@"%@", x);
-  }];
+  
+  [[self.usernameTextField.rac_textSignal
+    filter:^BOOL(NSString * _Nullable value) {
+      return value.length > 3;
+    }]
+    subscribeNext:^(NSString * _Nullable x) {
+      NSLog(@"%@", x);
+    }];
 }
 
 - (BOOL)isValidUsername:(NSString *)username {

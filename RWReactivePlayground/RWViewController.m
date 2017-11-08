@@ -39,12 +39,37 @@
   // initially hide the failure message
   self.signInFailureText.hidden = YES;
   
-  [[self.usernameTextField.rac_textSignal
-    filter:^BOOL(NSString * _Nullable value) {
-      return value.length > 3;
+  [[[self.usernameTextField.rac_textSignal
+    map:^id _Nullable(NSString * _Nullable value) {
+      return @(value.length);
+    }]
+    filter:^BOOL(NSNumber * _Nullable value) {
+      return value.unsignedIntValue > 3;
     }]
     subscribeNext:^(NSString * _Nullable x) {
       NSLog(@"%@", x);
+    }];
+  
+  RACSignal* usernameValidSignal = [self.usernameTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+    return @([self isValidUsername:value]);
+  }];
+  [[usernameValidSignal
+    map:^id _Nullable(NSNumber*  _Nullable value) {
+      return [value boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+    }]
+    subscribeNext:^(UIColor* color) {
+      self.usernameTextField.backgroundColor = color;
+    }];
+  
+  RACSignal* passwordValidSignal = [self.passwordTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
+    return @([self isValidPassword:value]);
+  }];
+  [[passwordValidSignal
+    map:^id _Nullable(NSNumber*  _Nullable value) {
+      return [value boolValue] ? [UIColor clearColor] : [UIColor yellowColor];
+    }]
+    subscribeNext:^(UIColor* color) {
+      self.passwordTextField.backgroundColor = color;
     }];
 }
 

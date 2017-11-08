@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Cp-So-Gdc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="3Cp-So-Gdc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -9,6 +14,7 @@
             <objects>
                 <navigationController definesPresentationContext="YES" id="3Cp-So-Gdc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YGO-oT-uiY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -19,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-612" y="-200"/>
         </scene>
-        <!--View Controller - Login-->
+        <!--Login-->
         <scene sceneID="Tc9-Kw-bBy">
             <objects>
                 <viewController title="Login" id="Bku-Il-Wq0" customClass="RWViewController" sceneMemberID="viewController">
@@ -28,7 +34,7 @@
                         <viewControllerLayoutGuide type="bottom" id="5Xu-G4-mSo"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aec-cr-Kll">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6l-hW-lH1">
@@ -47,21 +53,18 @@
                                 <rect key="frame" x="192" y="201" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign In">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <action selector="signInButtonTouched:" destination="Bku-Il-Wq0" eventType="touchUpInside" id="rmK-Q5-h9D"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invalid credentials" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJD-IT-3Eg">
                                 <rect key="frame" x="45" y="205" width="147" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.018977788870000002" blue="0.040716178679999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="0.018977788870000002" blue="0.040716178679999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reactive Sign In" id="lQU-W4-diN"/>
                     <connections>
@@ -76,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="-90" y="-207"/>
         </scene>
-        <!--View Controller - Kitten!-->
+        <!--Kitten!-->
         <scene sceneID="yi0-k6-ls1">
             <objects>
                 <viewController storyboardIdentifier="success" id="nGw-JE-c69" sceneMemberID="viewController">
@@ -85,21 +88,20 @@
                         <viewControllerLayoutGuide type="bottom" id="rAQ-l8-nij"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RwN-Dx-gHF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kitten.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="X7C-32-hfy">
-                                <rect key="frame" x="0.0" y="20" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="http://www.flickr.com/photos/50362297@N07" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRi-R2-prc">
-                                <rect key="frame" x="20" y="537" width="192" height="11"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="20" y="636" width="202" height="11"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rAQ-l8-nij" firstAttribute="top" secondItem="oRi-R2-prc" secondAttribute="bottom" constant="20" id="bJm-Ga-A7O"/>
                             <constraint firstItem="oRi-R2-prc" firstAttribute="leading" secondItem="RwN-Dx-gHF" secondAttribute="leading" constant="20" id="zvJ-0y-Xyd"/>
@@ -115,9 +117,4 @@
     <resources>
         <image name="kitten.jpg" width="537" height="740"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

@@ -52,6 +52,13 @@
   [signUpActiveSignal subscribeNext:^(NSNumber*  _Nullable signUpActive) {
     self.signInButton.enabled = signUpActive.boolValue;
   }];
+  
+  RACSignal* signUpSignal = [self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside];
+  [[signUpSignal flattenMap:^id(id value) {
+    return [self signInSignal];
+  }] subscribeNext:^(NSNumber* x) {
+    NSLog(@"%@", x);
+  }];
 }
 
 - (BOOL)isValidUsername:(NSString *)username {
@@ -60,6 +67,18 @@
 
 - (BOOL)isValidPassword:(NSString *)password {
   return password.length > 3;
+}
+
+- (RACSignal*)signInSignal {
+  return [RACSignal createSignal:^RACDisposable * (id<RACSubscriber> subscriber) {
+    [self.signInService signInWithUsername:self.usernameTextField.text
+                                  password:self.passwordTextField.text
+                                  complete:^(BOOL success) {
+                                    [subscriber sendNext:@(success)];
+                                    [subscriber sendCompleted];
+    }];
+    return nil;
+  }];
 }
 
 - (IBAction)signInButtonTouched:(id)sender {

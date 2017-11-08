@@ -54,10 +54,21 @@
   }];
   
   RACSignal* signUpSignal = [self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside];
-  [[signUpSignal flattenMap:^id(id value) {
-    return [self signInSignal];
-  }] subscribeNext:^(NSNumber* x) {
-    NSLog(@"%@", x);
+  [[[signUpSignal
+    doNext:^(id  _Nullable x) {
+      self.signInButton.enabled = NO;
+      self.signInFailureText.hidden = YES;
+    }]
+    flattenMap:^id(id value) {
+      return [self signInSignal];
+    }]
+    subscribeNext:^(NSNumber* signIn) {
+      BOOL success = [signIn boolValue];
+      self.signInButton.enabled = YES;
+      self.signInFailureText.hidden = success;
+      if (success) {
+        [self performSegueWithIdentifier:@"signInSuccess" sender:self];
+      }
   }];
 }
 

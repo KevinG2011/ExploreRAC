@@ -45,20 +45,30 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
   self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
   
   self.navigationController.splitViewController.delegate = self;
-  @weakify(self)
-  RAC(self.searchText, backgroundColor) = [self.searchText.rac_textSignal
-                                           map:^id (NSString *value) {
-                                             @strongify(self)
-                                             return [self isValidSearchText:value] ? [UIColor whiteColor] : [UIColor yellowColor];
-                                           }];
+  
   self.accountStore = [[ACAccountStore alloc] init];
   self.twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
   
-  [[self requestAccessToTweetSignal] subscribeNext:^(NSNumber* result) {
-    NSLog(@"Access granted");
-  } error:^(NSError * _Nullable error) {
-    NSLog(@"An error occur: %@", [error localizedDescription]);
-  }];
+  @weakify(self)
+  [[[self requestAccessToTweetSignal] then:^RACSignal *{
+      @strongify(self)
+      return [self searchTextValidSignal];
+    }]
+    subscribeNext:^(id  _Nullable x) {
+      NSLog(@"%@", x);
+    } error:^(NSError * _Nullable error) {
+      NSLog(@"%@", [error localizedDescription]);
+    }];
+}
+
+- (RACSignal*)searchTextValidSignal {
+  @weakify(self)
+  return [self.searchText.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+            @strongify(self)
+            BOOL isValid = [self isValidSearchText:value];
+            self.searchText.backgroundColor = isValid ? [UIColor whiteColor] : [UIColor yellowColor];
+            return isValid;
+          }];
 }
 
 - (RACSignal*)requestAccessToTweetSignal {
@@ -83,7 +93,7 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
 }
 
 - (BOOL)isValidSearchText:(NSString*)text {
-  return text.length > 2;
+  return text.length > 3;
 }
 
 - (void)styleTextField:(UITextField *)textField {

@@ -13,6 +13,9 @@
 		2A32D3421FB3ECD50085742F /* RWSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3411FB3ECD50085742F /* RWSearchResultsViewController.m */; };
 		2A32D3471FB3ECE90085742F /* RWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3431FB3ECE90085742F /* RWTableViewCell.m */; };
 		2A32D3481FB3ECE90085742F /* RWTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3451FB3ECE90085742F /* RWTweet.m */; };
+		2A32D34A1FB3F0C90085742F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A32D3491FB3F0C90085742F /* background.jpg */; };
+		2A32D36D1FB409FA0085742F /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; };
+		2A32D36E1FB409FA0085742F /* RevealServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
 		72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881F18618A2E00DDD30A /* CoreGraphics.framework */; };
@@ -99,6 +102,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2A32D36E1FB409FA0085742F /* RevealServer.framework in Embed Frameworks */,
 				0B12C7D21FB36109001738A0 /* ReactiveObjC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -116,6 +120,8 @@
 		2A32D3441FB3ECE90085742F /* RWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTableViewCell.h; sourceTree = "<group>"; };
 		2A32D3451FB3ECE90085742F /* RWTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWTweet.m; sourceTree = "<group>"; };
 		2A32D3461FB3ECE90085742F /* RWTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTweet.h; sourceTree = "<group>"; };
+		2A32D3491FB3F0C90085742F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		2A32D36C1FB409F90085742F /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -144,6 +150,7 @@
 				72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */,
 				72A2882218618A2E00DDD30A /* UIKit.framework in Frameworks */,
 				72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */,
+				2A32D36D1FB409FA0085742F /* RevealServer.framework in Frameworks */,
 				0B12C7D11FB36109001738A0 /* ReactiveObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +201,7 @@
 		72A2881C18618A2E00DDD30A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A32D36C1FB409F90085742F /* RevealServer.framework */,
 				72A2881D18618A2E00DDD30A /* Foundation.framework */,
 				72A2881F18618A2E00DDD30A /* CoreGraphics.framework */,
 				72A2882118618A2E00DDD30A /* UIKit.framework */,
@@ -206,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				721E122618698DC100B30134 /* kitten.jpg */,
+				2A32D3491FB3F0C90085742F /* background.jpg */,
 				72A2882C18618A2E00DDD30A /* RWAppDelegate.h */,
 				72A2882D18618A2E00DDD30A /* RWAppDelegate.m */,
 				72A2882F18618A2E00DDD30A /* Main.storyboard */,
@@ -250,6 +259,7 @@
 				72A2881718618A2E00DDD30A /* Frameworks */,
 				72A2881818618A2E00DDD30A /* Resources */,
 				2A32D2E31FB2B14D0085742F /* Embed Frameworks */,
+				2A32D36F1FB40A640085742F /* Integrate Reveal Server */,
 			);
 			buildRules = (
 			);
@@ -359,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				721E122718698DC100B30134 /* kitten.jpg in Resources */,
+				2A32D34A1FB3F0C90085742F /* background.jpg in Resources */,
 				72A2883618618A2E00DDD30A /* Images.xcassets in Resources */,
 				72A2882818618A2E00DDD30A /* InfoPlist.strings in Resources */,
 				72A2883118618A2E00DDD30A /* Main.storyboard in Resources */,
@@ -366,6 +377,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A32D36F1FB40A640085742F /* Integrate Reveal Server */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Integrate Reveal Server";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export REVEAL_SERVER_FILENAME=\"RevealServer.framework\"\n\n# Update this path to point to the location of RevealServer.framework in your project.\nexport REVEAL_SERVER_PATH=\"${SRCROOT}/${REVEAL_SERVER_FILENAME}\"\n\n# If configuration is not Debug, skip this script.\n[ \"${CONFIGURATION}\" != \"Debug\" ] && exit 0\n\n# If RevealServer.framework exists at the specified path, run code signing script.\nif [ -d \"${REVEAL_SERVER_PATH}\" ]; then\n    \"${REVEAL_SERVER_PATH}/Scripts/copy_and_codesign_revealserver.sh\"\nelse\n    echo \"Reveal Server not loaded: RevealServer.framework could not be found.\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		72A2881618618A2E00DDD30A /* Sources */ = {
@@ -519,8 +547,10 @@
 				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)",
 					"$(SRCROOT)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RWReactivePlayground/RWReactivePlayground-Prefix.pch";
@@ -531,7 +561,12 @@
 				INFOPLIST_FILE = "RWReactivePlayground/RWReactivePlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-ObjC",
+					"-weak_framework",
+					RevealServer,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yinxiang.RWReactivePlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -546,8 +581,10 @@
 				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(SRCROOT)",
 					"$(SRCROOT)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RWReactivePlayground/RWReactivePlayground-Prefix.pch";
@@ -558,7 +595,12 @@
 				INFOPLIST_FILE = "RWReactivePlayground/RWReactivePlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-ObjC",
+					"-weak_framework",
+					RevealServer,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yinxiang.RWReactivePlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

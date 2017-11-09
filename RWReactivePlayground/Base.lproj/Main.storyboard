@@ -30,11 +30,10 @@
         <scene sceneID="Esp-pN-tSb">
             <objects>
                 <navigationController id="Ac7-0B-BRP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="3nO-tH-kVc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="3nO-tH-kVc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,32 +59,35 @@
                         <viewControllerLayoutGuide type="bottom" id="U31-bf-Od9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YR6-aV-A3x">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="H5j-92-KWP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search Text:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJf-wl-Tan">
-                                <rect key="frame" x="29" y="96" width="95" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Text:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJf-wl-Tan">
+                                <rect key="frame" x="29" y="34" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-UK-wlJ">
-                                <rect key="frame" x="29" y="167" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-UK-wlJ">
+                                <rect key="frame" x="29" y="70" width="326" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AUc-UK-wlJ" firstAttribute="top" secondItem="bJf-wl-Tan" secondAttribute="bottom" constant="15" id="60H-2E-EbS"/>
                             <constraint firstAttribute="bottom" secondItem="H5j-92-KWP" secondAttribute="bottom" id="I2v-dF-HhE"/>
+                            <constraint firstItem="H5j-92-KWP" firstAttribute="trailing" secondItem="AUc-UK-wlJ" secondAttribute="trailing" constant="20" id="RIP-SJ-3N1"/>
                             <constraint firstItem="H5j-92-KWP" firstAttribute="top" secondItem="YR6-aV-A3x" secondAttribute="top" id="RzZ-mf-iyG"/>
                             <constraint firstItem="H5j-92-KWP" firstAttribute="leading" secondItem="YR6-aV-A3x" secondAttribute="leading" id="bEa-mc-Q9I"/>
                             <constraint firstAttribute="trailing" secondItem="H5j-92-KWP" secondAttribute="trailing" id="hyp-LT-edv"/>
+                            <constraint firstItem="H5j-92-KWP" firstAttribute="top" secondItem="bJf-wl-Tan" secondAttribute="bottom" constant="-55" id="ppi-UI-dL1"/>
+                            <constraint firstItem="H5j-92-KWP" firstAttribute="leading" secondItem="bJf-wl-Tan" secondAttribute="trailing" constant="-124" id="tjc-QJ-p8p"/>
+                            <constraint firstItem="AUc-UK-wlJ" firstAttribute="leading" secondItem="bJf-wl-Tan" secondAttribute="leading" id="uIf-LG-Rzn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="j4d-CI-414"/>
@@ -103,7 +105,6 @@
                 <splitViewController id="wNv-db-nHW" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Ac7-0B-BRP" kind="relationship" relationship="masterViewController" id="ZvM-yu-WLe"/>
-                        <segue destination="yRY-F3-Hmj" kind="relationship" relationship="detailViewController" id="uwh-eP-SbP"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59F-iH-PMm" userLabel="First Responder" sceneMemberID="firstResponder"/>

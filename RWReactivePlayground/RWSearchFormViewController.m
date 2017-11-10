@@ -50,25 +50,30 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
   self.twitterAccountType = [self.accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
   
   @weakify(self)
-  [[[self requestAccessToTweetSignal] then:^RACSignal *{
-      @strongify(self)
-      return [self searchTextValidSignal];
-    }]
-    subscribeNext:^(id  _Nullable x) {
-      NSLog(@"%@", x);
-    } error:^(NSError * _Nullable error) {
-      NSLog(@"%@", [error localizedDescription]);
-    }];
-}
-
-- (RACSignal*)searchTextValidSignal {
-  @weakify(self)
-  return [self.searchText.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
-            @strongify(self)
-            BOOL isValid = [self isValidSearchText:value];
-            self.searchText.backgroundColor = isValid ? [UIColor whiteColor] : [UIColor yellowColor];
-            return isValid;
-          }];
+  RACSignal *searchSignal = [self.searchText.rac_textSignal filter:^BOOL(NSString * _Nullable value) {
+    @strongify(self)
+    BOOL isValid = [self isValidSearchText:value];
+    self.searchText.backgroundColor = isValid ? [UIColor whiteColor] : [UIColor yellowColor];
+    return isValid;
+  }];
+  
+  [searchSignal subscribeNext:^(NSString* text) {
+    @strongify(self)
+    RACSignal* searchTextSignal = [self signalForSearchText:text];
+    [[searchTextSignal
+      deliverOn:RACScheduler.mainThreadScheduler]
+      subscribeNext:^(NSDictionary* responseDict) {
+        NSLog(@"%@",responseDict);
+      } error:^(NSError * _Nullable error) {
+        NSLog(@"%@", error.localizedDescription);
+      }];
+  }];
+  
+  [[self requestAccessToTweetSignal] subscribeNext:^(NSNumber* ret) {
+    NSLog(@"%@", ret);
+  } error:^(NSError * _Nullable error) {
+    NSLog(@"%@", error.localizedDescription);
+  }];
 }
 
 - (RACSignal*)requestAccessToTweetSignal {
@@ -94,6 +99,44 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
 
 - (BOOL)isValidSearchText:(NSString*)text {
   return text.length > 3;
+}
+
+
+- (SLRequest*)requestForTwitterSearchWithText:(NSString*)text {
+  NSURL *url = [NSURL URLWithString:@"https://api.twitter.com/1.1/search/tweets.json"];
+  NSDictionary *params = @{@"q" : text};
+  SLRequest* request = [SLRequest requestForServiceType:SLServiceTypeTwitter
+                                          requestMethod:SLRequestMethodGET
+                                                    URL:url
+                                             parameters:params];
+  return request;
+}
+
+- (RACSignal*)signalForSearchText:(NSString*)text {
+  @weakify(self)
+  return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+    @strongify(self)
+    NSArray *twitterAccounts = [self.accountStore accountsWithAccountType:self.twitterAccountType];
+    if (twitterAccounts.count == 0) {
+      NSError* error = [NSError errorWithDomain:RWTwitterInstantDomain code:RWTwitterInstantErrorNoTwitterAccounts userInfo:nil];
+      [subscriber sendError:error];
+    } else {
+      SLRequest* request = [self requestForTwitterSearchWithText:text];
+      [request setAccount:twitterAccounts.lastObject];
+      [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+        if (urlResponse.statusCode == 200) {
+          NSDictionary *timelineData = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:nil];
+          [subscriber sendNext:timelineData];
+          [subscriber sendCompleted];
+        } else {
+          NSError* error = [NSError errorWithDomain:RWTwitterInstantDomain code:RWTwitterInstantErrorInvalidResponse userInfo:nil];
+          [subscriber sendError:error];
+        }
+      }];
+    }
+
+    return nil;
+  }];
 }
 
 - (void)styleTextField:(UITextField *)textField {

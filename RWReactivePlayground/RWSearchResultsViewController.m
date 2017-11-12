@@ -23,9 +23,7 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
   self.tweets = [NSArray array];
-  
 }
 
 - (void)displayTweets:(NSArray *)tweets {
@@ -63,11 +61,12 @@
   cell.twitterStatusText.text = tweet.status;
   cell.twitterUsernameText.text = [NSString stringWithFormat:@"@%@",tweet.username];
   cell.twitterAvatarView.image = nil;
-  [[[self signalForLoadingImage:tweet.profileImageUrl]
-   deliverOn:[RACScheduler mainThreadScheduler]]
-   subscribeNext:^(UIImage* image) {
-     cell.twitterAvatarView.image = image;
-   }];
+  [[[[self signalForLoadingImage:tweet.profileImageUrl]
+    takeUntil:cell.rac_prepareForReuseSignal]
+    deliverOn:[RACScheduler mainThreadScheduler]]
+    subscribeNext:^(UIImage* image) {
+      cell.twitterAvatarView.image = image;
+  }];
   return cell;
 }
 

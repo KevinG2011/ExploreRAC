@@ -58,23 +58,24 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
     self.searchText.backgroundColor = isValid ? [UIColor whiteColor] : [UIColor yellowColor];
     return isValid;
   }];
-  
-  [searchSignal subscribeNext:^(NSString* text) {
-    @strongify(self)
-    RACSignal* searchTextSignal = [self signalForSearchText:text];
-    [[searchTextSignal
-      deliverOn:RACScheduler.mainThreadScheduler]
-      subscribeNext:^(NSDictionary* responseDict) {
+  [[searchSignal
+    throttle:0.5]
+    subscribeNext:^(NSString* text) {
+     @strongify(self)
+     RACSignal* searchTextSignal = [self signalForSearchText:text];
+     [[searchTextSignal
+       deliverOn:RACScheduler.mainThreadScheduler]
+       subscribeNext:^(NSDictionary* responseDict) {
         NSLog(@"%@",responseDict);
         NSArray* statuses = responseDict[@"statuses"];
         NSArray* tweets = [statuses linq_select:^id(NSDictionary* item) {
           return [RWTweet tweetWithStatus:item];
         }];
         [self.resultsViewController displayTweets:tweets];
-      } error:^(NSError * _Nullable error) {
-        NSLog(@"%@", error.localizedDescription);
-      }];
-  }];
+       } error:^(NSError * _Nullable error) {
+         NSLog(@"%@", error.localizedDescription);
+       }];
+   }];
   
   [[self requestAccessToTweetSignal] subscribeNext:^(NSNumber* ret) {
     NSLog(@"%@", ret);

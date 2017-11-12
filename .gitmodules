@@ -1,3 +1,6 @@
 [submodule "ReactiveObjC"]
 	path = ReactiveObjC
 	url = https://github.com/ReactiveCocoa/ReactiveObjC.git
+[submodule "LinqToObjectiveC"]
+	path = LinqToObjectiveC
+	url = https://github.com/ColinEberhardt/LinqToObjectiveC.git

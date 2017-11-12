@@ -11,6 +11,8 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import "RWSearchFormViewController.h"
 #import "RWSearchResultsViewController.h"
+#import "RWTweet.h"
+#import <LinqToObjectiveC/LinqToObjectiveC.h>
 
 typedef NS_ENUM(NSInteger, RWTwitterInstantError) {
   RWTwitterInstantErrorAccessDenied,
@@ -64,6 +66,11 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
       deliverOn:RACScheduler.mainThreadScheduler]
       subscribeNext:^(NSDictionary* responseDict) {
         NSLog(@"%@",responseDict);
+        NSArray* statuses = responseDict[@"statuses"];
+        NSArray* tweets = [statuses linq_select:^id(NSDictionary* item) {
+          return [RWTweet tweetWithStatus:item];
+        }];
+        [self.resultsViewController displayTweets:tweets];
       } error:^(NSError * _Nullable error) {
         NSLog(@"%@", error.localizedDescription);
       }];

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B12C7D11FB36109001738A0 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; };
 		0B12C7D21FB36109001738A0 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0BDC4F461FB82A94001AE26A /* libLinqToObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5550541FB6A91B005DC829 /* libLinqToObjectiveC.a */; };
 		2A32D33F1FB3ECC00085742F /* RWSearchFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */; };
 		2A32D3421FB3ECD50085742F /* RWSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3411FB3ECD50085742F /* RWSearchResultsViewController.m */; };
 		2A32D3471FB3ECE90085742F /* RWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3431FB3ECE90085742F /* RWTableViewCell.m */; };
@@ -93,6 +94,34 @@
 			remoteGlobalIDString = D047260B19E49F82006002AA;
 			remoteInfo = "ReactiveObjC-iOS";
 		};
+		0B5550531FB6A91B005DC829 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E8F43811A8B92D5000F5D01;
+			remoteInfo = LinqToObjectiveC;
+		};
+		0B5550551FB6A91B005DC829 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EEE35A81AB4711000668C3E;
+			remoteInfo = "LinqToObjectiveC-iOS-dynamic";
+		};
+		0B5550571FB6A91B005DC829 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EEE35CB1AB4718500668C3E;
+			remoteInfo = "LinqToObjectiveC-iOS-static";
+		};
+		0BDC4F3B1FB82A8B001AE26A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E8F43801A8B92D5000F5D01;
+			remoteInfo = LinqToObjectiveC;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,6 +141,7 @@
 
 /* Begin PBXFileReference section */
 		0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = SOURCE_ROOT; };
+		0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LinqToObjectiveC.xcodeproj; path = LinqToObjectiveC/LinqToObjectiveC/LinqToObjectiveC.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSearchFormViewController.m; sourceTree = "<group>"; };
 		2A32D33E1FB3ECC00085742F /* RWSearchFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSearchFormViewController.h; sourceTree = "<group>"; };
 		2A32D3401FB3ECD50085742F /* RWSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSearchResultsViewController.h; sourceTree = "<group>"; };
@@ -149,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BDC4F461FB82A94001AE26A /* libLinqToObjectiveC.a in Frameworks */,
 				72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */,
 				72A2882218618A2E00DDD30A /* UIKit.framework in Frameworks */,
 				72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */,
@@ -163,6 +194,7 @@
 		0B12C7B61FB360DC001738A0 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */,
 				0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */,
 			);
 			name = Vendor;
@@ -179,6 +211,16 @@
 				0B12C7CA1FB360E3001738A0 /* ReactiveObjC.framework */,
 				0B12C7CC1FB360E3001738A0 /* ReactiveObjC.framework */,
 				0B12C7CE1FB360E3001738A0 /* ReactiveObjCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B55504E1FB6A91B005DC829 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B5550541FB6A91B005DC829 /* libLinqToObjectiveC.a */,
+				0B5550561FB6A91B005DC829 /* LinqToObjectiveC.framework */,
+				0B5550581FB6A91B005DC829 /* LinqToObjectiveC.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +310,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0BDC4F3C1FB82A8B001AE26A /* PBXTargetDependency */,
 				0B12C7D01FB360FB001738A0 /* PBXTargetDependency */,
 				0B12C7D41FB36109001738A0 /* PBXTargetDependency */,
 			);
@@ -303,6 +346,10 @@
 			productRefGroup = 72A2881B18618A2E00DDD30A /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 0B55504E1FB6A91B005DC829 /* Products */;
+					ProjectRef = 0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */;
+				},
 				{
 					ProductGroup = 0B12C7B81FB360E3001738A0 /* Products */;
 					ProjectRef = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
@@ -363,6 +410,27 @@
 			fileType = wrapper.cfbundle;
 			path = ReactiveObjCTests.xctest;
 			remoteRef = 0B12C7CD1FB360E3001738A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0B5550541FB6A91B005DC829 /* libLinqToObjectiveC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLinqToObjectiveC.a;
+			remoteRef = 0B5550531FB6A91B005DC829 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0B5550561FB6A91B005DC829 /* LinqToObjectiveC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LinqToObjectiveC.framework;
+			remoteRef = 0B5550551FB6A91B005DC829 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0B5550581FB6A91B005DC829 /* LinqToObjectiveC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LinqToObjectiveC.framework;
+			remoteRef = 0B5550571FB6A91B005DC829 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -427,6 +495,11 @@
 			isa = PBXTargetDependency;
 			name = "ReactiveObjC-iOS";
 			targetProxy = 0B12C7D31FB36109001738A0 /* PBXContainerItemProxy */;
+		};
+		0BDC4F3C1FB82A8B001AE26A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LinqToObjectiveC;
+			targetProxy = 0BDC4F3B1FB82A8B001AE26A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -561,6 +634,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "RWReactivePlayground/RWReactivePlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -595,6 +669,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include",
+					"$(SRCROOT)",
 				);
 				INFOPLIST_FILE = "RWReactivePlayground/RWReactivePlayground-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

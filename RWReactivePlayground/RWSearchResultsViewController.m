@@ -33,6 +33,18 @@
   [self.tableView reloadData];
 }
 
+- (RACSignal*)signalForLoadingImage:(NSString*)imageUrl {
+  RACScheduler* scheduler = [RACScheduler schedulerWithPriority:RACSchedulerPriorityBackground];
+  return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+    NSURL *url = [NSURL URLWithString:imageUrl];
+    NSData* imageData = [NSData dataWithContentsOfURL:url];
+    UIImage* image = [UIImage imageWithData:imageData];
+    [subscriber sendNext:image];
+    [subscriber sendCompleted];
+    return nil;
+  }]
+  subscribeOn:scheduler];
+}
 
 #pragma mark - Table view data source
 
@@ -50,7 +62,12 @@
   RWTweet *tweet = self.tweets[indexPath.row];
   cell.twitterStatusText.text = tweet.status;
   cell.twitterUsernameText.text = [NSString stringWithFormat:@"@%@",tweet.username];
-  
+  cell.twitterAvatarView.image = nil;
+  [[[self signalForLoadingImage:tweet.profileImageUrl]
+   deliverOn:[RACScheduler mainThreadScheduler]]
+   subscribeNext:^(UIImage* image) {
+     cell.twitterAvatarView.image = image;
+   }];
   return cell;
 }
 

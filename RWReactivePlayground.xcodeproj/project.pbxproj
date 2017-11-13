@@ -225,6 +225,47 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2AB6D3741FB997D400E04677 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2AB6D37D1FB997E400E04677 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A32D3461FB3ECE90085742F /* RWTweet.h */,
+				2A32D3451FB3ECE90085742F /* RWTweet.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2AB6D37E1FB9980700E04677 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72A2883218618A2E00DDD30A /* RWViewController.h */,
+				72A2883318618A2E00DDD30A /* RWViewController.m */,
+				2A32D33E1FB3ECC00085742F /* RWSearchFormViewController.h */,
+				2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */,
+				2A32D3401FB3ECD50085742F /* RWSearchResultsViewController.h */,
+				2A32D3411FB3ECD50085742F /* RWSearchResultsViewController.m */,
+				2A32D3441FB3ECE90085742F /* RWTableViewCell.h */,
+				2A32D3431FB3ECE90085742F /* RWTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2AB6D37F1FB9983600E04677 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72A2883518618A2E00DDD30A /* Images.xcassets */,
+				721E122618698DC100B30134 /* kitten.jpg */,
+				2A32D3491FB3F0C90085742F /* background.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		72A2881118618A2E00DDD30A = {
 			isa = PBXGroup;
 			children = (
@@ -259,22 +300,13 @@
 		72A2882318618A2E00DDD30A /* RWReactivePlayground */ = {
 			isa = PBXGroup;
 			children = (
-				721E122618698DC100B30134 /* kitten.jpg */,
-				2A32D3491FB3F0C90085742F /* background.jpg */,
+				2AB6D37E1FB9980700E04677 /* View */,
+				2AB6D37D1FB997E400E04677 /* Model */,
+				2AB6D3741FB997D400E04677 /* ViewModel */,
 				72A2882C18618A2E00DDD30A /* RWAppDelegate.h */,
 				72A2882D18618A2E00DDD30A /* RWAppDelegate.m */,
 				72A2882F18618A2E00DDD30A /* Main.storyboard */,
-				72A2883218618A2E00DDD30A /* RWViewController.h */,
-				72A2883318618A2E00DDD30A /* RWViewController.m */,
-				2A32D33E1FB3ECC00085742F /* RWSearchFormViewController.h */,
-				2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */,
-				2A32D3401FB3ECD50085742F /* RWSearchResultsViewController.h */,
-				2A32D3411FB3ECD50085742F /* RWSearchResultsViewController.m */,
-				2A32D3441FB3ECE90085742F /* RWTableViewCell.h */,
-				2A32D3431FB3ECE90085742F /* RWTableViewCell.m */,
-				2A32D3461FB3ECE90085742F /* RWTweet.h */,
-				2A32D3451FB3ECE90085742F /* RWTweet.m */,
-				72A2883518618A2E00DDD30A /* Images.xcassets */,
+				2AB6D37F1FB9983600E04677 /* Resources */,
 				0B12C7B61FB360DC001738A0 /* Vendor */,
 				72A2882418618A2E00DDD30A /* Supporting Files */,
 				72A2885218620EA100DDD30A /* RWDummySignInService.h */,

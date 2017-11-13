@@ -4,3 +4,9 @@
 [submodule "LinqToObjectiveC"]
 	path = LinqToObjectiveC
 	url = https://github.com/ColinEberhardt/LinqToObjectiveC.git
+[submodule "objectiveflickr"]
+	path = objectiveflickr
+	url = git://github.com/lukhnos/objectiveflickr.git
+[submodule "SDWebImage"]
+	path = SDWebImage
+	url = https://github.com/rs/SDWebImage.git

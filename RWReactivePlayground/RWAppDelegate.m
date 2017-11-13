@@ -7,6 +7,9 @@
 //
 
 #import "RWAppDelegate.h"
+@interface RWAppDelegate ()
+
+@end
 
 @implementation RWAppDelegate
 

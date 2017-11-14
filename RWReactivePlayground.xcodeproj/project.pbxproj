@@ -29,6 +29,8 @@
 		2A48C5CE1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5CC1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m */; };
 		2A48C5CF1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A48C5CD1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib */; };
 		2A48C5D21FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */; };
+		2A9A80951FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */; };
+		2A9A80991FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */; };
 		2AB6D3A51FB99B8800E04677 /* libObjectiveFlickr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3891FB99B3500E04677 /* libObjectiveFlickr.a */; };
 		2AB6D3C01FB99C3400E04677 /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3B31FB99C2200E04677 /* libSDWebImage iOS static.a */; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
@@ -252,6 +254,12 @@
 		2A48C5CD1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RWTSearchResultsTableViewCell.xib; sourceTree = "<group>"; };
 		2A48C5D01FB9AABA007EABD7 /* RWTFlickrSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchViewModel.h; sourceTree = "<group>"; };
 		2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchViewModel.m; sourceTree = "<group>"; };
+		2A9A80871FBAA3540000E2C5 /* RWTFlickrSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearch.h; sourceTree = "<group>"; };
+		2A9A80931FBAA79F0000E2C5 /* RWTFlickrSearchImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchImpl.h; sourceTree = "<group>"; };
+		2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchImpl.m; sourceTree = "<group>"; };
+		2A9A80961FBAA8980000E2C5 /* RWTFlickrViewModelService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrViewModelService.h; sourceTree = "<group>"; };
+		2A9A80971FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrViewModelServiceImpl.h; sourceTree = "<group>"; };
+		2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrViewModelServiceImpl.m; sourceTree = "<group>"; };
 		2A9B142A1FB4381B0015740A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2A9B142B1FB438230015740A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		2AB6D3801FB99B3500E04677 /* ObjectiveFlickr.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ObjectiveFlickr.xcodeproj; path = objectiveflickr/ObjectiveFlickr.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -337,6 +345,12 @@
 		2AB6D3741FB997D400E04677 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				2A9A80871FBAA3540000E2C5 /* RWTFlickrSearch.h */,
+				2A9A80931FBAA79F0000E2C5 /* RWTFlickrSearchImpl.h */,
+				2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */,
+				2A9A80961FBAA8980000E2C5 /* RWTFlickrViewModelService.h */,
+				2A9A80971FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.h */,
+				2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */,
 				2A48C5D01FB9AABA007EABD7 /* RWTFlickrSearchViewModel.h */,
 				2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */,
 			);
@@ -730,11 +744,13 @@
 				2A48C5BB1FB9A437007EABD7 /* RWTFlickrSearchViewController.m in Sources */,
 				72A2883418618A2E00DDD30A /* RWViewController.m in Sources */,
 				72A2882E18618A2E00DDD30A /* RWAppDelegate.m in Sources */,
+				2A9A80991FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m in Sources */,
 				2A32D33F1FB3ECC00085742F /* RWSearchFormViewController.m in Sources */,
 				2A48C5D21FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m in Sources */,
 				2A32D3421FB3ECD50085742F /* RWSearchResultsViewController.m in Sources */,
 				2A32D3471FB3ECE90085742F /* RWTableViewCell.m in Sources */,
 				2A48C5C51FB9A44F007EABD7 /* RWTSearchResultsViewController.m in Sources */,
+				2A9A80951FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m in Sources */,
 				2A32D3481FB3ECE90085742F /* RWTweet.m in Sources */,
 				2A48C5CE1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m in Sources */,
 				72A2885418620EA100DDD30A /* RWDummySignInService.m in Sources */,

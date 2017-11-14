@@ -8,16 +8,16 @@
 
 #import "RWTFlickrSearchViewModel.h"
 
-
 @interface RWTFlickrSearchViewModel ()
-
+@property (nonatomic, weak) id<RWTFlickrViewModelService>         service;
 @end
 
 @implementation RWTFlickrSearchViewModel
-- (instancetype)init
+- (instancetype)initWithService:(id<RWTFlickrViewModelService>)service
 {
   self = [super init];
   if (self) {
+    _service = service;
     [self setup];
   }
   return self;
@@ -40,7 +40,7 @@
 }
 
 -(RACSignal*)signalForExcuteSearch {
-  return [[[[RACSignal empty] logAll] delay:2] logAll];
+  return [[self.service getFlickrSearchService] flickrSearchSignal:self.searchText];
 }
 
 @end

@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "RWTFlickrViewModelService.h"
 
 @interface RWTFlickrSearchViewModel : NSObject
 @property (nonatomic, strong) NSString         *searchText;
 @property (nonatomic, strong) NSString         *title;
 @property (nonatomic, strong) RACCommand       *executeSearch;
+- (instancetype)initWithService:(id<RWTFlickrViewModelService>)service;
 @end

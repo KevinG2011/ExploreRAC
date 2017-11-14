@@ -19,7 +19,6 @@
 
 @implementation RWTFlickrSearchViewController
 
-
 - (instancetype)initWithViewModel:(RWTFlickrSearchViewModel*)viewModel {
   self = [super init];
   if (self) {
@@ -36,10 +35,12 @@
   [self bindViewModel];
 }
 
-- (void)bindViewModel {
+- (void)setupViewModel {
   id<RWTFlickrViewModelService> rms = [[RWTFlickrViewModelServiceImpl alloc] init];
   self.searchViewModel = [[RWTFlickrSearchViewModel alloc] initWithService:rms];
-  
+}
+
+- (void)bindViewModel {
   self.title = self.searchViewModel.title;
   self.searchTextField.text = self.searchViewModel.searchText;
   RAC(self.searchViewModel, searchText) = self.searchTextField.rac_textSignal;

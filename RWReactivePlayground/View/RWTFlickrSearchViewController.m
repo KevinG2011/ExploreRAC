@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UITableView *searchHistoryTable;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (strong, nonatomic) id<RWTFlickrViewModelService>    service;
 @property (strong, nonatomic) RWTFlickrSearchViewModel         *searchViewModel;
 @end
 
@@ -32,12 +33,13 @@
   self.edgesForExtendedLayout = UIRectEdgeNone;
   self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
   
+  [self setupViewModel];
   [self bindViewModel];
 }
 
 - (void)setupViewModel {
-  id<RWTFlickrViewModelService> rms = [[RWTFlickrViewModelServiceImpl alloc] init];
-  self.searchViewModel = [[RWTFlickrSearchViewModel alloc] initWithService:rms];
+  self.service = [[RWTFlickrViewModelServiceImpl alloc] init];
+  self.searchViewModel = [[RWTFlickrSearchViewModel alloc] initWithService:self.service];
 }
 
 - (void)bindViewModel {

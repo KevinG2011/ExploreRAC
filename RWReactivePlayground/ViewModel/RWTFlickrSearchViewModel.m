@@ -25,7 +25,7 @@
 
 - (void)setup {
   self.title = @"Flickr Search";
-  self.searchText = @"search text";
+  self.searchText = @"airport";
   RACSignal* validSearchSigal = [[RACObserve(self, searchText) map:^id _Nullable(NSString* text) {
     return @(text.length > 3);
   }] distinctUntilChanged]; //emits when the state changes;

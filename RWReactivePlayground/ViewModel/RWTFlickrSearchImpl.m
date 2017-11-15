@@ -45,7 +45,7 @@
     RACSignal *successSignal = [self rac_signalForSelector:@selector(flickrAPIRequest:didCompleteWithResponse:)
                                               fromProtocol:@protocol(OFFlickrAPIRequestDelegate)];
     
-    // 4. Handle the response
+    // 4. Handle the response success
     [[[successSignal
        map:^id _Nullable(RACTuple* tuple) {
          return tuple.second;
@@ -55,6 +55,15 @@
          [subscriber sendNext:x];
          [subscriber sendCompleted];
        }];
+    // 5. Handle the response error
+    RACSignal *failSignal = [self rac_signalForSelector:@selector(flickrAPIRequest:didFailWithError:) fromProtocol:@protocol(OFFlickrAPIRequestDelegate)];
+    [[failSignal map:^id _Nullable(RACTuple* tuple) {
+      return tuple.second;
+    }] subscribeNext:^(NSError*  _Nullable error) {
+      [subscriber sendNext:error];
+      [subscriber sendCompleted];
+    }];
+    
     [flickrRequest callAPIMethodWithGET:method arguments:args];
     return [RACDisposable disposableWithBlock:^{
       [self.requests removeObject:flickrRequest];
@@ -64,10 +73,12 @@
 
 -(RACSignal*)flickrSearchSignal:(NSString*)searchText {
   NSDictionary *args = @{ @"text": searchText, @"sort": @"interestingness-desc" };
-  return [self signalForFlickrMethod:LFHTTPRequestGETMethod arguments:args transform:^id(NSDictionary *response) {
+  return [self signalForFlickrMethod:@"flickr.photos.search"
+                           arguments:args
+                           transform:^id(NSDictionary *response) {
     RWTFlickrSearchResults *results = [RWTFlickrSearchResults new];
     results.searchString = searchText;
-    results.totalResults = [[response valueForKeyPath:@"photos.total"] unsignedIntegerValue];
+    results.totalResults = [[response valueForKeyPath:@"photos.total"] integerValue];
     
     NSArray *photos = [response valueForKeyPath:@"photos.photo"];
     results.photos = [photos linq_select:^id(NSDictionary* jsonPhoto) {
@@ -80,4 +91,5 @@
     return results;
   }];
 }
+
 @end

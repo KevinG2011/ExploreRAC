@@ -9,6 +9,8 @@
 #import <LinqToObjectiveC/LinqToObjectiveC.h>
 #import "RWTFlickrSearchImpl.h"
 #import "ObjectiveFlickr.h"
+#import "RWTFlickrSearchResults.h"
+#import "RWTFlickrPhoto.h"
 
 @interface RWTFlickrSearchImpl () <OFFlickrAPIRequestDelegate>
 @property (strong, nonatomic) NSMutableSet *requests;
@@ -30,9 +32,9 @@
   return self;
 }
 
--(RACSignal*)sigalForFlickrMethod:(NSString*)method
-                        arguments:(NSDictionary*)args
-                        transform:(id (^)(NSDictionary* response))block {
+-(RACSignal*)signalForFlickrMethod:(NSString*)method
+                         arguments:(NSDictionary*)args
+                         transform:(id (^)(NSDictionary* response))block {
   // 1. Create a signal for this request
   return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
     // 2. Create a Flick request object
@@ -61,6 +63,21 @@
 }
 
 -(RACSignal*)flickrSearchSignal:(NSString*)searchText {
-  return [[[[RACSignal empty] logAll] delay:2] logAll];
+  NSDictionary *args = @{ @"text": searchText, @"sort": @"interestingness-desc" };
+  return [self signalForFlickrMethod:LFHTTPRequestGETMethod arguments:args transform:^id(NSDictionary *response) {
+    RWTFlickrSearchResults *results = [RWTFlickrSearchResults new];
+    results.searchString = searchText;
+    results.totalResults = [[response valueForKeyPath:@"photos.total"] unsignedIntegerValue];
+    
+    NSArray *photos = [response valueForKeyPath:@"photos.photo"];
+    results.photos = [photos linq_select:^id(NSDictionary* jsonPhoto) {
+      RWTFlickrPhoto* photo = [[RWTFlickrPhoto alloc] init];
+      photo.title = jsonPhoto[@"title"];
+      photo.identifier = jsonPhoto[@"id"];
+      photo.url = [self.flickrContext photoSourceURLFromDictionary:jsonPhoto size:OFFlickrSmallSize];
+      return photo;
+    }];
+    return results;
+  }];
 }
 @end

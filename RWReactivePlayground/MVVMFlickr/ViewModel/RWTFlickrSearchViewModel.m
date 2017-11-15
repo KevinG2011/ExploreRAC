@@ -7,6 +7,7 @@
 //
 
 #import "RWTFlickrSearchViewModel.h"
+#import "RWTFlickrSearchResultsViewModel.h"
 
 @interface RWTFlickrSearchViewModel ()
 @property (nonatomic, weak) id<RWTFlickrViewModelService>         service;
@@ -35,12 +36,16 @@
   self.executeSearch = [[RACCommand alloc]
                         initWithEnabled:validSearchSigal
                             signalBlock:^RACSignal * _Nonnull(NSString* input) {
-    return [self signalForExcuteSearch];
+    return [self signalForExecuteSearch];
   }];
 }
 
--(RACSignal*)signalForExcuteSearch {
-  return [[self.service getFlickrSearchService] flickrSearchSignal:self.searchText];
+-(RACSignal*)signalForExecuteSearch {
+    return [[[self.service getFlickrSearchService] flickrSearchSignal:self.searchText]
+        doNext:^(id  _Nullable result) {
+            RWTFlickrSearchResultsViewModel* rvm = [[RWTFlickrSearchResultsViewModel alloc] initWithSearchResults:result service:self.service];
+            [self.service pushViewModel:rvm];
+        }];
 }
 
 @end

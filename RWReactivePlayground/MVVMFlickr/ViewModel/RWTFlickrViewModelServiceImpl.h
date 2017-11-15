@@ -9,5 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "RWTFlickrViewModelService.h"
 @interface RWTFlickrViewModelServiceImpl : NSObject <RWTFlickrViewModelService>
+- (instancetype)initWithNavigationController:(UINavigationController*)navigationController;
+
+-(void)pushViewModel:(id)viewModel;
 -(id<RWTFlickrSearch>)getFlickrSearchService;
 @end

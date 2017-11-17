@@ -5,6 +5,8 @@
 
 #import "RWTSearchResultsTableViewCell.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "RWTFlickrPhoto.h"
 
 @interface RWTSearchResultsTableViewCell ()
 
@@ -18,5 +20,10 @@
 @end
 
 @implementation RWTSearchResultsTableViewCell
-
+-(void)bindViewModel:(id)viewModel {
+  RWTFlickrPhoto *photo = (RWTFlickrPhoto*)viewModel;
+  self.titleLabel.text = photo.title;
+  self.imageThumbnailView.contentMode = UIViewContentModeScaleToFill;
+  [self.imageThumbnailView sd_setImageWithURL:photo.url];
+}
 @end

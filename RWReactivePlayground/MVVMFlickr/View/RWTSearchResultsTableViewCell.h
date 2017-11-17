@@ -6,5 +6,5 @@
 @import UIKit;
 
 @interface RWTSearchResultsTableViewCell : UITableViewCell
-
+-(void)bindViewModel:(id)viewModel;
 @end

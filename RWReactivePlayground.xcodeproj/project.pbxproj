@@ -411,15 +411,15 @@
 				2A48C5BA1FB9A437007EABD7 /* RWTFlickrSearchViewController.h */,
 				2A48C5B81FB9A437007EABD7 /* RWTFlickrSearchViewController.m */,
 				2A48C5B91FB9A437007EABD7 /* RWTFlickrSearchViewController.xib */,
-				2A48C5BF1FB9A443007EABD7 /* RWTRecentSearchItemTableViewCell.h */,
-				2A48C5BE1FB9A443007EABD7 /* RWTRecentSearchItemTableViewCell.m */,
-				2A48C5BD1FB9A443007EABD7 /* RWTRecentSearchItemTableViewCell.xib */,
 				2A48C5C31FB9A44E007EABD7 /* RWTFlickrSearchResultsViewController.h */,
 				2A48C5C21FB9A44E007EABD7 /* RWTFlickrSearchResultsViewController.m */,
 				2A4770C31FBC2B5D00B4618A /* RWTFlickrSearchResultsViewController.xib */,
 				2A48C5CB1FB9A46C007EABD7 /* RWTSearchResultsTableViewCell.h */,
 				2A48C5CC1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m */,
 				2A48C5CD1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib */,
+				2A48C5BF1FB9A443007EABD7 /* RWTRecentSearchItemTableViewCell.h */,
+				2A48C5BE1FB9A443007EABD7 /* RWTRecentSearchItemTableViewCell.m */,
+				2A48C5BD1FB9A443007EABD7 /* RWTRecentSearchItemTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

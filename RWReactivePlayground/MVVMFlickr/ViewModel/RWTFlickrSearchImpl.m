@@ -57,12 +57,14 @@
        }];
     // 5. Handle the response error
     RACSignal *failSignal = [self rac_signalForSelector:@selector(flickrAPIRequest:didFailWithError:) fromProtocol:@protocol(OFFlickrAPIRequestDelegate)];
-    [[failSignal map:^id _Nullable(RACTuple* tuple) {
+    [[[failSignal map:^id _Nullable(RACTuple* tuple) {
       return tuple.second;
-    }] subscribeNext:^(NSError*  _Nullable error) {
-      [subscriber sendNext:error];
-      [subscriber sendCompleted];
-    }];
+      }]
+      map:block]
+      subscribeNext:^(id  _Nullable x) {
+        [subscriber sendNext:x];
+        [subscriber sendCompleted];
+      }];
     
     [flickrRequest callAPIMethodWithGET:method arguments:args];
     return [RACDisposable disposableWithBlock:^{
@@ -78,16 +80,21 @@
                            transform:^id(NSDictionary *response) {
     RWTFlickrSearchResults *results = [RWTFlickrSearchResults new];
     results.searchString = searchText;
-    results.totalResults = [[response valueForKeyPath:@"photos.total"] integerValue];
-    
-    NSArray *photos = [response valueForKeyPath:@"photos.photo"];
-    results.photos = [photos linq_select:^id(NSDictionary* jsonPhoto) {
-      RWTFlickrPhoto* photo = [[RWTFlickrPhoto alloc] init];
-      photo.title = jsonPhoto[@"title"];
-      photo.identifier = jsonPhoto[@"id"];
-      photo.url = [self.flickrContext photoSourceURLFromDictionary:jsonPhoto size:OFFlickrSmallSize];
-      return photo;
-    }];
+    if ([response isKindOfClass:NSDictionary.class]) {
+      results.totalResults = [[response valueForKeyPath:@"photos.total"] integerValue];
+      
+      NSArray *photos = [response valueForKeyPath:@"photos.photo"];
+      results.photos = [photos linq_select:^id(NSDictionary* jsonPhoto) {
+        RWTFlickrPhoto* photo = [[RWTFlickrPhoto alloc] init];
+        photo.title = jsonPhoto[@"title"];
+        photo.identifier = jsonPhoto[@"id"];
+        photo.url = [self.flickrContext photoSourceURLFromDictionary:jsonPhoto size:OFFlickrSmallSize];
+        return photo;
+      }];
+    } else {
+      results.totalResults = 0;
+      results.photos = @[];
+    }
     return results;
   }];
 }

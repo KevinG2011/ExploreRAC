@@ -38,7 +38,7 @@
 }
 
 - (void)setupViewModel {
-  self.service = [[RWTFlickrViewModelServiceImpl alloc] init];
+  self.service = [[RWTFlickrViewModelServiceImpl alloc] initWithNavigationController:self.navigationController];
   self.searchViewModel = [[RWTFlickrSearchViewModel alloc] initWithService:self.service];
 }
 

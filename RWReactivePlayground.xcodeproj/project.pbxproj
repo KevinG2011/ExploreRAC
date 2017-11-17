@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B01E34E1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B01E34D1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.m */; };
+		0B01E3601FBF2B9800D0C6FD /* RWTSearchResultsItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B01E35F1FBF2B9800D0C6FD /* RWTSearchResultsItemViewModel.m */; };
 		0B12C7D11FB36109001738A0 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; };
 		0B12C7D21FB36109001738A0 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0BDC4F461FB82A94001AE26A /* libLinqToObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5550541FB6A91B005DC829 /* libLinqToObjectiveC.a */; };
@@ -229,6 +231,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B01E34C1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrPhotoMetadata.h; sourceTree = "<group>"; };
+		0B01E34D1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrPhotoMetadata.m; sourceTree = "<group>"; };
+		0B01E35E1FBF2B9800D0C6FD /* RWTSearchResultsItemViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTSearchResultsItemViewModel.h; sourceTree = "<group>"; };
+		0B01E35F1FBF2B9800D0C6FD /* RWTSearchResultsItemViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTSearchResultsItemViewModel.m; sourceTree = "<group>"; };
 		0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = SOURCE_ROOT; };
 		0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LinqToObjectiveC.xcodeproj; path = LinqToObjectiveC/LinqToObjectiveC/LinqToObjectiveC.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSearchFormViewController.m; sourceTree = "<group>"; };
@@ -401,6 +407,8 @@
 				2A9A80A71FBAECC50000E2C5 /* RWTFlickrPhoto.m */,
 				2A9A80A91FBAED3A0000E2C5 /* RWTFlickrSearchResults.h */,
 				2A9A80AA1FBAED3A0000E2C5 /* RWTFlickrSearchResults.m */,
+				0B01E34C1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.h */,
+				0B01E34D1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -437,6 +445,8 @@
 				2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */,
 				2A47709D1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.h */,
 				2A47709E1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.m */,
+				0B01E35E1FBF2B9800D0C6FD /* RWTSearchResultsItemViewModel.h */,
+				0B01E35F1FBF2B9800D0C6FD /* RWTSearchResultsItemViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -788,6 +798,7 @@
 			files = (
 				72A2882A18618A2E00DDD30A /* main.m in Sources */,
 				2A48C5C11FB9A444007EABD7 /* RWTRecentSearchItemTableViewCell.m in Sources */,
+				0B01E3601FBF2B9800D0C6FD /* RWTSearchResultsItemViewModel.m in Sources */,
 				2A4770AF1FBC1E8800B4618A /* RWTFlickrSearchResultsViewModel.m in Sources */,
 				2A48C5BB1FB9A437007EABD7 /* RWTFlickrSearchViewController.m in Sources */,
 				72A2883418618A2E00DDD30A /* RWViewController.m in Sources */,
@@ -804,6 +815,7 @@
 				2A9A80AB1FBAED3A0000E2C5 /* RWTFlickrSearchResults.m in Sources */,
 				2A48C5CE1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m in Sources */,
 				72A2885418620EA100DDD30A /* RWDummySignInService.m in Sources */,
+				0B01E34E1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

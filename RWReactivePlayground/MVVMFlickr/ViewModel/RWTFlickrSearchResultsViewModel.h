@@ -11,7 +11,7 @@
 #import "RWTFlickrViewModelService.h"
 
 @interface RWTFlickrSearchResultsViewModel : NSObject
-@property (nonatomic, strong) NSArray         *results;
+@property (nonatomic, strong) NSArray         *searchResults;
 @property (nonatomic, copy) NSString*         title;
 -(instancetype)initWithSearchResults:(RWTFlickrSearchResults*)results
                              service:(id<RWTFlickrViewModelService>)service;

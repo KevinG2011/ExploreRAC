@@ -11,6 +11,7 @@
 #import "ObjectiveFlickr.h"
 #import "RWTFlickrSearchResults.h"
 #import "RWTFlickrPhoto.h"
+#import "RWTFlickrPhotoMetadata.h"
 
 @interface RWTFlickrSearchImpl () <OFFlickrAPIRequestDelegate>
 @property (strong, nonatomic) NSMutableSet *requests;
@@ -32,7 +33,7 @@
   return self;
 }
 
--(RACSignal*)signalForFlickrMethod:(NSString*)method
+-(RACSignal*)signalForAPIMethod:(NSString*)method
                          arguments:(NSDictionary*)args
                          transform:(id (^)(NSDictionary* response))block {
   // 1. Create a signal for this request
@@ -75,7 +76,7 @@
 
 -(RACSignal*)flickrSearchSignal:(NSString*)searchText {
   NSDictionary *args = @{ @"text": searchText, @"sort": @"interestingness-desc" };
-  return [self signalForFlickrMethod:@"flickr.photos.search"
+  return [self signalForAPIMethod:@"flickr.photos.search"
                            arguments:args
                            transform:^id(NSDictionary *response) {
     RWTFlickrSearchResults *results = [RWTFlickrSearchResults new];
@@ -98,5 +99,40 @@
     return results;
   }];
 }
+
+-(RACSignal*)flickrImageMetadata:(NSString*)photoId {
+  NSDictionary *args = @{@"photo_id": photoId};
+  RACSignal *favourites = [self signalForAPIMethod:@"flickr.photos.getFavorites"
+                                         arguments:args
+                                         transform:^id(NSDictionary *response) {
+                                           NSString* total = [response valueForKeyPath:@"photo.total"];
+                                           return total;
+                                         }];
+  RACSignal *comments = [self signalForAPIMethod:@"flickr.photos.getInfo"
+                                       arguments:args
+                                       transform:^id(NSDictionary *response) {
+                                         NSString* total = [response valueForKeyPath:@"photo.comments._text"];
+                                         return total;
+                                       }];
+  return [RACSignal combineLatest:@[favourites, comments]
+                           reduce:^id (NSString *favs, NSString *coms){
+                             RWTFlickrPhotoMetadata *meta = [[RWTFlickrPhotoMetadata alloc] init];
+                             meta.favorites = favs.integerValue;
+                             meta.comments = coms.integerValue;
+                             return meta;
+                           }];
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @end

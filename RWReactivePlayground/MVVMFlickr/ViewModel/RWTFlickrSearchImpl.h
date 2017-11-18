@@ -11,4 +11,5 @@
 
 @interface RWTFlickrSearchImpl : NSObject <RWTFlickrSearch>
 -(RACSignal*)flickrSearchSignal:(NSString*)searchText;
+-(RACSignal*)flickrImageMetadata:(NSString*)photoId;
 @end

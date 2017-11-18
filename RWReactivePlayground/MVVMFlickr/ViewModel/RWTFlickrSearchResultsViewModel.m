@@ -5,8 +5,9 @@
 //  Created by lijia on 2017/11/15.
 //  Copyright © 2017年 Colin Eberhardt. All rights reserved.
 //
-
+#import <LinqToObjectiveC/NSArray+LinqExtensions.h>
 #import "RWTFlickrSearchResultsViewModel.h"
+#import "RWTFlickrSearchResultsItemViewModel.h"
 
 @interface RWTFlickrSearchResultsViewModel()
 @property (nonatomic, weak) id<RWTFlickrViewModelService>     service;
@@ -18,15 +19,12 @@
     self = [super init];
     if (self) {
         _title = results.searchString;
-        _results = results.photos;
         _service = service;
-        [self setup];
+        _searchResults = [results.photos linq_select:^id(RWTFlickrPhoto* photo) {
+          return [[RWTFlickrSearchResultsItemViewModel alloc] initWithPhotos: photo service: _service];
+        }];
     }
     return self;
-}
-
-- (void)setup {
-    
 }
 
 @end

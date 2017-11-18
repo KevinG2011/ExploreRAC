@@ -36,12 +36,12 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return self.viewModel.results.count;
+  return self.viewModel.searchResults.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   RWTSearchResultsTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"searchResults" forIndexPath:indexPath];
-  RWTFlickrPhoto *photo = self.viewModel.results[indexPath.row];
+  RWTFlickrPhoto *photo = self.viewModel.searchResults[indexPath.row];
   [cell bindViewModel:photo];
   return cell;
 }

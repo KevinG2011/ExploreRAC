@@ -10,7 +10,7 @@
 #import "RWTFlickrPhoto.h"
 #import "RWTFlickrViewModelService.h"
 
-@interface RWTSearchResultsItemViewModel : NSObject
+@interface RWTFlickrSearchResultsItemViewModel : NSObject
 - (instancetype) initWithPhotos:(RWTFlickrPhoto*)photo service:(id<RWTFlickrViewModelService>)service;
 @property (nonatomic, assign,getter=isVisible) BOOL         visible;
 @property (nonatomic, copy) NSString         *title;

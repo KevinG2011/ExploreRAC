@@ -7,6 +7,7 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "RWTFlickrPhoto.h"
+#import "RWTFlickrSearchResultsItemViewModel.h"
 
 @interface RWTSearchResultsTableViewCell ()
 
@@ -21,9 +22,26 @@
 
 @implementation RWTSearchResultsTableViewCell
 -(void)bindViewModel:(id)viewModel {
-  RWTFlickrPhoto *photo = (RWTFlickrPhoto*)viewModel;
-  self.titleLabel.text = photo.title;
+  RWTFlickrSearchResultsItemViewModel *itemViewModel = (RWTFlickrSearchResultsItemViewModel*)viewModel;
+  self.titleLabel.text = itemViewModel.title;
   self.imageThumbnailView.contentMode = UIViewContentModeScaleToFill;
-  [self.imageThumbnailView sd_setImageWithURL:photo.url];
+  [self.imageThumbnailView sd_setImageWithURL:itemViewModel.url];
+  
+  [RACObserve(itemViewModel, favorites) subscribeNext:^(NSNumber *x) {
+    self.favouritesIcon.hidden = (x == nil);
+    self.favouritesLabel.text = x.stringValue;
+  }];
+  [RACObserve(itemViewModel, comments) subscribeNext:^(NSNumber *x) {
+    self.commentsLabel.text = x.stringValue;
+    self.commentsIcon.hidden = (x == nil);
+  }];
+  itemViewModel.visible = YES;
+  [self.rac_prepareForReuseSignal subscribeNext:^(id x) {
+    itemViewModel.visible = NO;
+  }];
+}
+
+- (void)setParallax:(CGFloat)value {
+  self.imageThumbnailView.transform = CGAffineTransformMakeTranslation(0, value);
 }
 @end

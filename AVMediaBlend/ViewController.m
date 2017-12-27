@@ -8,8 +8,8 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "GPUImage.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "GPUImage.h"
 
 @interface ViewController () {
     //capture
@@ -20,6 +20,7 @@
     GPUImageOutput<GPUImageInput> *_filter;
     //file
     GPUImageMovieWriter *_movieWriter;
+    UILabel  *_label;
 }
 @end
 
@@ -32,10 +33,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initPipeline];
+    [self setupView];
+    [self setupPipeline];
 }
 
-- (void)initPipeline {
+- (void)setupPipeline {
     _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480
                                                   cameraPosition:AVCaptureDevicePositionBack];
     _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
@@ -56,7 +58,7 @@
     _movieWriter.audioProcessingCallback = ^(SInt16 **samplesRef, CMItemCount numSamplesInBuffer) {
         
     };
-    BOOL audioFromFile = NO;
+    BOOL audioFromFile = YES;
     if (audioFromFile) {
         [_videoCamera addTarget:_filter];
         [_movieFile addTarget:_filter];
@@ -78,6 +80,22 @@
         [sself->_movieWriter finishRecording];
         [sself saveVideoToPhotoAlbum:movieURL];
     }];
+    
+    CADisplayLink* dlink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateProgress)];
+    [dlink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [dlink setPaused:NO];
+}
+
+- (void)setupView {
+    _label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
+    _label.textColor = [UIColor redColor];
+    [self.view addSubview:_label];
+}
+
+- (void)updateProgress
+{
+    _label.text = [NSString stringWithFormat:@"Progress:%d%%", (int)(_movieFile.progress * 100)];
+    [_label sizeToFit];
 }
 
 - (void)saveVideoToPhotoAlbum:(NSURL*)movieURL {

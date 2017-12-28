@@ -37,6 +37,31 @@
     [self setupPipeline];
 }
 
+- (void)setupView {
+    _label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
+    _label.textColor = [UIColor redColor];
+    [self.view addSubview:_label];
+}
+
+- (GPUImageUIElement*)createWatermark {
+    //水印
+    CGSize size = self.view.bounds.size;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    label.text = @"我是水印";
+    label.font = [UIFont systemFontOfSize:30];
+    label.textColor = [UIColor redColor];
+    [label sizeToFit];
+    UIImage *image = [UIImage imageNamed:@"watermark.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    UIView *subView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    subView.backgroundColor = [UIColor clearColor];
+    imageView.center = CGPointMake(subView.bounds.size.width / 2, subView.bounds.size.height / 2);
+    [subView addSubview:imageView];
+    [subView addSubview:label];
+    GPUImageUIElement *uielement = [[GPUImageUIElement alloc] initWithView:subView];
+    return uielement;
+}
+
 - (void)setupPipeline {
     _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480
                                                   cameraPosition:AVCaptureDevicePositionBack];
@@ -44,34 +69,51 @@
     
     NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"abc" withExtension:@"mp4"];
     _movieFile = [[GPUImageMovie alloc] initWithURL:sampleURL];
+//    _movieFile.runBenchmark = YES;
+    _movieFile.playAtActualSpeed = YES;
     
     GPUImageDissolveBlendFilter *filter = [[GPUImageDissolveBlendFilter alloc] init];
-    [filter setMix:0.5f];
+    [filter setMix:1];
     _filter = filter;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDir = [paths objectAtIndex:0];
-    NSString *moviePath = [cacheDir stringByAppendingPathComponent:@"assets/movie.m4v"];
+    NSString *moviePath = [cacheDir stringByAppendingPathComponent:@"movie.m4v"];
     unlink([moviePath UTF8String]);
     NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
     _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(640, 480)];
     _movieWriter.audioProcessingCallback = ^(SInt16 **samplesRef, CMItemCount numSamplesInBuffer) {
-        
+        SInt16 *samples = *samplesRef;
+        NSLog(@"sample %d, %ld",*samples,numSamplesInBuffer);
     };
-    BOOL audioFromFile = YES;
+    BOOL audioFromFile = NO;
     if (audioFromFile) {
+        [_movieFile addTarget:_filter];
+        [_videoCamera addTarget:_filter];
+        _videoCamera.audioEncodingTarget = _movieWriter;
+        _movieWriter.shouldPassthroughAudio = YES;
+        [_movieFile enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
+        
+    } else {
         [_videoCamera addTarget:_filter];
         [_movieFile addTarget:_filter];
         _videoCamera.audioEncodingTarget = _movieWriter;
-        _movieWriter.encodingLiveVideo = YES;
         _movieWriter.shouldPassthroughAudio = NO;
+        _movieWriter.encodingLiveVideo = YES;
     }
+    
     [_filter addTarget:(GPUImageView*)self.view];
     [_filter addTarget:_movieWriter];
     
-    [_movieWriter startRecording];
+//    GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
+//    GPUImageUIElement *uielement = [self createWatermark];
+//    [uielement addTarget:progressFilter];
+//
+//    _filter addTarget:<#(id<GPUImageInput>)#>
+    
     [_movieFile startProcessing];
     [_videoCamera startCameraCapture];
+    [_movieWriter startRecording];
     
     __weak __typeof(self) wself = self;
     [_movieWriter setCompletionBlock:^{
@@ -86,12 +128,6 @@
     [dlink setPaused:NO];
 }
 
-- (void)setupView {
-    _label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
-    _label.textColor = [UIColor redColor];
-    [self.view addSubview:_label];
-}
-
 - (void)updateProgress
 {
     _label.text = [NSString stringWithFormat:@"Progress:%d%%", (int)(_movieFile.progress * 100)];
@@ -100,7 +136,7 @@
 
 - (void)saveVideoToPhotoAlbum:(NSURL*)movieURL {
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([movieURL absoluteString])) {
+    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(movieURL.path)) {
         [library writeVideoAtPathToSavedPhotosAlbum:movieURL completionBlock:^(NSURL *assetURL, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSString *title = @"视频保存成功";

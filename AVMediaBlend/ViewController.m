@@ -18,8 +18,12 @@
     GPUImageMovie *_movieFile;
     //blend filter
     GPUImageOutput<GPUImageInput> *_filter;
+    //watermark filter
+    GPUImageOutput<GPUImageInput> *_watermarkfilter;
     //file
     GPUImageMovieWriter *_movieWriter;
+    //file path
+    NSURL *_movieURL;
     UILabel  *_label;
 }
 @end
@@ -34,7 +38,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
-    [self setupPipeline];
+    [self setupBasePipeline];
+//    [self buildVideoWatermarkPipeline];
+    [self buildImageWatermarkPipeline];
+    [self setupDisplayLink];
 }
 
 - (void)setupView {
@@ -43,7 +50,36 @@
     [self.view addSubview:_label];
 }
 
-- (GPUImageUIElement*)createWatermark {
+- (void)setupBasePipeline {
+    _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480
+                                                       cameraPosition:AVCaptureDevicePositionBack];
+    _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+    
+    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"abc" withExtension:@"mp4"];
+    _movieFile = [[GPUImageMovie alloc] initWithURL:sampleURL];
+    _movieFile.runBenchmark = YES;
+    _movieFile.playAtActualSpeed = YES;
+    
+    GPUImageDissolveBlendFilter *filter = [[GPUImageDissolveBlendFilter alloc] init];
+    [filter setMix:0.5];
+    _filter = filter;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cacheDir = [paths objectAtIndex:0];
+    NSString *moviePath = [cacheDir stringByAppendingPathComponent:@"movie.m4v"];
+    unlink([moviePath UTF8String]);
+    _movieURL = [NSURL fileURLWithPath:moviePath];
+    _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:_movieURL size:CGSizeMake(640, 480)];
+}
+
+- (void)setupDisplayLink {
+    CADisplayLink* dlink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateProgress)];
+    [dlink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [dlink setPaused:NO];
+}
+
+
+- (GPUImageUIElement*)createWatermarkUIElement {
     //水印
     CGSize size = self.view.bounds.size;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
@@ -62,30 +98,45 @@
     return uielement;
 }
 
-- (void)setupPipeline {
-    _videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset640x480
-                                                  cameraPosition:AVCaptureDevicePositionBack];
-    _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
+
+- (void)buildImageWatermarkPipeline {
     
-    NSURL *sampleURL = [[NSBundle mainBundle] URLForResource:@"abc" withExtension:@"mp4"];
-    _movieFile = [[GPUImageMovie alloc] initWithURL:sampleURL];
-//    _movieFile.runBenchmark = YES;
-    _movieFile.playAtActualSpeed = YES;
+    GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
+    [_movieFile addTarget:progressFilter];
+    [progressFilter addTarget:_filter];
     
-    GPUImageDissolveBlendFilter *filter = [[GPUImageDissolveBlendFilter alloc] init];
-    [filter setMix:1];
-    _filter = filter;
+    GPUImageUIElement *uielement = [self createWatermarkUIElement];
+    [uielement addTarget:_filter];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cacheDir = [paths objectAtIndex:0];
-    NSString *moviePath = [cacheDir stringByAppendingPathComponent:@"movie.m4v"];
-    unlink([moviePath UTF8String]);
-    NSURL *movieURL = [NSURL fileURLWithPath:moviePath];
-    _movieWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:movieURL size:CGSizeMake(640, 480)];
+    _movieWriter.shouldPassthroughAudio = YES;
+    _movieFile.audioEncodingTarget = _movieWriter;
+    [_movieFile enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
+    
+    [_filter addTarget:(GPUImageView*)self.view];
+    [_filter addTarget:_movieWriter];
+ 
+    [_movieWriter startRecording];
+    [_movieFile startProcessing];
+    
+    [progressFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
+        [uielement updateWithTimestamp:time];
+    }];
+    
+    __weak __typeof(self) wself = self;
+    [_movieWriter setCompletionBlock:^{
+        __strong typeof(wself) sself = wself;
+        [sself->_filter removeTarget:sself->_movieWriter];
+        [sself->_movieWriter finishRecording];
+        [sself saveVideoToPhotoAlbum:sself->_movieURL];
+    }];
+}
+
+- (void)buildVideoWatermarkPipeline {
     _movieWriter.audioProcessingCallback = ^(SInt16 **samplesRef, CMItemCount numSamplesInBuffer) {
-        SInt16 *samples = *samplesRef;
-        NSLog(@"sample %d, %ld",*samples,numSamplesInBuffer);
+//        SInt16 *samples = *samplesRef;
+//        NSLog(@"sample %d, %ld",*samples,numSamplesInBuffer);
     };
+    
     BOOL audioFromFile = NO;
     if (audioFromFile) {
         [_movieFile addTarget:_filter];
@@ -105,12 +156,6 @@
     [_filter addTarget:(GPUImageView*)self.view];
     [_filter addTarget:_movieWriter];
     
-//    GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
-//    GPUImageUIElement *uielement = [self createWatermark];
-//    [uielement addTarget:progressFilter];
-//
-//    _filter addTarget:<#(id<GPUImageInput>)#>
-    
     [_movieFile startProcessing];
     [_videoCamera startCameraCapture];
     [_movieWriter startRecording];
@@ -120,12 +165,8 @@
         __strong typeof(wself) sself = wself;
         [sself->_filter removeTarget:sself->_movieWriter];
         [sself->_movieWriter finishRecording];
-        [sself saveVideoToPhotoAlbum:movieURL];
+        [sself saveVideoToPhotoAlbum:sself->_movieURL];
     }];
-    
-    CADisplayLink* dlink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateProgress)];
-    [dlink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-    [dlink setPaused:NO];
 }
 
 - (void)updateProgress

@@ -40,7 +40,8 @@
     [self setupView];
     [self setupBasePipeline];
 //    [self buildVideoWatermarkPipeline];
-    [self buildImageWatermarkPipeline];
+//    [self buildImageWatermarkPipeline];
+    [self buildVideoImageWatermarkPipeline];
     [self setupDisplayLink];
 }
 
@@ -64,6 +65,10 @@
     [filter setMix:0.5];
     _filter = filter;
     
+    GPUImageDissolveBlendFilter *watermarkFilter = [[GPUImageDissolveBlendFilter alloc] init];
+    [watermarkFilter setMix:0.5];
+    _watermarkfilter = watermarkFilter;
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDir = [paths objectAtIndex:0];
     NSString *moviePath = [cacheDir stringByAppendingPathComponent:@"movie.m4v"];
@@ -78,6 +83,44 @@
     [dlink setPaused:NO];
 }
 
+
+- (void)buildVideoWatermarkPipeline {
+    _movieWriter.audioProcessingCallback = ^(SInt16 **samplesRef, CMItemCount numSamplesInBuffer) {
+        //        SInt16 *samples = *samplesRef;
+        //        NSLog(@"sample %d, %ld",*samples,numSamplesInBuffer);
+    };
+    
+    BOOL audioFromFile = NO;
+    if (audioFromFile) {
+        [_movieFile addTarget:_filter];
+        [_videoCamera addTarget:_filter];
+        _videoCamera.audioEncodingTarget = _movieWriter;
+        _movieWriter.shouldPassthroughAudio = YES;
+        [_movieFile enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
+        
+    } else {
+        [_videoCamera addTarget:_filter];
+        [_movieFile addTarget:_filter];
+        _videoCamera.audioEncodingTarget = _movieWriter;
+        _movieWriter.shouldPassthroughAudio = NO;
+        _movieWriter.encodingLiveVideo = YES;
+    }
+    
+    [_filter addTarget:(GPUImageView*)self.view];
+    [_filter addTarget:_movieWriter];
+    
+    [_movieFile startProcessing];
+    [_videoCamera startCameraCapture];
+    [_movieWriter startRecording];
+    
+    __weak __typeof(self) wself = self;
+    [_movieWriter setCompletionBlock:^{
+        __strong typeof(wself) sself = wself;
+        [sself->_filter removeTarget:sself->_movieWriter];
+        [sself->_movieWriter finishRecording];
+        [sself saveVideoToPhotoAlbum:sself->_movieURL];
+    }];
+}
 
 - (GPUImageUIElement*)createWatermarkUIElement {
     //水印
@@ -98,9 +141,7 @@
     return uielement;
 }
 
-
 - (void)buildImageWatermarkPipeline {
-    
     GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
     [_movieFile addTarget:progressFilter];
     [progressFilter addTarget:_filter];
@@ -131,34 +172,31 @@
     }];
 }
 
-- (void)buildVideoWatermarkPipeline {
-    _movieWriter.audioProcessingCallback = ^(SInt16 **samplesRef, CMItemCount numSamplesInBuffer) {
-//        SInt16 *samples = *samplesRef;
-//        NSLog(@"sample %d, %ld",*samples,numSamplesInBuffer);
-    };
+- (void)buildVideoImageWatermarkPipeline {
+    [_videoCamera addTarget:_filter];
+    [_movieFile addTarget:_filter];
     
-    BOOL audioFromFile = NO;
-    if (audioFromFile) {
-        [_movieFile addTarget:_filter];
-        [_videoCamera addTarget:_filter];
-        _videoCamera.audioEncodingTarget = _movieWriter;
-        _movieWriter.shouldPassthroughAudio = YES;
-        [_movieFile enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
-        
-    } else {
-        [_videoCamera addTarget:_filter];
-        [_movieFile addTarget:_filter];
-        _videoCamera.audioEncodingTarget = _movieWriter;
-        _movieWriter.shouldPassthroughAudio = NO;
-        _movieWriter.encodingLiveVideo = YES;
-    }
+//    GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
+//    [_filter addTarget:progressFilter];
+    [_filter addTarget:_watermarkfilter];
     
-    [_filter addTarget:(GPUImageView*)self.view];
-    [_filter addTarget:_movieWriter];
+    GPUImageUIElement *uielement = [self createWatermarkUIElement];
+    [uielement addTarget:_watermarkfilter];
+    
+    _videoCamera.audioEncodingTarget = _movieWriter;
+    _movieWriter.shouldPassthroughAudio = NO;
+    _movieWriter.encodingLiveVideo = YES;
+    
+    [_watermarkfilter addTarget:(GPUImageView*)self.view];
+    [_watermarkfilter addTarget:_movieWriter];
     
     [_movieFile startProcessing];
     [_videoCamera startCameraCapture];
     [_movieWriter startRecording];
+    
+    [_watermarkfilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
+        [uielement updateWithTimestamp:time];
+    }];
     
     __weak __typeof(self) wself = self;
     [_movieWriter setCompletionBlock:^{

@@ -83,7 +83,6 @@
     [dlink setPaused:NO];
 }
 
-
 - (void)buildVideoWatermarkPipeline {
     _movieWriter.audioProcessingCallback = ^(SInt16 **samplesRef, CMItemCount numSamplesInBuffer) {
         //        SInt16 *samples = *samplesRef;
@@ -176,12 +175,16 @@
     [_videoCamera addTarget:_filter];
     [_movieFile addTarget:_filter];
     
-//    GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
-//    [_filter addTarget:progressFilter];
-    [_filter addTarget:_watermarkfilter];
+    GPUImageFilter* progressFilter = [[GPUImageFilter alloc] init];
+    [_filter addTarget:progressFilter];
+    [progressFilter addTarget:_watermarkfilter];
     
     GPUImageUIElement *uielement = [self createWatermarkUIElement];
     [uielement addTarget:_watermarkfilter];
+
+    [progressFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
+        [uielement updateWithTimestamp:time];
+    }];
     
     _videoCamera.audioEncodingTarget = _movieWriter;
     _movieWriter.shouldPassthroughAudio = NO;
@@ -194,21 +197,16 @@
     [_videoCamera startCameraCapture];
     [_movieWriter startRecording];
     
-    [_watermarkfilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
-        [uielement updateWithTimestamp:time];
-    }];
-    
     __weak __typeof(self) wself = self;
     [_movieWriter setCompletionBlock:^{
         __strong typeof(wself) sself = wself;
-        [sself->_filter removeTarget:sself->_movieWriter];
+        [sself->_watermarkfilter removeTarget:sself->_movieWriter];
         [sself->_movieWriter finishRecording];
         [sself saveVideoToPhotoAlbum:sself->_movieURL];
     }];
 }
 
-- (void)updateProgress
-{
+- (void)updateProgress {
     _label.text = [NSString stringWithFormat:@"Progress:%d%%", (int)(_movieFile.progress * 100)];
     [_label sizeToFit];
 }

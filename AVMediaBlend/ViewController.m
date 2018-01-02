@@ -20,10 +20,11 @@
     GPUImageOutput<GPUImageInput> *_filter;
     //watermark filter
     GPUImageOutput<GPUImageInput> *_watermarkfilter;
-    //file
+    //write file
     GPUImageMovieWriter *_movieWriter;
     //file path
     NSURL *_movieURL;
+    //process label
     UILabel  *_label;
 }
 @end
@@ -42,6 +43,7 @@
 //    [self buildVideoWatermarkPipeline];
 //    [self buildImageWatermarkPipeline];
     [self buildVideoImageWatermarkPipeline];
+//    [self buildVideoComposition];
     [self setupDisplayLink];
 }
 
@@ -116,6 +118,8 @@
     [_movieWriter setCompletionBlock:^{
         __strong typeof(wself) sself = wself;
         [sself->_filter removeTarget:sself->_movieWriter];
+        [sself->_movieFile endProcessing];
+        [sself->_videoCamera stopCameraCapture];
         [sself->_movieWriter finishRecording];
         [sself saveVideoToPhotoAlbum:sself->_movieURL];
     }];
@@ -166,6 +170,7 @@
     [_movieWriter setCompletionBlock:^{
         __strong typeof(wself) sself = wself;
         [sself->_filter removeTarget:sself->_movieWriter];
+        [sself->_movieFile endProcessing];
         [sself->_movieWriter finishRecording];
         [sself saveVideoToPhotoAlbum:sself->_movieURL];
     }];
@@ -201,6 +206,8 @@
     [_movieWriter setCompletionBlock:^{
         __strong typeof(wself) sself = wself;
         [sself->_watermarkfilter removeTarget:sself->_movieWriter];
+        [sself->_videoCamera stopCameraCapture];
+        [sself->_movieFile endProcessing];
         [sself->_movieWriter finishRecording];
         [sself saveVideoToPhotoAlbum:sself->_movieURL];
     }];

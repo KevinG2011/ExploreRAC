@@ -59,6 +59,8 @@
 		2AB6D3A51FB99B8800E04677 /* libObjectiveFlickr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3891FB99B3500E04677 /* libObjectiveFlickr.a */; };
 		2AB6D3C01FB99C3400E04677 /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3B31FB99C2200E04677 /* libSDWebImage iOS static.a */; };
 		2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */; };
+		2AB923CD1FFE06A600FC9BD3 /* qwe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */; };
+		2AB923D01FFE261000FC9BD3 /* VideoCompositionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
 		72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881F18618A2E00DDD30A /* CoreGraphics.framework */; };
@@ -366,6 +368,9 @@
 		2AB6D3C21FB99C5C00E04677 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2AB923961FFDCFA400FC9BD3 /* MediaCompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaCompositionViewController.h; sourceTree = "<group>"; };
 		2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaCompositionViewController.m; sourceTree = "<group>"; };
+		2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qwe.mp4; sourceTree = "<group>"; };
+		2AB923CE1FFE261000FC9BD3 /* VideoCompositionEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompositionEditor.h; sourceTree = "<group>"; };
+		2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompositionEditor.m; sourceTree = "<group>"; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -585,6 +590,7 @@
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXGroup;
 			children = (
+				2AB923CB1FFDFF4600FC9BD3 /* Composition */,
 				2AB1197C1FF355960073C3A8 /* Resources */,
 				2AB119551FF34E280073C3A8 /* Vendor */,
 				2AB119321FF34C9F0073C3A8 /* AppDelegate.h */,
@@ -622,6 +628,7 @@
 		2AB1197C1FF355960073C3A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */,
 				2A6F94A41FF50B490065DB6C /* watermark.png */,
 				2AB1197D1FF355A50073C3A8 /* abc.mp4 */,
 			);
@@ -660,6 +667,15 @@
 				2AB6D3BD1FB99C2200E04677 /* SDWebImage.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2AB923CB1FFDFF4600FC9BD3 /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				2AB923CE1FFE261000FC9BD3 /* VideoCompositionEditor.h */,
+				2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */,
+			);
+			path = Composition;
 			sourceTree = "<group>";
 		};
 		72A2881118618A2E00DDD30A = {
@@ -1020,6 +1036,7 @@
 				2AB1197E1FF355A50073C3A8 /* abc.mp4 in Resources */,
 				2AB1193F1FF34C9F0073C3A8 /* LaunchScreen.storyboard in Resources */,
 				2AB1193C1FF34C9F0073C3A8 /* Assets.xcassets in Resources */,
+				2AB923CD1FFE06A600FC9BD3 /* qwe.mp4 in Resources */,
 				2A6F94B61FF50B4A0065DB6C /* watermark.png in Resources */,
 				2AB1193A1FF34C9F0073C3A8 /* Main.storyboard in Resources */,
 			);
@@ -1080,6 +1097,7 @@
 			files = (
 				2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */,
 				2AB119371FF34C9F0073C3A8 /* ViewController.m in Sources */,
+				2AB923D01FFE261000FC9BD3 /* VideoCompositionEditor.m in Sources */,
 				2AB119421FF34C9F0073C3A8 /* main.m in Sources */,
 				2AB119341FF34C9F0073C3A8 /* AppDelegate.m in Sources */,
 			);

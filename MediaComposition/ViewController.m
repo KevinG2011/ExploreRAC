@@ -31,20 +31,21 @@
 
 @implementation ViewController
 
-- (void)loadView {
-    GPUImageView *view = [[GPUImageView alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    self.view = view;
-}
+//- (void)loadView {
+//    GPUImageView *view = [[GPUImageView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+//    view.backgroundColor = [UIColor blackColor];
+//    self.view = view;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupView];
-    [self setupBasePipeline];
+//    [self setupView];
+//    [self setupBasePipeline];
 //    [self buildVideoWatermarkPipeline];
 //    [self buildImageWatermarkPipeline];
-    [self buildVideoImageWatermarkPipeline];
+//    [self buildVideoImageWatermarkPipeline];
 //    [self buildVideoComposition];
-    [self setupDisplayLink];
+//    [self setupDisplayLink];
 }
 
 - (void)setupView {

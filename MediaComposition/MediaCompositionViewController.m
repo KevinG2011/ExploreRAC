@@ -10,33 +10,41 @@
 #import <AVFoundation/AVFoundation.h>
 #import "VideoCompositionEditor.h"
 
+//TODO 水印 gpu mix
+
 @interface MediaCompositionViewController ()
 @property (nonatomic, strong) AVPlayerLayer         *playerLayer;
 @property (nonatomic, strong) AVPlayer        *player;
 @property (nonatomic, strong) VideoCompositionEditor         *videoEditor;
+@property (nonatomic, copy) NSArray<NSURL*>         *assetURLs;
 @end
 
 @implementation MediaCompositionViewController
-- (void)setupPlayer {
+- (void)avComposition {
     self.playerLayer = [[AVPlayerLayer alloc] init];
     self.playerLayer.backgroundColor = [UIColor blackColor].CGColor;
     [self.view.layer addSublayer:self.playerLayer];
     self.playerLayer.frame = self.view.bounds;
+    
+    self.videoEditor = [[VideoCompositionEditor alloc] initWithURLs:_assetURLs];
+    self.player = [[AVPlayer alloc] initWithPlayerItem:self.videoEditor.playerItem];
+    self.playerLayer.player = self.player;
+    [self.player play];
+}
+
+- (void)gpuImageComposition {
+    //TODO
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupPlayer];
     
     NSURL *movieURL1 = [[NSBundle mainBundle] URLForResource:@"qwe" withExtension:@"mp4"];
     NSURL *movieURL2 = [[NSBundle mainBundle] URLForResource:@"abc" withExtension:@"mp4"];
+    _assetURLs = @[movieURL1,movieURL2];
     
-    NSArray *urls = @[movieURL1,movieURL2];
-    self.videoEditor = [[VideoCompositionEditor alloc] initWithURLs:urls];
-    
-    self.player = [[AVPlayer alloc] initWithPlayerItem:self.videoEditor.playerItem];
-    self.playerLayer.player = self.player;
-    [self.player play];
+    [self avComposition];
+//    [self gpuImageComposition];
 }
 
 

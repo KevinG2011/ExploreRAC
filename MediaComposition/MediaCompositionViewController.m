@@ -9,6 +9,8 @@
 #import "MediaCompositionViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "VideoCompositionEditor.h"
+#import "PhotoUtils.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 //TODO 水印 gpu mix
 
@@ -17,9 +19,47 @@
 @property (nonatomic, strong) AVPlayer        *player;
 @property (nonatomic, strong) VideoCompositionEditor         *videoEditor;
 @property (nonatomic, copy) NSArray<NSURL*>         *assetURLs;
+@property (nonatomic, strong) id         timeObserverToken;
 @end
 
 @implementation MediaCompositionViewController
+- (void)exportVideo {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cacheDir = [paths objectAtIndex:0];
+    NSString *exportPath = [cacheDir stringByAppendingPathComponent:@"movie.m4v"];
+    [self.videoEditor exportAsyncToPath:exportPath completionHandler:^{
+        [PhotoUtils saveVideoToPhotoAlbum:[NSURL fileURLWithPath:exportPath] alertInViewController:self];
+    }];
+}
+
+- (void)observePlayEnded {
+    AVAsset *movAsset = [self.videoEditor.assets firstObject];
+    if (!movAsset) return;
+    
+    [movAsset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
+        NSError *error = nil;
+        AVKeyValueStatus status =
+        [movAsset statusOfValueForKey:@"duration" error:&error];
+        switch (status) {
+            case AVKeyValueStatusLoaded: {
+                NSArray *times = @[[NSValue valueWithCMTime:movAsset.duration]];
+                __weak __typeof(self) wself = self;
+                _timeObserverToken = [self.player addBoundaryTimeObserverForTimes:times
+                                                                            queue:dispatch_get_main_queue()
+                                                                        usingBlock:^{
+                                                                            __strong typeof(wself) sself = wself;
+                                                                            [sself exportVideo];
+                                                                        }];
+                break;
+            }
+            case AVKeyValueStatusFailed:
+            case AVKeyValueStatusCancelled:
+            default:
+                break;
+        }
+    }];
+}
+
 - (void)avComposition {
     self.playerLayer = [[AVPlayerLayer alloc] init];
     self.playerLayer.backgroundColor = [UIColor blackColor].CGColor;
@@ -30,6 +70,8 @@
     self.player = [[AVPlayer alloc] initWithPlayerItem:self.videoEditor.playerItem];
     self.playerLayer.player = self.player;
     [self.player play];
+    
+    [self observePlayEnded];
 }
 
 - (void)gpuImageComposition {
@@ -47,5 +89,7 @@
 //    [self gpuImageComposition];
 }
 
-
+- (void)dealloc {
+    [self.player removeTimeObserver:self.timeObserverToken];
+}
 @end

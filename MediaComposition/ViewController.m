@@ -8,8 +8,9 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import <AssetsLibrary/AssetsLibrary.h>
+
 #import "GPUImage.h"
+#import "PhotoUtils.h"
 
 @interface ViewController () {
     //capture
@@ -122,7 +123,7 @@
         [sself->_movieFile endProcessing];
         [sself->_videoCamera stopCameraCapture];
         [sself->_movieWriter finishRecording];
-        [sself saveVideoToPhotoAlbum:sself->_movieURL];
+        [PhotoUtils saveVideoToPhotoAlbum:sself->_movieURL alertInViewController:sself];
     }];
 }
 
@@ -173,7 +174,7 @@
         [sself->_filter removeTarget:sself->_movieWriter];
         [sself->_movieFile endProcessing];
         [sself->_movieWriter finishRecording];
-        [sself saveVideoToPhotoAlbum:sself->_movieURL];
+        [PhotoUtils saveVideoToPhotoAlbum:sself->_movieURL alertInViewController:sself];
     }];
 }
 
@@ -210,34 +211,13 @@
         [sself->_videoCamera stopCameraCapture];
         [sself->_movieFile endProcessing];
         [sself->_movieWriter finishRecording];
-        [sself saveVideoToPhotoAlbum:sself->_movieURL];
+        [PhotoUtils saveVideoToPhotoAlbum:sself->_movieURL alertInViewController:sself];
     }];
 }
 
 - (void)updateProgress {
     _label.text = [NSString stringWithFormat:@"Progress:%d%%", (int)(_movieFile.progress * 100)];
     [_label sizeToFit];
-}
-
-- (void)saveVideoToPhotoAlbum:(NSURL*)movieURL {
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum(movieURL.path)) {
-        [library writeVideoAtPathToSavedPhotosAlbum:movieURL completionBlock:^(NSURL *assetURL, NSError *error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *title = @"视频保存成功";
-                if (error) {
-                    title = @"视频保存失败";
-                }
-                UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
-                                                                               message:nil
-                                                                        preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                      handler:^(UIAlertAction * action) {}];
-                [alert addAction:defaultAction];
-                [self presentViewController:alert animated:YES completion:nil];
-            });
-        }];
-    }
 }
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations {

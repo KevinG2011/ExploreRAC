@@ -14,4 +14,5 @@
 @property (nonatomic, strong, readonly) NSArray<AVAsset*>            *assets;
 
 -(instancetype)initWithURLs:(NSArray<NSURL*>*)urls;
+-(void)exportAsyncToPath:(NSString*)path completionHandler:(void (^)(void))handler;
 @end

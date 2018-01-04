@@ -20,15 +20,6 @@
 		2A32D34A1FB3F0C90085742F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A32D3491FB3F0C90085742F /* background.jpg */; };
 		2A32D36D1FB409FA0085742F /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; };
 		2A32D36E1FB409FA0085742F /* RevealServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2A3742211FCFE51A004B14D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3742201FCFE51A004B14D5 /* AppDelegate.m */; };
-		2A3742231FCFE51A004B14D5 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2A3742221FCFE51A004B14D5 /* GameScene.sks */; };
-		2A3742251FCFE51A004B14D5 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2A3742241FCFE51A004B14D5 /* Actions.sks */; };
-		2A3742281FCFE51A004B14D5 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3742271FCFE51A004B14D5 /* GameScene.m */; };
-		2A37422B1FCFE51A004B14D5 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37422A1FCFE51A004B14D5 /* GameViewController.m */; };
-		2A37422E1FCFE51A004B14D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A37422C1FCFE51A004B14D5 /* Main.storyboard */; };
-		2A3742301FCFE51A004B14D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A37422F1FCFE51A004B14D5 /* Assets.xcassets */; };
-		2A3742331FCFE51A004B14D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A3742311FCFE51A004B14D5 /* LaunchScreen.storyboard */; };
-		2A3742361FCFE51A004B14D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A3742351FCFE51A004B14D5 /* main.m */; };
 		2A4770AF1FBC1E8800B4618A /* RWTFlickrSearchResultsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A47709E1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.m */; };
 		2A4770C41FBC2B5E00B4618A /* RWTFlickrSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4770C31FBC2B5D00B4618A /* RWTFlickrSearchResultsViewController.xib */; };
 		2A48C5B71FB99F30007EABD7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3C11FB99C4F00E04677 /* SystemConfiguration.framework */; };
@@ -61,6 +52,13 @@
 		2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */; };
 		2AB923CD1FFE06A600FC9BD3 /* qwe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */; };
 		2AB923D01FFE261000FC9BD3 /* VideoCompositionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */; };
+		2AB923D41FFE430F00FC9BD3 /* PhotoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923D31FFE430F00FC9BD3 /* PhotoUtils.m */; };
+		2AB923F91FFE44D500FC9BD3 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB923F01FFE44BD00FC9BD3 /* ReactiveObjC.framework */; };
+		2AB923FA1FFE44D500FC9BD3 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB923F01FFE44BD00FC9BD3 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2AB924001FFE459800FC9BD3 /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; };
+		2AB924011FFE459800FC9BD3 /* RevealServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2AB924021FFE45B200FC9BD3 /* libLinqToObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB923DC1FFE449F00FC9BD3 /* libLinqToObjectiveC.a */; };
+		2AB924051FFE45CD00FC9BD3 /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3B31FB99C2200E04677 /* libSDWebImage iOS static.a */; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
 		72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881F18618A2E00DDD30A /* CoreGraphics.framework */; };
@@ -257,6 +255,97 @@
 			remoteGlobalIDString = 53761307155AD0D5005750A4;
 			remoteInfo = "SDWebImage iOS static";
 		};
+		2AB923DB1FFE449F00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7E8F43811A8B92D5000F5D01;
+			remoteInfo = LinqToObjectiveC;
+		};
+		2AB923DD1FFE449F00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EEE35A81AB4711000668C3E;
+			remoteInfo = "LinqToObjectiveC-iOS-dynamic";
+		};
+		2AB923DF1FFE449F00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EEE35CB1AB4718500668C3E;
+			remoteInfo = "LinqToObjectiveC-iOS-static";
+		};
+		2AB923EB1FFE44BD00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725EA19E49ED7006002AA;
+			remoteInfo = "ReactiveObjC-macOS";
+		};
+		2AB923ED1FFE44BD00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D04725F519E49ED7006002AA;
+			remoteInfo = "ReactiveObjC-macOSTests";
+		};
+		2AB923EF1FFE44BD00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047260C19E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOS";
+		};
+		2AB923F11FFE44BD00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047261619E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOSTests";
+		};
+		2AB923F31FFE44BD00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A9B315541B3940610001CB9C;
+			remoteInfo = "ReactiveObjC-watchOS";
+		};
+		2AB923F51FFE44BD00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 57A4D2411BA13D7A00F7D4B1;
+			remoteInfo = "ReactiveObjC-tvOS";
+		};
+		2AB923F71FFE44BD00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7DFBED031CDB8C9500EE435B;
+			remoteInfo = "ReactiveObjC-tvOSTests";
+		};
+		2AB923FB1FFE44D500FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D047260B19E49F82006002AA;
+			remoteInfo = "ReactiveObjC-iOS";
+		};
+		2AB924031FFE45BA00FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7E8F43801A8B92D5000F5D01;
+			remoteInfo = LinqToObjectiveC;
+		};
+		2AB924061FFE45D400FC9BD3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2AB6D3A91FB99C2200E04677 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = "SDWebImage iOS static";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -279,6 +368,8 @@
 			dstSubfolderSpec = 10;
 			files = (
 				2AB119621FF34E830073C3A8 /* GPUImage.framework in Embed Frameworks */,
+				2AB924011FFE459800FC9BD3 /* RevealServer.framework in Embed Frameworks */,
+				2AB923FA1FFE44D500FC9BD3 /* ReactiveObjC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,20 +396,6 @@
 		2A32D3461FB3ECE90085742F /* RWTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTweet.h; sourceTree = "<group>"; };
 		2A32D3491FB3F0C90085742F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		2A32D36C1FB409F90085742F /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
-		2A37421D1FCFE51A004B14D5 /* FallingStuff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallingStuff.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A37421F1FCFE51A004B14D5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		2A3742201FCFE51A004B14D5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2A3742221FCFE51A004B14D5 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		2A3742241FCFE51A004B14D5 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		2A3742261FCFE51A004B14D5 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
-		2A3742271FCFE51A004B14D5 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
-		2A3742291FCFE51A004B14D5 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
-		2A37422A1FCFE51A004B14D5 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
-		2A37422D1FCFE51A004B14D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2A37422F1FCFE51A004B14D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2A3742321FCFE51A004B14D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2A3742341FCFE51A004B14D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A3742351FCFE51A004B14D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A47709D1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchResultsViewModel.h; sourceTree = "<group>"; };
 		2A47709E1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchResultsViewModel.m; sourceTree = "<group>"; };
 		2A4770C31FBC2B5D00B4618A /* RWTFlickrSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RWTFlickrSearchResultsViewController.xib; sourceTree = "<group>"; };
@@ -371,6 +448,10 @@
 		2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qwe.mp4; sourceTree = "<group>"; };
 		2AB923CE1FFE261000FC9BD3 /* VideoCompositionEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompositionEditor.h; sourceTree = "<group>"; };
 		2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompositionEditor.m; sourceTree = "<group>"; };
+		2AB923D21FFE430F00FC9BD3 /* PhotoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoUtils.h; sourceTree = "<group>"; };
+		2AB923D31FFE430F00FC9BD3 /* PhotoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUtils.m; sourceTree = "<group>"; };
+		2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LinqToObjectiveC.xcodeproj; path = LinqToObjectiveC/LinqToObjectiveC/LinqToObjectiveC.xcodeproj; sourceTree = SOURCE_ROOT; };
+		2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = SOURCE_ROOT; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -392,18 +473,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2A37421A1FCFE51A004B14D5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2AB1192D1FF34C9F0073C3A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB924051FFE45CD00FC9BD3 /* libSDWebImage iOS static.a in Frameworks */,
+				2AB924021FFE45B200FC9BD3 /* libLinqToObjectiveC.a in Frameworks */,
 				2AB119611FF34E830073C3A8 /* GPUImage.framework in Frameworks */,
+				2AB924001FFE459800FC9BD3 /* RevealServer.framework in Frameworks */,
+				2AB923F91FFE44D500FC9BD3 /* ReactiveObjC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,26 +548,6 @@
 				0B5550581FB6A91B005DC829 /* LinqToObjectiveC.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2A37421E1FCFE51A004B14D5 /* FallingStuff */ = {
-			isa = PBXGroup;
-			children = (
-				2A37421F1FCFE51A004B14D5 /* AppDelegate.h */,
-				2A3742201FCFE51A004B14D5 /* AppDelegate.m */,
-				2A3742221FCFE51A004B14D5 /* GameScene.sks */,
-				2A3742241FCFE51A004B14D5 /* Actions.sks */,
-				2A3742261FCFE51A004B14D5 /* GameScene.h */,
-				2A3742271FCFE51A004B14D5 /* GameScene.m */,
-				2A3742291FCFE51A004B14D5 /* GameViewController.h */,
-				2A37422A1FCFE51A004B14D5 /* GameViewController.m */,
-				2A37422C1FCFE51A004B14D5 /* Main.storyboard */,
-				2A37422F1FCFE51A004B14D5 /* Assets.xcassets */,
-				2A3742311FCFE51A004B14D5 /* LaunchScreen.storyboard */,
-				2A3742341FCFE51A004B14D5 /* Info.plist */,
-				2A3742351FCFE51A004B14D5 /* main.m */,
-			);
-			path = FallingStuff;
 			sourceTree = "<group>";
 		};
 		2A4770C51FBC2E5600B4618A /* RACTweet */ = {
@@ -590,6 +648,7 @@
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXGroup;
 			children = (
+				2AB923D11FFE428100FC9BD3 /* Util */,
 				2AB923CB1FFDFF4600FC9BD3 /* Composition */,
 				2AB1197C1FF355960073C3A8 /* Resources */,
 				2AB119551FF34E280073C3A8 /* Vendor */,
@@ -611,6 +670,8 @@
 		2AB119551FF34E280073C3A8 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */,
+				2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */,
 				2AB119561FF34E410073C3A8 /* GPUImage.xcodeproj */,
 			);
 			path = Vendor;
@@ -678,11 +739,43 @@
 			path = Composition;
 			sourceTree = "<group>";
 		};
+		2AB923D11FFE428100FC9BD3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2AB923D21FFE430F00FC9BD3 /* PhotoUtils.h */,
+				2AB923D31FFE430F00FC9BD3 /* PhotoUtils.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2AB923D61FFE449F00FC9BD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AB923DC1FFE449F00FC9BD3 /* libLinqToObjectiveC.a */,
+				2AB923DE1FFE449F00FC9BD3 /* LinqToObjectiveC.framework */,
+				2AB923E01FFE449F00FC9BD3 /* LinqToObjectiveC.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2AB923E21FFE44BD00FC9BD3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2AB923EC1FFE44BD00FC9BD3 /* ReactiveObjC.framework */,
+				2AB923EE1FFE44BD00FC9BD3 /* ReactiveObjCTests.xctest */,
+				2AB923F01FFE44BD00FC9BD3 /* ReactiveObjC.framework */,
+				2AB923F21FFE44BD00FC9BD3 /* ReactiveObjCTests.xctest */,
+				2AB923F41FFE44BD00FC9BD3 /* ReactiveObjC.framework */,
+				2AB923F61FFE44BD00FC9BD3 /* ReactiveObjC.framework */,
+				2AB923F81FFE44BD00FC9BD3 /* ReactiveObjCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		72A2881118618A2E00DDD30A = {
 			isa = PBXGroup;
 			children = (
 				72A2882318618A2E00DDD30A /* RWReactivePlayground */,
-				2A37421E1FCFE51A004B14D5 /* FallingStuff */,
 				2AB119311FF34C9F0073C3A8 /* MediaComposition */,
 				72A2881C18618A2E00DDD30A /* Frameworks */,
 				72A2881B18618A2E00DDD30A /* Products */,
@@ -693,7 +786,6 @@
 			isa = PBXGroup;
 			children = (
 				72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */,
-				2A37421D1FCFE51A004B14D5 /* FallingStuff.app */,
 				2AB119301FF34C9F0073C3A8 /* MediaComposition.app */,
 			);
 			name = Products;
@@ -746,23 +838,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A37421C1FCFE51A004B14D5 /* FallingStuff */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A3742481FCFE51A004B14D5 /* Build configuration list for PBXNativeTarget "FallingStuff" */;
-			buildPhases = (
-				2A3742191FCFE51A004B14D5 /* Sources */,
-				2A37421A1FCFE51A004B14D5 /* Frameworks */,
-				2A37421B1FCFE51A004B14D5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = FallingStuff;
-			productName = FallingStuff;
-			productReference = 2A37421D1FCFE51A004B14D5 /* FallingStuff.app */;
-			productType = "com.apple.product-type.application";
-		};
 		2AB1192F1FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "MediaComposition" */;
@@ -775,7 +850,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				2AB924071FFE45D400FC9BD3 /* PBXTargetDependency */,
+				2AB924041FFE45BA00FC9BD3 /* PBXTargetDependency */,
 				2AB119641FF34E830073C3A8 /* PBXTargetDependency */,
+				2AB923FC1FFE44D500FC9BD3 /* PBXTargetDependency */,
 			);
 			name = MediaComposition;
 			productName = AVMediaBlend;
@@ -816,11 +894,6 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Colin Eberhardt";
 				TargetAttributes = {
-					2A37421C1FCFE51A004B14D5 = {
-						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = 8DHLQ2UE6S;
-						ProvisioningStyle = Automatic;
-					};
 					2AB1192F1FF34C9F0073C3A8 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 8DHLQ2UE6S;
@@ -848,12 +921,20 @@
 					ProjectRef = 2AB119561FF34E410073C3A8 /* GPUImage.xcodeproj */;
 				},
 				{
+					ProductGroup = 2AB923D61FFE449F00FC9BD3 /* Products */;
+					ProjectRef = 2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */;
+				},
+				{
 					ProductGroup = 0B55504E1FB6A91B005DC829 /* Products */;
 					ProjectRef = 0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */;
 				},
 				{
 					ProductGroup = 2AB6D3811FB99B3500E04677 /* Products */;
 					ProjectRef = 2AB6D3801FB99B3500E04677 /* ObjectiveFlickr.xcodeproj */;
+				},
+				{
+					ProductGroup = 2AB923E21FFE44BD00FC9BD3 /* Products */;
+					ProjectRef = 2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */;
 				},
 				{
 					ProductGroup = 0B12C7B81FB360E3001738A0 /* Products */;
@@ -867,7 +948,6 @@
 			projectRoot = "";
 			targets = (
 				72A2881918618A2E00DDD30A /* RWReactivePlayground */,
-				2A37421C1FCFE51A004B14D5 /* FallingStuff */,
 				2AB1192F1FF34C9F0073C3A8 /* MediaComposition */,
 			);
 		};
@@ -1014,21 +1094,79 @@
 			remoteRef = 2AB6D3BC1FB99C2200E04677 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		2AB923DC1FFE449F00FC9BD3 /* libLinqToObjectiveC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libLinqToObjectiveC.a;
+			remoteRef = 2AB923DB1FFE449F00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923DE1FFE449F00FC9BD3 /* LinqToObjectiveC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LinqToObjectiveC.framework;
+			remoteRef = 2AB923DD1FFE449F00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923E01FFE449F00FC9BD3 /* LinqToObjectiveC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LinqToObjectiveC.framework;
+			remoteRef = 2AB923DF1FFE449F00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923EC1FFE44BD00FC9BD3 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 2AB923EB1FFE44BD00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923EE1FFE44BD00FC9BD3 /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 2AB923ED1FFE44BD00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923F01FFE44BD00FC9BD3 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 2AB923EF1FFE44BD00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923F21FFE44BD00FC9BD3 /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 2AB923F11FFE44BD00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923F41FFE44BD00FC9BD3 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 2AB923F31FFE44BD00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923F61FFE44BD00FC9BD3 /* ReactiveObjC.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ReactiveObjC.framework;
+			remoteRef = 2AB923F51FFE44BD00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2AB923F81FFE44BD00FC9BD3 /* ReactiveObjCTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ReactiveObjCTests.xctest;
+			remoteRef = 2AB923F71FFE44BD00FC9BD3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2A37421B1FCFE51A004B14D5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A37422E1FCFE51A004B14D5 /* Main.storyboard in Resources */,
-				2A3742231FCFE51A004B14D5 /* GameScene.sks in Resources */,
-				2A3742301FCFE51A004B14D5 /* Assets.xcassets in Resources */,
-				2A3742331FCFE51A004B14D5 /* LaunchScreen.storyboard in Resources */,
-				2A3742251FCFE51A004B14D5 /* Actions.sks in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2AB1192E1FF34C9F0073C3A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1080,23 +1218,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2A3742191FCFE51A004B14D5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A3742281FCFE51A004B14D5 /* GameScene.m in Sources */,
-				2A37422B1FCFE51A004B14D5 /* GameViewController.m in Sources */,
-				2A3742361FCFE51A004B14D5 /* main.m in Sources */,
-				2A3742211FCFE51A004B14D5 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2AB1192C1FF34C9F0073C3A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */,
 				2AB119371FF34C9F0073C3A8 /* ViewController.m in Sources */,
+				2AB923D41FFE430F00FC9BD3 /* PhotoUtils.m in Sources */,
 				2AB923D01FFE261000FC9BD3 /* VideoCompositionEditor.m in Sources */,
 				2AB119421FF34C9F0073C3A8 /* main.m in Sources */,
 				2AB119341FF34C9F0073C3A8 /* AppDelegate.m in Sources */,
@@ -1164,25 +1292,24 @@
 			name = "SDWebImage iOS static";
 			targetProxy = 2AB6D3BE1FB99C2E00E04677 /* PBXContainerItemProxy */;
 		};
+		2AB923FC1FFE44D500FC9BD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "ReactiveObjC-iOS";
+			targetProxy = 2AB923FB1FFE44D500FC9BD3 /* PBXContainerItemProxy */;
+		};
+		2AB924041FFE45BA00FC9BD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LinqToObjectiveC;
+			targetProxy = 2AB924031FFE45BA00FC9BD3 /* PBXContainerItemProxy */;
+		};
+		2AB924071FFE45D400FC9BD3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SDWebImage iOS static";
+			targetProxy = 2AB924061FFE45D400FC9BD3 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2A37422C1FCFE51A004B14D5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A37422D1FCFE51A004B14D5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		2A3742311FCFE51A004B14D5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A3742321FCFE51A004B14D5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		2AB119381FF34C9F0073C3A8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1218,57 +1345,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2A3742371FCFE51A004B14D5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = FallingStuff/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.huajiao.seeding.jsb.FallingStuff;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2A3742381FCFE51A004B14D5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				INFOPLIST_FILE = FallingStuff/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.huajiao.seeding.jsb.FallingStuff;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		2AB119431FF34C9F0073C3A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1282,7 +1358,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/AVMediaBlend/Vendor\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/AVMediaBlend/Vendor\"",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/GPUImage/framework/Source\"/**";
@@ -1310,7 +1389,10 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/AVMediaBlend/Vendor\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/AVMediaBlend/Vendor\"",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/GPUImage/framework/Source\"/**";
@@ -1494,15 +1576,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A3742481FCFE51A004B14D5 /* Build configuration list for PBXNativeTarget "FallingStuff" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A3742371FCFE51A004B14D5 /* Debug */,
-				2A3742381FCFE51A004B14D5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "MediaComposition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

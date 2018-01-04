@@ -10,6 +10,7 @@
 
 @interface VideoCompositionEditor ()
 @property (nonatomic, copy) NSArray<NSURL*>         *urls;
+@property (nonatomic, strong) AVAssetExportSession   *exportSession;
 @end
 
 @implementation VideoCompositionEditor
@@ -35,6 +36,7 @@
     for (NSURL *url in self.urls) {
         AVMutableCompositionTrack *compVideoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
         AVAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
+    
         //视频轨道
         AVAssetTrack *videoTrack = [asset tracksWithMediaType:AVMediaTypeVideo].firstObject;
         [compVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoTrack.timeRange.duration) ofTrack:videoTrack atTime:kCMTimeZero error:nil];
@@ -73,5 +75,35 @@
     _playerItem.videoComposition = videoComposition;
 }
 
+-(void)exportAsyncToPath:(NSString*)path completionHandler:(void (^)(void))handler {
+    NSURL *outputURL = [NSURL fileURLWithPath:path];
+    if (!outputURL) {
+        if (handler) {
+            handler();
+        }
+        return;
+    }
+    if (!self.exportSession) {
+        self.exportSession = [[AVAssetExportSession alloc] initWithAsset:self.playerItem.asset
+                                                              presetName:AVAssetExportPresetMediumQuality];
+        self.exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    }
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+    }
+    
+    self.exportSession.videoComposition = self.playerItem.videoComposition;
+    self.exportSession.outputURL = outputURL;
+    self.exportSession.shouldOptimizeForNetworkUse = YES;
+    
+    [self.exportSession exportAsynchronouslyWithCompletionHandler:^{
+        self.exportSession = nil;
+        if (handler) {
+            handler();
+        }
+    }];
+}
 
 @end

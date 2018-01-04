@@ -58,6 +58,7 @@
 		2AB1197E1FF355A50073C3A8 /* abc.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2AB1197D1FF355A50073C3A8 /* abc.mp4 */; };
 		2AB6D3A51FB99B8800E04677 /* libObjectiveFlickr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3891FB99B3500E04677 /* libObjectiveFlickr.a */; };
 		2AB6D3C01FB99C3400E04677 /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3B31FB99C2200E04677 /* libSDWebImage iOS static.a */; };
+		2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
 		72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881F18618A2E00DDD30A /* CoreGraphics.framework */; };
@@ -347,7 +348,7 @@
 		2A9A80AA1FBAED3A0000E2C5 /* RWTFlickrSearchResults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchResults.m; sourceTree = "<group>"; };
 		2A9B142A1FB4381B0015740A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		2A9B142B1FB438230015740A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		2AB119301FF34C9F0073C3A8 /* AVMediaBlend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AVMediaBlend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2AB119301FF34C9F0073C3A8 /* MediaComposition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaComposition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AB119321FF34C9F0073C3A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2AB119331FF34C9F0073C3A8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2AB119351FF34C9F0073C3A8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -363,6 +364,8 @@
 		2AB6D3A91FB99C2200E04677 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2AB6D3C11FB99C4F00E04677 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2AB6D3C21FB99C5C00E04677 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		2AB923961FFDCFA400FC9BD3 /* MediaCompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaCompositionViewController.h; sourceTree = "<group>"; };
+		2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaCompositionViewController.m; sourceTree = "<group>"; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -579,7 +582,7 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2AB119311FF34C9F0073C3A8 /* AVMediaBlend */ = {
+		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXGroup;
 			children = (
 				2AB1197C1FF355960073C3A8 /* Resources */,
@@ -588,13 +591,15 @@
 				2AB119331FF34C9F0073C3A8 /* AppDelegate.m */,
 				2AB119351FF34C9F0073C3A8 /* ViewController.h */,
 				2AB119361FF34C9F0073C3A8 /* ViewController.m */,
+				2AB923961FFDCFA400FC9BD3 /* MediaCompositionViewController.h */,
+				2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */,
 				2AB119381FF34C9F0073C3A8 /* Main.storyboard */,
 				2AB1193B1FF34C9F0073C3A8 /* Assets.xcassets */,
 				2AB1193D1FF34C9F0073C3A8 /* LaunchScreen.storyboard */,
 				2AB119401FF34C9F0073C3A8 /* Info.plist */,
 				2AB119411FF34C9F0073C3A8 /* main.m */,
 			);
-			path = AVMediaBlend;
+			path = MediaComposition;
 			sourceTree = "<group>";
 		};
 		2AB119551FF34E280073C3A8 /* Vendor */ = {
@@ -662,7 +667,7 @@
 			children = (
 				72A2882318618A2E00DDD30A /* RWReactivePlayground */,
 				2A37421E1FCFE51A004B14D5 /* FallingStuff */,
-				2AB119311FF34C9F0073C3A8 /* AVMediaBlend */,
+				2AB119311FF34C9F0073C3A8 /* MediaComposition */,
 				72A2881C18618A2E00DDD30A /* Frameworks */,
 				72A2881B18618A2E00DDD30A /* Products */,
 			);
@@ -673,7 +678,7 @@
 			children = (
 				72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */,
 				2A37421D1FCFE51A004B14D5 /* FallingStuff.app */,
-				2AB119301FF34C9F0073C3A8 /* AVMediaBlend.app */,
+				2AB119301FF34C9F0073C3A8 /* MediaComposition.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -742,9 +747,9 @@
 			productReference = 2A37421D1FCFE51A004B14D5 /* FallingStuff.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2AB1192F1FF34C9F0073C3A8 /* AVMediaBlend */ = {
+		2AB1192F1FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "AVMediaBlend" */;
+			buildConfigurationList = 2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "MediaComposition" */;
 			buildPhases = (
 				2AB1192C1FF34C9F0073C3A8 /* Sources */,
 				2AB1192D1FF34C9F0073C3A8 /* Frameworks */,
@@ -756,9 +761,9 @@
 			dependencies = (
 				2AB119641FF34E830073C3A8 /* PBXTargetDependency */,
 			);
-			name = AVMediaBlend;
+			name = MediaComposition;
 			productName = AVMediaBlend;
-			productReference = 2AB119301FF34C9F0073C3A8 /* AVMediaBlend.app */;
+			productReference = 2AB119301FF34C9F0073C3A8 /* MediaComposition.app */;
 			productType = "com.apple.product-type.application";
 		};
 		72A2881918618A2E00DDD30A /* RWReactivePlayground */ = {
@@ -847,7 +852,7 @@
 			targets = (
 				72A2881918618A2E00DDD30A /* RWReactivePlayground */,
 				2A37421C1FCFE51A004B14D5 /* FallingStuff */,
-				2AB1192F1FF34C9F0073C3A8 /* AVMediaBlend */,
+				2AB1192F1FF34C9F0073C3A8 /* MediaComposition */,
 			);
 		};
 /* End PBXProject section */
@@ -1073,6 +1078,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */,
 				2AB119371FF34C9F0073C3A8 /* ViewController.m in Sources */,
 				2AB119421FF34C9F0073C3A8 /* main.m in Sources */,
 				2AB119341FF34C9F0073C3A8 /* AppDelegate.m in Sources */,
@@ -1262,7 +1268,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/GPUImage/framework/Source\"/**";
-				INFOPLIST_FILE = AVMediaBlend/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MediaComposition/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1290,7 +1296,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/GPUImage/framework/Source\"/**";
-				INFOPLIST_FILE = AVMediaBlend/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MediaComposition/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1479,7 +1485,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "AVMediaBlend" */ = {
+		2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "MediaComposition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2AB119431FF34C9F0073C3A8 /* Debug */,

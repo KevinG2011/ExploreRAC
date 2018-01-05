@@ -10,8 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface VideoCompositionEditor : NSObject
-@property (nonatomic) AVPlayerItem         *playerItem;
-@property (nonatomic) NSArray<AVAsset*>    *assets;
 @property (nonatomic, copy) NSArray<NSURL*>         *urls;
 
 -(instancetype)initWithURLs:(NSArray<NSURL*>*)urls;

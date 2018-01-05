@@ -10,7 +10,10 @@
 #import "VideoCompositionEditor.h"
 
 @interface AVFVideoCompositionEditor : VideoCompositionEditor
+@property (nonatomic) AVPlayerItem         *playerItem;
+@property (nonatomic) NSArray<AVAsset*>    *assets;
 @property (nonatomic, strong) AVAssetExportSession    *exportSession;
+
 -(instancetype)initWithURLs:(NSArray<NSURL*>*)urls;
 -(void)exportAsyncToPath:(NSString*)path completionHandler:(void (^)(void))handler;
 @end

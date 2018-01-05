@@ -7,13 +7,32 @@
 //
 
 #import "GPUImageVideoCompositionEditor.h"
+#import <LinqToObjectiveC/LinqToObjectiveC.h>
+#import "GPUImage.h"
+
+@interface GPUImageVideoCompositionEditor ()
+@property (nonatomic) NSArray<GPUImageMovie*>    *movies;
+@property (nonatomic, strong) GPUImageDissolveBlendFilter         *filter;
+@property (nonatomic, strong) GPUImageMovieWriter         *movieWriter;
+@end
 
 @implementation GPUImageVideoCompositionEditor
--(instancetype)initWithURLs:(NSArray<NSURL*>*)urls {
-    return nil;
+
+- (void)setupEditor {
+    _filter = [[GPUImageDissolveBlendFilter alloc] init];
+    _filter.mix = 0.5f;
+    
+    self.movies = [self.urls linq_select:^id(NSURL *url) {
+        GPUImageMovie *movie = [[GPUImageMovie alloc] initWithURL:url];
+        movie.runBenchmark = YES;
+        movie.playAtActualSpeed = YES;
+        return movie;
+    }];
+    //TODO
 }
 
 -(void)exportAsyncToPath:(NSString*)path completionHandler:(void (^)(void))handler {
-    
+    //TODO
+    unlink([path UTF8String]);
 }
 @end

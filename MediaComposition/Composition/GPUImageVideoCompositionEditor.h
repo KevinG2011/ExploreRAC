@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VideoCompositionEditor.h"
 
-@interface GPUImageVideoCompositionEditor : NSObject
+@interface GPUImageVideoCompositionEditor : VideoCompositionEditor
 
 @end

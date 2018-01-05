@@ -7,17 +7,9 @@
 //
 
 #import "AVFVideoCompositionEditor.h"
+#import <LinqToObjectiveC/LinqToObjectiveC.h>
 
 @implementation AVFVideoCompositionEditor
-
--(instancetype)initWithURLs:(NSArray<NSURL*>*)urls {
-    self = [super init];
-    if (self) {
-        self.urls = urls;
-        [self setupEditor];
-    }
-    return self;
-}
 
 - (void)setupEditor {
     //轨道合成
@@ -25,13 +17,12 @@
     //视频合成指令
     AVMutableVideoComposition *videoComposition = [AVMutableVideoComposition videoComposition];
     
-    NSMutableArray *assets = [NSMutableArray arrayWithCapacity:self.urls.count];
     NSMutableArray *layerInstructions = [NSMutableArray arrayWithCapacity:self.urls.count];
     
-    for (NSURL *url in self.urls) {
+    self.assets = [self.urls linq_select:^id(NSURL *url) {
         AVMutableCompositionTrack *compVideoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
         AVAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
-    
+        
         //视频轨道
         AVAssetTrack *videoTrack = [asset tracksWithMediaType:AVMediaTypeVideo].firstObject;
         [compVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoTrack.timeRange.duration) ofTrack:videoTrack atTime:kCMTimeZero error:nil];
@@ -45,14 +36,13 @@
         AVMutableVideoCompositionLayerInstruction *layerInstruction = [AVMutableVideoCompositionLayerInstruction videoCompositionLayerInstructionWithAssetTrack:compVideoTrack];
         [layerInstruction setOpacity:0.5f atTime:kCMTimeZero];
         
-//        CGAffineTransform transformScale = CGAffineTransformMakeScale( 0.5f, 0.5f );
-//        CGAffineTransform transformTransition = CGAffineTransformMakeTranslation( videoComposition.renderSize.width / 2,  videoComposition.renderSize.height / 2 );
-//        [layerInstruction setTransform:CGAffineTransformConcat(transformScale, transformTransition) atTime:kCMTimeZero ];
+        //        CGAffineTransform transformScale = CGAffineTransformMakeScale( 0.5f, 0.5f );
+        //        CGAffineTransform transformTransition = CGAffineTransformMakeTranslation( videoComposition.renderSize.width / 2,  videoComposition.renderSize.height / 2 );
+        //        [layerInstruction setTransform:CGAffineTransformConcat(transformScale, transformTransition) atTime:kCMTimeZero ];
         
         [layerInstructions addObject:layerInstruction];
-        [assets addObject:asset];
-    }
-    self.assets = [assets copy];
+        return asset;
+    }];
     
     AVAsset *firstAsset = self.assets.firstObject;
 

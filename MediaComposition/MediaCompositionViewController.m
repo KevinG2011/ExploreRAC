@@ -8,16 +8,18 @@
 
 #import "MediaCompositionViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "AVFVideoCompositionEditor.h"
-#import "PhotoUtils.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "PhotoUtils.h"
+#import "AVFVideoCompositionEditor.h"
+#import "GPUImageVideoCompositionEditor.h"
 
-//TODO 水印 gpu mix
+//TODO gpu mix
+//TODO watermark
 
 @interface MediaCompositionViewController ()
 @property (nonatomic, strong) AVPlayerLayer         *playerLayer;
 @property (nonatomic, strong) AVPlayer        *player;
-@property (nonatomic, strong) AVFVideoCompositionEditor         *videoEditor;
+@property (nonatomic, strong) VideoCompositionEditor         *videoEditor;
 @property (nonatomic, copy) NSArray<NSURL*>         *assetURLs;
 @property (nonatomic, strong) id         timeObserverToken;
 @end
@@ -33,7 +35,8 @@
 }
 
 - (void)observePlayEnded {
-    AVAsset *movAsset = [self.videoEditor.assets firstObject];
+    AVFVideoCompositionEditor *editor = (AVFVideoCompositionEditor*)self.videoEditor;
+    AVAsset *movAsset = [editor.assets firstObject];
     if (!movAsset) return;
     
     [movAsset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
@@ -67,7 +70,8 @@
     self.playerLayer.frame = self.view.bounds;
     
     self.videoEditor = [[AVFVideoCompositionEditor alloc] initWithURLs:_assetURLs];
-    self.player = [[AVPlayer alloc] initWithPlayerItem:self.videoEditor.playerItem];
+    AVFVideoCompositionEditor *editor = (AVFVideoCompositionEditor*)self.videoEditor;
+    self.player = [[AVPlayer alloc] initWithPlayerItem:editor.playerItem];
     self.playerLayer.player = self.player;
     [self.player play];
     

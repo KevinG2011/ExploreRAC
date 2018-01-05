@@ -8,17 +8,12 @@
 
 #import "AVFVideoCompositionEditor.h"
 
-@interface AVFVideoCompositionEditor ()
-@property (nonatomic, copy) NSArray<NSURL*>         *urls;
-@property (nonatomic, strong) AVAssetExportSession   *exportSession;
-@end
-
 @implementation AVFVideoCompositionEditor
 
 -(instancetype)initWithURLs:(NSArray<NSURL*>*)urls {
     self = [super init];
     if (self) {
-        _urls = urls;
+        self.urls = urls;
         [self setupEditor];
     }
     return self;
@@ -57,7 +52,7 @@
         [layerInstructions addObject:layerInstruction];
         [assets addObject:asset];
     }
-    _assets = [assets copy];
+    self.assets = [assets copy];
     
     AVAsset *firstAsset = self.assets.firstObject;
 
@@ -71,8 +66,8 @@
     
     videoComposition.instructions = @[compInstruction];
     
-    _playerItem = [[AVPlayerItem alloc] initWithAsset:composition];
-    _playerItem.videoComposition = videoComposition;
+    self.playerItem = [[AVPlayerItem alloc] initWithAsset:composition];
+    self.playerItem.videoComposition = videoComposition;
 }
 
 -(void)exportAsyncToPath:(NSString*)path completionHandler:(void (^)(void))handler {

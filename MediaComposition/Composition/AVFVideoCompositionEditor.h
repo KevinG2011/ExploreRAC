@@ -7,12 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVFoundation.h>
+#import "VideoCompositionEditor.h"
 
-@interface AVFVideoCompositionEditor : NSObject
-@property (nonatomic, strong, readonly) AVPlayerItem         *playerItem;
-@property (nonatomic, strong, readonly) NSArray<AVAsset*>    *assets;
+@interface AVFVideoCompositionEditor : VideoCompositionEditor
 
--(instancetype)initWithURLs:(NSArray<NSURL*>*)urls;
--(void)exportAsyncToPath:(NSString*)path completionHandler:(void (^)(void))handler;
 @end

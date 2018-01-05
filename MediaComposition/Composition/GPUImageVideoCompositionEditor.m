@@ -9,5 +9,11 @@
 #import "GPUImageVideoCompositionEditor.h"
 
 @implementation GPUImageVideoCompositionEditor
+-(instancetype)initWithURLs:(NSArray<NSURL*>*)urls {
+    return nil;
+}
 
+-(void)exportAsyncToPath:(NSString*)path completionHandler:(void (^)(void))handler {
+    
+}
 @end

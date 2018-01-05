@@ -20,6 +20,7 @@
 		2A32D34A1FB3F0C90085742F /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2A32D3491FB3F0C90085742F /* background.jpg */; };
 		2A32D36D1FB409FA0085742F /* RevealServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; };
 		2A32D36E1FB409FA0085742F /* RevealServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A344E471FFF1BEF00050387 /* GPUImageVideoCompositionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A344E461FFF1BEF00050387 /* GPUImageVideoCompositionEditor.m */; };
 		2A4770AF1FBC1E8800B4618A /* RWTFlickrSearchResultsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A47709E1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.m */; };
 		2A4770C41FBC2B5E00B4618A /* RWTFlickrSearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4770C31FBC2B5D00B4618A /* RWTFlickrSearchResultsViewController.xib */; };
 		2A48C5B71FB99F30007EABD7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3C11FB99C4F00E04677 /* SystemConfiguration.framework */; };
@@ -51,7 +52,7 @@
 		2AB6D3C01FB99C3400E04677 /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3B31FB99C2200E04677 /* libSDWebImage iOS static.a */; };
 		2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */; };
 		2AB923CD1FFE06A600FC9BD3 /* qwe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */; };
-		2AB923D01FFE261000FC9BD3 /* VideoCompositionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */; };
+		2AB923D01FFE261000FC9BD3 /* AVFVideoCompositionEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923CF1FFE261000FC9BD3 /* AVFVideoCompositionEditor.m */; };
 		2AB923D41FFE430F00FC9BD3 /* PhotoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB923D31FFE430F00FC9BD3 /* PhotoUtils.m */; };
 		2AB923F91FFE44D500FC9BD3 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB923F01FFE44BD00FC9BD3 /* ReactiveObjC.framework */; };
 		2AB923FA1FFE44D500FC9BD3 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB923F01FFE44BD00FC9BD3 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -396,6 +397,8 @@
 		2A32D3461FB3ECE90085742F /* RWTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWTweet.h; sourceTree = "<group>"; };
 		2A32D3491FB3F0C90085742F /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		2A32D36C1FB409F90085742F /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RevealServer.framework; sourceTree = "<group>"; };
+		2A344E451FFF1BEF00050387 /* GPUImageVideoCompositionEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPUImageVideoCompositionEditor.h; sourceTree = "<group>"; };
+		2A344E461FFF1BEF00050387 /* GPUImageVideoCompositionEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageVideoCompositionEditor.m; sourceTree = "<group>"; };
 		2A47709D1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchResultsViewModel.h; sourceTree = "<group>"; };
 		2A47709E1FBC15DE00B4618A /* RWTFlickrSearchResultsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchResultsViewModel.m; sourceTree = "<group>"; };
 		2A4770C31FBC2B5D00B4618A /* RWTFlickrSearchResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RWTFlickrSearchResultsViewController.xib; sourceTree = "<group>"; };
@@ -446,8 +449,8 @@
 		2AB923961FFDCFA400FC9BD3 /* MediaCompositionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaCompositionViewController.h; sourceTree = "<group>"; };
 		2AB923971FFDCFA400FC9BD3 /* MediaCompositionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaCompositionViewController.m; sourceTree = "<group>"; };
 		2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = qwe.mp4; sourceTree = "<group>"; };
-		2AB923CE1FFE261000FC9BD3 /* VideoCompositionEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompositionEditor.h; sourceTree = "<group>"; };
-		2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompositionEditor.m; sourceTree = "<group>"; };
+		2AB923CE1FFE261000FC9BD3 /* AVFVideoCompositionEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVFVideoCompositionEditor.h; sourceTree = "<group>"; };
+		2AB923CF1FFE261000FC9BD3 /* AVFVideoCompositionEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVFVideoCompositionEditor.m; sourceTree = "<group>"; };
 		2AB923D21FFE430F00FC9BD3 /* PhotoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoUtils.h; sourceTree = "<group>"; };
 		2AB923D31FFE430F00FC9BD3 /* PhotoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUtils.m; sourceTree = "<group>"; };
 		2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LinqToObjectiveC.xcodeproj; path = LinqToObjectiveC/LinqToObjectiveC/LinqToObjectiveC.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -733,8 +736,10 @@
 		2AB923CB1FFDFF4600FC9BD3 /* Composition */ = {
 			isa = PBXGroup;
 			children = (
-				2AB923CE1FFE261000FC9BD3 /* VideoCompositionEditor.h */,
-				2AB923CF1FFE261000FC9BD3 /* VideoCompositionEditor.m */,
+				2AB923CE1FFE261000FC9BD3 /* AVFVideoCompositionEditor.h */,
+				2AB923CF1FFE261000FC9BD3 /* AVFVideoCompositionEditor.m */,
+				2A344E451FFF1BEF00050387 /* GPUImageVideoCompositionEditor.h */,
+				2A344E461FFF1BEF00050387 /* GPUImageVideoCompositionEditor.m */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
@@ -1225,8 +1230,9 @@
 				2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */,
 				2AB119371FF34C9F0073C3A8 /* ViewController.m in Sources */,
 				2AB923D41FFE430F00FC9BD3 /* PhotoUtils.m in Sources */,
-				2AB923D01FFE261000FC9BD3 /* VideoCompositionEditor.m in Sources */,
+				2AB923D01FFE261000FC9BD3 /* AVFVideoCompositionEditor.m in Sources */,
 				2AB119421FF34C9F0073C3A8 /* main.m in Sources */,
+				2A344E471FFF1BEF00050387 /* GPUImageVideoCompositionEditor.m in Sources */,
 				2AB119341FF34C9F0073C3A8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

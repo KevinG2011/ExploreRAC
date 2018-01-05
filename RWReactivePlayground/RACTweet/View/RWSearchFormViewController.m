@@ -27,7 +27,7 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
 @property (strong, nonatomic) RWSearchResultsViewController *resultsViewController;
 @property (strong, nonatomic) ACAccountStore *accountStore;
 @property (strong, nonatomic) ACAccountType *twitterAccountType;
-@property (nonatomic, strong) RACSignal*         searchSignal;
+@property (nonatomic, strong) RACSignal     *searchSignal;
 @end
 
 @implementation RWSearchFormViewController

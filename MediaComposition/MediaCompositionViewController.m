@@ -8,7 +8,7 @@
 
 #import "MediaCompositionViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import "VideoCompositionEditor.h"
+#import "AVFVideoCompositionEditor.h"
 #import "PhotoUtils.h"
 #import <ReactiveObjC/ReactiveObjC.h>
 
@@ -17,7 +17,7 @@
 @interface MediaCompositionViewController ()
 @property (nonatomic, strong) AVPlayerLayer         *playerLayer;
 @property (nonatomic, strong) AVPlayer        *player;
-@property (nonatomic, strong) VideoCompositionEditor         *videoEditor;
+@property (nonatomic, strong) AVFVideoCompositionEditor         *videoEditor;
 @property (nonatomic, copy) NSArray<NSURL*>         *assetURLs;
 @property (nonatomic, strong) id         timeObserverToken;
 @end
@@ -66,7 +66,7 @@
     [self.view.layer addSublayer:self.playerLayer];
     self.playerLayer.frame = self.view.bounds;
     
-    self.videoEditor = [[VideoCompositionEditor alloc] initWithURLs:_assetURLs];
+    self.videoEditor = [[AVFVideoCompositionEditor alloc] initWithURLs:_assetURLs];
     self.player = [[AVPlayer alloc] initWithPlayerItem:self.videoEditor.playerItem];
     self.playerLayer.player = self.player;
     [self.player play];

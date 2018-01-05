@@ -6,14 +6,14 @@
 //  Copyright © 2018年 Colin Eberhardt. All rights reserved.
 //
 
-#import "VideoCompositionEditor.h"
+#import "AVFVideoCompositionEditor.h"
 
-@interface VideoCompositionEditor ()
+@interface AVFVideoCompositionEditor ()
 @property (nonatomic, copy) NSArray<NSURL*>         *urls;
 @property (nonatomic, strong) AVAssetExportSession   *exportSession;
 @end
 
-@implementation VideoCompositionEditor
+@implementation AVFVideoCompositionEditor
 
 -(instancetype)initWithURLs:(NSArray<NSURL*>*)urls {
     self = [super init];

@@ -37,6 +37,8 @@
 		2A48C5D21FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */; };
 		2A59B63E20037D1E007B41C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59B63D20037D1E007B41C2 /* main.m */; };
 		2A59B64720037D49007B41C2 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64620037D49007B41C2 /* libglfw3.a */; };
+		2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64820037F7E007B41C2 /* CoreVideo.framework */; };
+		2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64A20037F90007B41C2 /* AppKit.framework */; };
 		2A6F94B61FF50B4A0065DB6C /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F94A41FF50B490065DB6C /* watermark.png */; };
 		2A9A80951FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */; };
 		2A9A80991FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */; };
@@ -436,6 +438,8 @@
 		2A59B64420037D49007B41C2 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
 		2A59B64520037D49007B41C2 /* glfw3native.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3native.h; sourceTree = "<group>"; };
 		2A59B64620037D49007B41C2 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
+		2A59B64820037F7E007B41C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		2A59B64A20037F90007B41C2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		2A6F94A41FF50B490065DB6C /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
 		2A9A80871FBAA3540000E2C5 /* RWTFlickrSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearch.h; sourceTree = "<group>"; };
 		2A9A80931FBAA79F0000E2C5 /* RWTFlickrSearchImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchImpl.h; sourceTree = "<group>"; };
@@ -499,6 +503,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */,
+				2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */,
 				2A59B64720037D49007B41C2 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,6 +863,8 @@
 		72A2881C18618A2E00DDD30A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A59B64A20037F90007B41C2 /* AppKit.framework */,
+				2A59B64820037F7E007B41C2 /* CoreVideo.framework */,
 				2AB6D3C21FB99C5C00E04677 /* CFNetwork.framework */,
 				2AB6D3C11FB99C4F00E04677 /* SystemConfiguration.framework */,
 				2A9B142B1FB438230015740A /* Social.framework */,

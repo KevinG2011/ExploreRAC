@@ -13,6 +13,8 @@
 #import "PhotoUtils.h"
 
 @interface ViewController () {
+    //output view
+    GPUImageView *_gpuImageView;
     //capture
     GPUImageVideoCamera *_videoCamera;
     //movie
@@ -23,6 +25,9 @@
     GPUImageOutput<GPUImageInput> *_watermarkfilter;
     //write file
     GPUImageMovieWriter *_movieWriter;
+    //output
+    GPUImageRawDataOutput *_rawDataOutput;
+    
     //file path
     NSURL *_movieURL;
     //process label
@@ -32,24 +37,24 @@
 
 @implementation ViewController
 
-//- (void)loadView {
-//    GPUImageView *view = [[GPUImageView alloc] initWithFrame:UIScreen.mainScreen.bounds];
-//    view.backgroundColor = [UIColor blackColor];
-//    self.view = view;
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self setupView];
+    [self setupView];
 //    [self setupBasePipeline];
 //    [self buildVideoWatermarkPipeline];
 //    [self buildImageWatermarkPipeline];
 //    [self buildVideoImageWatermarkPipeline];
 //    [self buildVideoComposition];
+    
+    
 //    [self setupDisplayLink];
 }
 
 - (void)setupView {
+    GPUImageView *view = [[GPUImageView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    view.backgroundColor = [UIColor blackColor];
+    _gpuImageView = view;
+    
     _label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
     _label.textColor = [UIColor redColor];
     [self.view addSubview:_label];
@@ -87,6 +92,21 @@
     [dlink setPaused:NO];
 }
 
+- (void)buildVideOutputTexture {
+    NSAssert(_videoCamera, @"camera not initialize");
+    _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
+    _rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(640, 480) resultsInBGRAFormat:YES];
+    [_videoCamera addTarget:_rawDataOutput];
+    
+    __weak __typeof(self) wself = self;
+    __weak __typeof(_rawDataOutput) wDataOutput = _rawDataOutput;
+    _rawDataOutput.newFrameAvailableBlock = ^{
+        [wDataOutput lockFramebufferForReading];
+        __strong typeof(wself) sself = wself;
+        //TODO
+    };
+}
+
 - (void)buildVideoWatermarkPipeline {
     _movieWriter.audioProcessingCallback = ^(SInt16 **samplesRef, CMItemCount numSamplesInBuffer) {
         //        SInt16 *samples = *samplesRef;
@@ -109,7 +129,7 @@
         _movieWriter.encodingLiveVideo = YES;
     }
     
-    [_filter addTarget:(GPUImageView*)self.view];
+    [_filter addTarget:_gpuImageView];
     [_filter addTarget:_movieWriter];
     
     [_movieFile startProcessing];
@@ -158,7 +178,7 @@
     _movieFile.audioEncodingTarget = _movieWriter;
     [_movieFile enableSynchronizedEncodingUsingMovieWriter:_movieWriter];
     
-    [_filter addTarget:(GPUImageView*)self.view];
+    [_filter addTarget:_gpuImageView];
     [_filter addTarget:_movieWriter];
  
     [_movieWriter startRecording];
@@ -197,7 +217,7 @@
     _movieWriter.shouldPassthroughAudio = NO;
     _movieWriter.encodingLiveVideo = YES;
     
-    [_watermarkfilter addTarget:(GPUImageView*)self.view];
+    [_watermarkfilter addTarget:_gpuImageView];
     [_watermarkfilter addTarget:_movieWriter];
     
     [_movieFile startProcessing];

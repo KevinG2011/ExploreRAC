@@ -35,6 +35,8 @@
 		2A48C5CE1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5CC1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m */; };
 		2A48C5CF1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A48C5CD1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib */; };
 		2A48C5D21FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */; };
+		2A59B63E20037D1E007B41C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59B63D20037D1E007B41C2 /* main.m */; };
+		2A59B64720037D49007B41C2 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64620037D49007B41C2 /* libglfw3.a */; };
 		2A6F94B61FF50B4A0065DB6C /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F94A41FF50B490065DB6C /* watermark.png */; };
 		2A9A80951FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */; };
 		2A9A80991FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */; };
@@ -363,6 +365,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2A59B63920037D1E007B41C2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		2AB119651FF34E830073C3A8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -420,6 +431,11 @@
 		2A48C5CD1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RWTSearchResultsTableViewCell.xib; sourceTree = "<group>"; };
 		2A48C5D01FB9AABA007EABD7 /* RWTFlickrSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchViewModel.h; sourceTree = "<group>"; };
 		2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchViewModel.m; sourceTree = "<group>"; };
+		2A59B63B20037D1E007B41C2 /* GLFlow */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GLFlow; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A59B63D20037D1E007B41C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A59B64420037D49007B41C2 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
+		2A59B64520037D49007B41C2 /* glfw3native.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3native.h; sourceTree = "<group>"; };
+		2A59B64620037D49007B41C2 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
 		2A6F94A41FF50B490065DB6C /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
 		2A9A80871FBAA3540000E2C5 /* RWTFlickrSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearch.h; sourceTree = "<group>"; };
 		2A9A80931FBAA79F0000E2C5 /* RWTFlickrSearchImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchImpl.h; sourceTree = "<group>"; };
@@ -479,6 +495,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2A59B63820037D1E007B41C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A59B64720037D49007B41C2 /* libglfw3.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2AB1192D1FF34C9F0073C3A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -651,6 +675,33 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2A59B63C20037D1E007B41C2 /* GLFlow */ = {
+			isa = PBXGroup;
+			children = (
+				2A59B64220037D49007B41C2 /* Lib */,
+				2A59B63D20037D1E007B41C2 /* main.m */,
+			);
+			path = GLFlow;
+			sourceTree = "<group>";
+		};
+		2A59B64220037D49007B41C2 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				2A59B64320037D49007B41C2 /* include */,
+				2A59B64620037D49007B41C2 /* libglfw3.a */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		2A59B64320037D49007B41C2 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				2A59B64420037D49007B41C2 /* glfw3.h */,
+				2A59B64520037D49007B41C2 /* glfw3native.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +838,7 @@
 			children = (
 				72A2882318618A2E00DDD30A /* RWReactivePlayground */,
 				2AB119311FF34C9F0073C3A8 /* MediaComposition */,
+				2A59B63C20037D1E007B41C2 /* GLFlow */,
 				72A2881C18618A2E00DDD30A /* Frameworks */,
 				72A2881B18618A2E00DDD30A /* Products */,
 			);
@@ -797,6 +849,7 @@
 			children = (
 				72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */,
 				2AB119301FF34C9F0073C3A8 /* MediaComposition.app */,
+				2A59B63B20037D1E007B41C2 /* GLFlow */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -848,6 +901,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2A59B63A20037D1E007B41C2 /* GLFlow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "GLFlow" */;
+			buildPhases = (
+				2A59B63720037D1E007B41C2 /* Sources */,
+				2A59B63820037D1E007B41C2 /* Frameworks */,
+				2A59B63920037D1E007B41C2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GLFlow;
+			productName = GLFlow;
+			productReference = 2A59B63B20037D1E007B41C2 /* GLFlow */;
+			productType = "com.apple.product-type.tool";
+		};
 		2AB1192F1FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "MediaComposition" */;
@@ -904,6 +974,11 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Colin Eberhardt";
 				TargetAttributes = {
+					2A59B63A20037D1E007B41C2 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 8DHLQ2UE6S;
+						ProvisioningStyle = Automatic;
+					};
 					2AB1192F1FF34C9F0073C3A8 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 8DHLQ2UE6S;
@@ -959,6 +1034,7 @@
 			targets = (
 				72A2881918618A2E00DDD30A /* RWReactivePlayground */,
 				2AB1192F1FF34C9F0073C3A8 /* MediaComposition */,
+				2A59B63A20037D1E007B41C2 /* GLFlow */,
 			);
 		};
 /* End PBXProject section */
@@ -1228,6 +1304,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2A59B63720037D1E007B41C2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A59B63E20037D1E007B41C2 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2AB1192C1FF34C9F0073C3A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1357,6 +1441,59 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2A59B64020037D1E007B41C2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/GLFlow/Lib/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GLFlow/Lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2A59B64120037D1E007B41C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/GLFlow/Lib/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GLFlow/Lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		2AB119431FF34C9F0073C3A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1385,6 +1522,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MediaComposition/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MediaComposition/Lib",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yinxiang.media.mix.AVMediaBlend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1421,6 +1562,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MediaComposition/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MediaComposition/Lib",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yinxiang.media.mix.AVMediaBlend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1598,6 +1743,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "GLFlow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A59B64020037D1E007B41C2 /* Debug */,
+				2A59B64120037D1E007B41C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2AB119541FF34C9F0073C3A8 /* Build configuration list for PBXNativeTarget "MediaComposition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

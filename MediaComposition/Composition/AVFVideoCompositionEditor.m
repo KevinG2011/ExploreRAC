@@ -50,7 +50,7 @@
     videoComposition.renderSize = videoSize;
     
     AVMutableVideoCompositionInstruction *compInstruction = [AVMutableVideoCompositionInstruction videoCompositionInstruction];
-    compInstruction.timeRange = CMTimeRangeMake( kCMTimeZero, firstAsset.duration);
+    compInstruction.timeRange = CMTimeRangeMake(kCMTimeZero, firstAsset.duration);
     compInstruction.layerInstructions = layerInstructions;
     
     videoComposition.instructions = @[compInstruction];

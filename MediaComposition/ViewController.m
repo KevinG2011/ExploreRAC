@@ -11,6 +11,7 @@
 
 #import "GPUImage.h"
 #import "PhotoUtils.h"
+#import "GPUImageBeautifyFilter.h"
 
 @interface ViewController () {
     //output view
@@ -46,8 +47,8 @@
 //    [self buildImageWatermarkPipeline];
 //    [self buildVideoImageWatermarkPipeline];
 //    [self buildVideoComposition];
-    
-    [self buildVideOutputTexture];
+//    [self buildVideOutputTexture];
+    [self buildFaceBeautifyDetector];
     [self setupDisplayLink];
 }
 
@@ -94,13 +95,49 @@
     [dlink setPaused:NO];
 }
 
+- (UIView*)createFaceuView {
+    CGSize size = self.view.bounds.size;
+    UIImage *image = [UIImage imageNamed:@"Crown"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.tag = 101;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    view.backgroundColor = [UIColor clearColor];
+    imageView.center = CGPointMake(view.bounds.size.width / 2, view.bounds.size.height / 2);
+    [view addSubview:imageView];
+    return view;
+}
+
+- (void)buildFaceBeautifyDetector {
+    GPUImageBeautifyFilter *beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
+    [_videoCamera addTarget:beautifyFilter];
+//    [beautifyFilter addTarget: _gpuImageView];
+    
+    UIView *faceuView = [self createFaceuView];
+    GPUImageUIElement *uiElement = [[GPUImageUIElement alloc] initWithView:faceuView];
+    
+    GPUImageAddBlendFilter *blendFilter = [[GPUImageAddBlendFilter alloc] init];
+    [beautifyFilter addTarget:blendFilter];
+    [uiElement addTarget:blendFilter];
+    
+    [blendFilter addTarget:_gpuImageView];
+    
+    [beautifyFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
+        [uiElement updateWithTimestamp:time];
+    }];
+    
+    [_videoCamera rotateCamera];
+    [_videoCamera startCameraCapture];
+//    _movieWriter.encodingLiveVideo = YES;
+}
+
 - (void)buildVideOutputTexture {
     _outputImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_outputImageView];
     
+    CGSize outputSize = CGSizeMake(640, 480);
     NSAssert(_videoCamera, @"camera not initialize");
     _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
-    _rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(640, 480) resultsInBGRAFormat:YES];
+    _rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:outputSize resultsInBGRAFormat:YES];
     [_videoCamera addTarget:_rawDataOutput];
     
     __weak __typeof(self) wself = self;
@@ -114,7 +151,7 @@
         GLubyte *outputBytes = [sDataOutput rawBytesForImage];
         NSUInteger bytesPerRow = [sDataOutput bytesPerRowInOutput];
         CVPixelBufferRef pixelBuffer = NULL;
-        CVReturn ret = CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 640, 480, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, &pixelBuffer);
+        CVReturn ret = CVPixelBufferCreateWithBytes(kCFAllocatorDefault, outputSize.width, outputSize.height, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, &pixelBuffer);
         if (ret != kCVReturnSuccess) {
             NSLog(@"status %d", ret);
         }
@@ -181,7 +218,7 @@
     }];
 }
 
-- (GPUImageUIElement*)createWatermarkUIElement {
+- (UIView*)createWatermarkView {
     //水印
     CGSize size = self.view.bounds.size;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
@@ -189,15 +226,14 @@
     label.font = [UIFont systemFontOfSize:30];
     label.textColor = [UIColor redColor];
     [label sizeToFit];
-    UIImage *image = [UIImage imageNamed:@"watermark.png"];
+    UIImage *image = [UIImage imageNamed:@"watermark"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    UIView *subView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    subView.backgroundColor = [UIColor clearColor];
-    imageView.center = CGPointMake(subView.bounds.size.width / 2, subView.bounds.size.height / 2);
-    [subView addSubview:imageView];
-    [subView addSubview:label];
-    GPUImageUIElement *uielement = [[GPUImageUIElement alloc] initWithView:subView];
-    return uielement;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    view.backgroundColor = [UIColor clearColor];
+    imageView.center = CGPointMake(view.bounds.size.width / 2, view.bounds.size.height / 2);
+    [view addSubview:imageView];
+    [view addSubview:label];
+    return view;
 }
 
 - (void)buildImageWatermarkPipeline {
@@ -205,8 +241,9 @@
     [_movieFile addTarget:progressFilter];
     [progressFilter addTarget:_filter];
     
-    GPUImageUIElement *uielement = [self createWatermarkUIElement];
-    [uielement addTarget:_filter];
+    UIView *watermarkView = [self createWatermarkView];
+    GPUImageUIElement *uiElement = [[GPUImageUIElement alloc] initWithView:watermarkView];
+    [uiElement addTarget:_filter];
     
     _movieWriter.shouldPassthroughAudio = YES;
     _movieFile.audioEncodingTarget = _movieWriter;
@@ -219,7 +256,7 @@
     [_movieFile startProcessing];
     
     [progressFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
-        [uielement updateWithTimestamp:time];
+        [uiElement updateWithTimestamp:time];
     }];
     
     __weak __typeof(self) wself = self;
@@ -240,11 +277,12 @@
     [_filter addTarget:progressFilter];
     [progressFilter addTarget:_watermarkfilter];
     
-    GPUImageUIElement *uielement = [self createWatermarkUIElement];
-    [uielement addTarget:_watermarkfilter];
+    UIView *watermarkView = [self createWatermarkView];
+    GPUImageUIElement *uiElement = [[GPUImageUIElement alloc] initWithView:watermarkView];
+    [uiElement addTarget:_watermarkfilter];
 
     [progressFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
-        [uielement updateWithTimestamp:time];
+        [uiElement updateWithTimestamp:time];
     }];
     
     _videoCamera.audioEncodingTarget = _movieWriter;

@@ -35,6 +35,8 @@
 		2A48C5CE1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5CC1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.m */; };
 		2A48C5CF1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A48C5CD1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib */; };
 		2A48C5D21FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */; };
+		2A4CA0D82004B681003DE924 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4CA0BE2004B681003DE924 /* GPUImageBeautifyFilter.m */; };
+		2A4CA0DC2004BA6A003DE924 /* Crown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4CA0DB2004BA69003DE924 /* Crown@2x.png */; };
 		2A59B63E20037D1E007B41C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59B63D20037D1E007B41C2 /* main.m */; };
 		2A59B64720037D49007B41C2 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64620037D49007B41C2 /* libglfw3.a */; };
 		2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64820037F7E007B41C2 /* CoreVideo.framework */; };
@@ -433,6 +435,9 @@
 		2A48C5CD1FB9A46D007EABD7 /* RWTSearchResultsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RWTSearchResultsTableViewCell.xib; sourceTree = "<group>"; };
 		2A48C5D01FB9AABA007EABD7 /* RWTFlickrSearchViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchViewModel.h; sourceTree = "<group>"; };
 		2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchViewModel.m; sourceTree = "<group>"; };
+		2A4CA0BD2004B681003DE924 /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
+		2A4CA0BE2004B681003DE924 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
+		2A4CA0DB2004BA69003DE924 /* Crown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crown@2x.png"; sourceTree = "<group>"; };
 		2A59B63B20037D1E007B41C2 /* GLFlow */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GLFlow; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A59B63D20037D1E007B41C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2A59B64420037D49007B41C2 /* glfw3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfw3.h; sourceTree = "<group>"; };
@@ -681,6 +686,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2A4CA0BC2004B681003DE924 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				2A4CA0BD2004B681003DE924 /* GPUImageBeautifyFilter.h */,
+				2A4CA0BE2004B681003DE924 /* GPUImageBeautifyFilter.m */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		2A59B63C20037D1E007B41C2 /* GLFlow */ = {
 			isa = PBXGroup;
 			children = (
@@ -711,6 +725,7 @@
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXGroup;
 			children = (
+				2A4CA0BC2004B681003DE924 /* Filter */,
 				2AB923D11FFE428100FC9BD3 /* Util */,
 				2AB923CB1FFDFF4600FC9BD3 /* Composition */,
 				2AB1197C1FF355960073C3A8 /* Resources */,
@@ -752,6 +767,7 @@
 		2AB1197C1FF355960073C3A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2A4CA0DB2004BA69003DE924 /* Crown@2x.png */,
 				2AB923CC1FFE06A600FC9BD3 /* qwe.mp4 */,
 				2A6F94A41FF50B490065DB6C /* watermark.png */,
 				2AB1197D1FF355A50073C3A8 /* abc.mp4 */,
@@ -1266,6 +1282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AB1197E1FF355A50073C3A8 /* abc.mp4 in Resources */,
+				2A4CA0DC2004BA6A003DE924 /* Crown@2x.png in Resources */,
 				2AB1193F1FF34C9F0073C3A8 /* LaunchScreen.storyboard in Resources */,
 				2AB1193C1FF34C9F0073C3A8 /* Assets.xcassets in Resources */,
 				2AB923CD1FFE06A600FC9BD3 /* qwe.mp4 in Resources */,
@@ -1324,6 +1341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A4CA0D82004B681003DE924 /* GPUImageBeautifyFilter.m in Sources */,
 				2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */,
 				2AB119371FF34C9F0073C3A8 /* ViewController.m in Sources */,
 				2AB923D41FFE430F00FC9BD3 /* PhotoUtils.m in Sources */,

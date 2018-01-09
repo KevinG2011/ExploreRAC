@@ -20,10 +20,9 @@
     NSMutableArray *layerInstructions = [NSMutableArray arrayWithCapacity:self.urls.count];
     
     self.assets = [self.urls linq_select:^id(NSURL *url) {
-        AVMutableCompositionTrack *compVideoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
         AVAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
-        
         //视频轨道
+        AVMutableCompositionTrack *compVideoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];
         AVAssetTrack *videoTrack = [asset tracksWithMediaType:AVMediaTypeVideo].firstObject;
         [compVideoTrack insertTimeRange:CMTimeRangeMake(kCMTimeZero, videoTrack.timeRange.duration) ofTrack:videoTrack atTime:kCMTimeZero error:nil];
         compVideoTrack.preferredTransform = asset.preferredTransform;

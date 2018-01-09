@@ -27,7 +27,8 @@
     GPUImageMovieWriter *_movieWriter;
     //output
     GPUImageRawDataOutput *_rawDataOutput;
-    
+    //dataOutput
+    UIImageView *_outputImageView;
     //file path
     NSURL *_movieURL;
     //process label
@@ -40,20 +41,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupView];
-//    [self setupBasePipeline];
+    [self setupBasePipeline];
 //    [self buildVideoWatermarkPipeline];
 //    [self buildImageWatermarkPipeline];
 //    [self buildVideoImageWatermarkPipeline];
 //    [self buildVideoComposition];
     
-    
-//    [self setupDisplayLink];
+    [self buildVideOutputTexture];
+    [self setupDisplayLink];
 }
 
 - (void)setupView {
-    GPUImageView *view = [[GPUImageView alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    GPUImageView *view = [[GPUImageView alloc] initWithFrame:self.view.bounds];
     view.backgroundColor = [UIColor blackColor];
     _gpuImageView = view;
+    [self.view addSubview:_gpuImageView];
     
     _label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 100)];
     _label.textColor = [UIColor redColor];
@@ -93,6 +95,9 @@
 }
 
 - (void)buildVideOutputTexture {
+    _outputImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_outputImageView];
+    
     NSAssert(_videoCamera, @"camera not initialize");
     _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
     _rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(640, 480) resultsInBGRAFormat:YES];
@@ -101,10 +106,39 @@
     __weak __typeof(self) wself = self;
     __weak __typeof(_rawDataOutput) wDataOutput = _rawDataOutput;
     _rawDataOutput.newFrameAvailableBlock = ^{
+        if (wself == nil) {
+            return;
+        }
         [wDataOutput lockFramebufferForReading];
+        __strong typeof(wDataOutput) sDataOutput = wDataOutput;
+        GLubyte *outputBytes = [sDataOutput rawBytesForImage];
+        NSUInteger bytesPerRow = [sDataOutput bytesPerRowInOutput];
+        CVPixelBufferRef pixelBuffer = NULL;
+        CVReturn ret = CVPixelBufferCreateWithBytes(kCFAllocatorDefault, 640, 480, kCVPixelFormatType_32BGRA, outputBytes, bytesPerRow, nil, nil, nil, &pixelBuffer);
+        if (ret != kCVReturnSuccess) {
+            NSLog(@"status %d", ret);
+        }
+        [sDataOutput unlockFramebufferAfterReading];
+        if (pixelBuffer == NULL) {
+            return;
+        }
+        CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+        CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, outputBytes, bytesPerRow * 480, NULL);
+        CGImageRef cgImage = CGImageCreate(640, 480, 8, 32, bytesPerRow, rgbColorSpace, kCGImageAlphaPremultipliedFirst|kCGBitmapByteOrder32Little, provider, NULL, true, kCGRenderingIntentDefault);
+        UIImage *image = [UIImage imageWithCGImage:cgImage];
+        
         __strong typeof(wself) sself = wself;
-        //TODO
+        dispatch_async(dispatch_get_main_queue(), ^{
+            sself->_outputImageView.image = image;
+        });
+        
+        CGImageRelease(cgImage);
+        CGDataProviderRelease(provider);
+        CGColorSpaceRelease(rgbColorSpace);
+        CFRelease(pixelBuffer);
     };
+    
+    [_videoCamera startCameraCapture];
 }
 
 - (void)buildVideoWatermarkPipeline {

@@ -8,12 +8,13 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
-
+#import <CoreImage/CoreImage.h>
 #import "GPUImage.h"
 #import "PhotoUtils.h"
 #import "GPUImageBeautifyFilter.h"
 
-@interface ViewController () {
+
+@interface ViewController ()<GPUImageVideoCameraDelegate> {
     //output view
     GPUImageView *_gpuImageView;
     //capture
@@ -48,7 +49,7 @@
 //    [self buildVideoImageWatermarkPipeline];
 //    [self buildVideoComposition];
 //    [self buildVideOutputTexture];
-    [self buildFaceBeautifyDetector];
+    [self buildBeautifyFaceDetector];
     [self setupDisplayLink];
 }
 
@@ -107,11 +108,19 @@
     return view;
 }
 
-- (void)buildFaceBeautifyDetector {
+#pragma mark <GPUImageVideoCameraDelegate>
+
+- (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    
+}
+
+- (void)buildBeautifyFaceDetector {
+    _videoCamera.delegate = self;
+    
+    _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
     GPUImageBeautifyFilter *beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
     [_videoCamera addTarget:beautifyFilter];
-//    [beautifyFilter addTarget: _gpuImageView];
-    
+
     UIView *faceuView = [self createFaceuView];
     GPUImageUIElement *uiElement = [[GPUImageUIElement alloc] initWithView:faceuView];
     
@@ -119,15 +128,14 @@
     [beautifyFilter addTarget:blendFilter];
     [uiElement addTarget:blendFilter];
     
-    [blendFilter addTarget:_gpuImageView];
-    
     [beautifyFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
         [uiElement updateWithTimestamp:time];
     }];
     
+    [blendFilter addTarget:_gpuImageView];
+    
     [_videoCamera rotateCamera];
     [_videoCamera startCameraCapture];
-//    _movieWriter.encodingLiveVideo = YES;
 }
 
 - (void)buildVideOutputTexture {

@@ -41,6 +41,7 @@
 		2A59B64720037D49007B41C2 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64620037D49007B41C2 /* libglfw3.a */; };
 		2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64820037F7E007B41C2 /* CoreVideo.framework */; };
 		2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64A20037F90007B41C2 /* AppKit.framework */; };
+		2A68EF3C2005BA8B00912901 /* FaceImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A68EF3B2005BA8B00912901 /* FaceImageObject.m */; };
 		2A6F94B61FF50B4A0065DB6C /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F94A41FF50B490065DB6C /* watermark.png */; };
 		2A9A80951FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */; };
 		2A9A80991FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */; };
@@ -445,6 +446,8 @@
 		2A59B64620037D49007B41C2 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libglfw3.a; sourceTree = "<group>"; };
 		2A59B64820037F7E007B41C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
 		2A59B64A20037F90007B41C2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		2A68EF3A2005BA8B00912901 /* FaceImageObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceImageObject.h; sourceTree = "<group>"; };
+		2A68EF3B2005BA8B00912901 /* FaceImageObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceImageObject.m; sourceTree = "<group>"; };
 		2A6F94A41FF50B490065DB6C /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
 		2A9A80871FBAA3540000E2C5 /* RWTFlickrSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearch.h; sourceTree = "<group>"; };
 		2A9A80931FBAA79F0000E2C5 /* RWTFlickrSearchImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchImpl.h; sourceTree = "<group>"; };
@@ -722,9 +725,19 @@
 			path = include;
 			sourceTree = "<group>";
 		};
+		2A68EF202005BA6300912901 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				2A68EF3A2005BA8B00912901 /* FaceImageObject.h */,
+				2A68EF3B2005BA8B00912901 /* FaceImageObject.m */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXGroup;
 			children = (
+				2A68EF202005BA6300912901 /* Image */,
 				2A4CA0BC2004B681003DE924 /* Filter */,
 				2AB923D11FFE428100FC9BD3 /* Util */,
 				2AB923CB1FFDFF4600FC9BD3 /* Composition */,
@@ -1348,6 +1361,7 @@
 				2AB923D01FFE261000FC9BD3 /* AVFVideoCompositionEditor.m in Sources */,
 				2AB119421FF34C9F0073C3A8 /* main.m in Sources */,
 				2A344E631FFF1E2C00050387 /* VideoCompositionEditor.m in Sources */,
+				2A68EF3C2005BA8B00912901 /* FaceImageObject.m in Sources */,
 				2A344E471FFF1BEF00050387 /* GPUImageVideoCompositionEditor.m in Sources */,
 				2AB119341FF34C9F0073C3A8 /* AppDelegate.m in Sources */,
 			);

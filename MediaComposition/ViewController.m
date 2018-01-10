@@ -12,6 +12,7 @@
 #import "GPUImage.h"
 #import "PhotoUtils.h"
 #import "GPUImageBeautifyFilter.h"
+#import "FaceImageObject.h"
 
 
 @interface ViewController ()<GPUImageVideoCameraDelegate> {
@@ -111,7 +112,32 @@
 #pragma mark <GPUImageVideoCameraDelegate>
 
 - (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    FaceImageObject *faceObj = [self faceImageFromSampleBuffer:sampleBuffer];
+}
+
+- (FaceImageObject*)faceImageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    CVPixelBufferRef pixelBuffer = (CVPixelBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
+    CVPixelBufferLockBaseAddress(pixelBuffer, 0);
     
+    uint8_t *lumaBuffer = (uint8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+    
+    size_t bytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer,0);
+    size_t width  = CVPixelBufferGetWidth(pixelBuffer);
+    size_t height = CVPixelBufferGetHeight(pixelBuffer);
+    
+    CGColorSpaceRef grayColorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef context = CGBitmapContextCreate(lumaBuffer, width, height, 8, bytesPerRow, grayColorSpace,0);
+    CGImageRef cgImage = CGBitmapContextCreateImage(context);
+    UIImage *faceImage = [UIImage imageWithCGImage:cgImage];
+    
+    CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
+    
+    CGImageRelease(cgImage);
+    CGContextRelease(context);
+    CGColorSpaceRelease(grayColorSpace);
+    
+    FaceImageObject *faceObj = [[FaceImageObject alloc] initWithFaceImage:faceImage width:width height:height];
+    return faceObj;
 }
 
 - (void)buildBeautifyFaceDetector {

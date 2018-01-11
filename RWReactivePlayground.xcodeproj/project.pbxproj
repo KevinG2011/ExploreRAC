@@ -14,6 +14,7 @@
 		0B1496381FC1C9320084BA60 /* CETableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1496351FC1C9310084BA60 /* CETableViewBindingHelper.m */; };
 		0B388FBE2007745A00CF5782 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FB52007745A00CF5782 /* libglfw3.a */; };
 		0B388FBF2007745A00CF5782 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B388FBD2007745A00CF5782 /* glad.c */; };
+		0B388FC3200777A500CF5782 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FC2200777A500CF5782 /* IOKit.framework */; };
 		0BDC4F461FB82A94001AE26A /* libLinqToObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5550541FB6A91B005DC829 /* libLinqToObjectiveC.a */; };
 		2A32D33F1FB3ECC00085742F /* RWSearchFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */; };
 		2A32D3421FB3ECD50085742F /* RWSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3411FB3ECD50085742F /* RWSearchResultsViewController.m */; };
@@ -39,7 +40,7 @@
 		2A48C5D21FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A48C5D11FB9AABA007EABD7 /* RWTFlickrSearchViewModel.m */; };
 		2A4CA0D82004B681003DE924 /* GPUImageBeautifyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4CA0BE2004B681003DE924 /* GPUImageBeautifyFilter.m */; };
 		2A4CA0DC2004BA6A003DE924 /* Crown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A4CA0DB2004BA69003DE924 /* Crown@2x.png */; };
-		2A59B63E20037D1E007B41C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A59B63D20037D1E007B41C2 /* main.m */; };
+		2A59B63E20037D1E007B41C2 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A59B63D20037D1E007B41C2 /* main.mm */; };
 		2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64820037F7E007B41C2 /* CoreVideo.framework */; };
 		2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64A20037F90007B41C2 /* AppKit.framework */; };
 		2A68EF3C2005BA8B00912901 /* FaceImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A68EF3B2005BA8B00912901 /* FaceImageObject.m */; };
@@ -410,6 +411,8 @@
 		0B388FB92007745A00CF5782 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glad.h; sourceTree = "<group>"; };
 		0B388FBB2007745A00CF5782 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		0B388FBD2007745A00CF5782 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		0B388FC02007779800CF5782 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
+		0B388FC2200777A500CF5782 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LinqToObjectiveC.xcodeproj; path = LinqToObjectiveC/LinqToObjectiveC/LinqToObjectiveC.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSearchFormViewController.m; sourceTree = "<group>"; };
 		2A32D33E1FB3ECC00085742F /* RWSearchFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSearchFormViewController.h; sourceTree = "<group>"; };
@@ -447,7 +450,7 @@
 		2A4CA0BE2004B681003DE924 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
 		2A4CA0DB2004BA69003DE924 /* Crown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crown@2x.png"; sourceTree = "<group>"; };
 		2A59B63B20037D1E007B41C2 /* GLFlow */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GLFlow; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A59B63D20037D1E007B41C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A59B63D20037D1E007B41C2 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		2A59B64820037F7E007B41C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
 		2A59B64A20037F90007B41C2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		2A68EF3A2005BA8B00912901 /* FaceImageObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceImageObject.h; sourceTree = "<group>"; };
@@ -515,6 +518,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B388FC3200777A500CF5782 /* IOKit.framework in Frameworks */,
 				2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */,
 				2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */,
 				0B388FBE2007745A00CF5782 /* libglfw3.a in Frameworks */,
@@ -766,7 +770,7 @@
 			isa = PBXGroup;
 			children = (
 				2A59B64220037D49007B41C2 /* Lib */,
-				2A59B63D20037D1E007B41C2 /* main.m */,
+				2A59B63D20037D1E007B41C2 /* main.mm */,
 			);
 			path = GLFlow;
 			sourceTree = "<group>";
@@ -947,6 +951,8 @@
 		72A2881C18618A2E00DDD30A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B388FC2200777A500CF5782 /* IOKit.framework */,
+				0B388FC02007779800CF5782 /* OpenGL.framework */,
 				2A59B64A20037F90007B41C2 /* AppKit.framework */,
 				2A59B64820037F7E007B41C2 /* CoreVideo.framework */,
 				2AB6D3C21FB99C5C00E04677 /* CFNetwork.framework */,
@@ -1401,7 +1407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A59B63E20037D1E007B41C2 /* main.m in Sources */,
+				2A59B63E20037D1E007B41C2 /* main.mm in Sources */,
 				0B388FBF2007745A00CF5782 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

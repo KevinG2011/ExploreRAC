@@ -13,7 +13,7 @@
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-
+void processInput(GLFWwindow* window);
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -48,7 +48,9 @@ int main(int argc, const char * argv[]) {
         while (!glfwWindowShouldClose(window))
         {
             /* Render here */
+            glClearColor(.2f, .3f, .3f, 1);
             glClear(GL_COLOR_BUFFER_BIT);
+            processInput(window);
             /* Swap front and back buffers */
             glfwSwapBuffers(window);
             /* Poll for and process events */
@@ -64,4 +66,9 @@ int main(int argc, const char * argv[]) {
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
+}
+
+void processInput(GLFWwindow* window) {
+    if(glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS)
+        glfwSetWindowShouldClose(window, true);
 }

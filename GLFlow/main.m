@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <glad/glad.h>
 #include <glfw3.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)

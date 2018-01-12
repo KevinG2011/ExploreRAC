@@ -8,14 +8,14 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import <CoreImage/CoreImage.h>
+#import <LinqToObjectiveC/LinqToObjectiveC.h>
 #import "GPUImage.h"
 #import "PhotoUtils.h"
 #import "GPUImageBeautifyFilter.h"
 #import "FaceImageObject.h"
 
 
-@interface ViewController ()<GPUImageVideoCameraDelegate> {
+@interface ViewController ()<GPUImageVideoCameraDelegate, AVCaptureMetadataOutputObjectsDelegate> {
     //output view
     GPUImageView *_gpuImageView;
     //capture
@@ -36,6 +36,12 @@
     NSURL *_movieURL;
     //process label
     UILabel  *_label;
+    
+    
+    //detect queue
+    dispatch_queue_t _faceDetectQueue;
+    AVCaptureMetadataOutput *_metaOutput;
+    NSMutableDictionary *_faces;
 }
 @end
 
@@ -50,7 +56,8 @@
 //    [self buildVideoImageWatermarkPipeline];
 //    [self buildVideoComposition];
 //    [self buildVideOutputTexture];
-    [self buildBeautifyFaceDetector];
+//    [self buildBeautifyFaceDetector];
+    [self buildAVFaceDetector];
     [self setupDisplayLink];
 }
 
@@ -104,45 +111,73 @@
     imageView.tag = 101;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     view.backgroundColor = [UIColor clearColor];
-    imageView.center = CGPointMake(view.bounds.size.width / 2, view.bounds.size.height / 2);
+    imageView.center = CGPointMake(view.bounds.size.width / 2, view.bounds.size.height / view.bounds.size.height);
     [view addSubview:imageView];
     return view;
 }
 
-#pragma mark <GPUImageVideoCameraDelegate>
-
-- (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
-    FaceImageObject *faceObj = [self faceImageFromSampleBuffer:sampleBuffer];
-}
-
-- (FaceImageObject*)faceImageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+- (CIImage*)faceImageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer {
     CVPixelBufferRef pixelBuffer = (CVPixelBufferRef)CMSampleBufferGetImageBuffer(sampleBuffer);
     CVPixelBufferLockBaseAddress(pixelBuffer, 0);
+    CIImage *faceImage = [[CIImage alloc] initWithCVPixelBuffer:pixelBuffer];
     
-    uint8_t *lumaBuffer = (uint8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
-    
-    size_t bytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer,0);
-    size_t width  = CVPixelBufferGetWidth(pixelBuffer);
-    size_t height = CVPixelBufferGetHeight(pixelBuffer);
-    
-    CGColorSpaceRef grayColorSpace = CGColorSpaceCreateDeviceGray();
-    CGContextRef context = CGBitmapContextCreate(lumaBuffer, width, height, 8, bytesPerRow, grayColorSpace,0);
-    CGImageRef cgImage = CGBitmapContextCreateImage(context);
-    UIImage *faceImage = [UIImage imageWithCGImage:cgImage];
+//    uint8_t *lumaBuffer = (uint8_t *)CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
+//    size_t bytesPerRow = CVPixelBufferGetBytesPerRowOfPlane(pixelBuffer,0);
+//    size_t width  = CVPixelBufferGetWidth(pixelBuffer);
+//    size_t height = CVPixelBufferGetHeight(pixelBuffer);
+//
+//    CGColorSpaceRef grayColorSpace = CGColorSpaceCreateDeviceGray();
+
+//    CGContextRef context = CGBitmapContextCreate(lumaBuffer, width, height, 8, bytesPerRow, grayColorSpace,0);
+//    CGImageRef cgImage = CGBitmapContextCreateImage(context);
+//    UIImage *faceImage = [UIImage imageWithCGImage:cgImage];
+//
+//    CGImageRelease(cgImage);
+//    CGContextRelease(context);
+//    CGColorSpaceRelease(grayColorSpace);
     
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
     
-    CGImageRelease(cgImage);
-    CGContextRelease(context);
-    CGColorSpaceRelease(grayColorSpace);
+//    FaceImageObject *faceObj = [[FaceImageObject alloc] initWithFaceImage:faceImage];
+    return faceImage;
+}
+
+#pragma mark <GPUImageVideoCameraDelegate>
+- (void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer {
+    //TODO
+}
+
+- (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray< AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
+    for (AVMetadataFaceObject *face in metadataObjects) {
+        NSLog(@"faceID :%ld, bounds :%@",(long)face.faceID, NSStringFromCGRect(face.bounds));
+    }
+    NSArray *transformFaces = [metadataObjects linq_select:^id(AVMetadataFaceObject* face) {
+        //摄像头转视图坐标系
+//        AVMetadataObject *transformFace = _videoCamera.
+    }];
+}
+
+- (void)buildAVFaceDetector {
+    _faceDetectQueue = dispatch_queue_create("com.living.faceDetect", DISPATCH_QUEUE_SERIAL);
+    _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
+    _metaOutput = [[AVCaptureMetadataOutput alloc] init];
+    if ([_videoCamera.captureSession canAddOutput:_metaOutput]) {
+        [_videoCamera.captureSession addOutput:_metaOutput];
+        _metaOutput.metadataObjectTypes = @[AVMetadataObjectTypeFace];
+        [_metaOutput setMetadataObjectsDelegate:self queue:_faceDetectQueue];
+    }
     
-    FaceImageObject *faceObj = [[FaceImageObject alloc] initWithFaceImage:faceImage width:width height:height];
-    return faceObj;
+    GPUImageBeautifyFilter *beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
+    [_videoCamera addTarget:beautifyFilter];
+    
+    [beautifyFilter addTarget:_gpuImageView];
+    
+    [_videoCamera rotateCamera];
+    [_videoCamera startCameraCapture];
 }
 
 - (void)buildBeautifyFaceDetector {
     _videoCamera.delegate = self;
-    
     _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
     GPUImageBeautifyFilter *beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
     [_videoCamera addTarget:beautifyFilter];

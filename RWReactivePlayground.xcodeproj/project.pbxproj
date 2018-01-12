@@ -43,7 +43,7 @@
 		2A59B63E20037D1E007B41C2 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2A59B63D20037D1E007B41C2 /* main.mm */; };
 		2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64820037F7E007B41C2 /* CoreVideo.framework */; };
 		2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64A20037F90007B41C2 /* AppKit.framework */; };
-		2A68EF3C2005BA8B00912901 /* FaceImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A68EF3B2005BA8B00912901 /* FaceImageObject.m */; };
+		2A68EF81200603CF00912901 /* TransformUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A68EF80200603CF00912901 /* TransformUtil.m */; };
 		2A6F94B61FF50B4A0065DB6C /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F94A41FF50B490065DB6C /* watermark.png */; };
 		2A9A80951FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */; };
 		2A9A80991FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */; };
@@ -453,8 +453,8 @@
 		2A59B63D20037D1E007B41C2 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		2A59B64820037F7E007B41C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
 		2A59B64A20037F90007B41C2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
-		2A68EF3A2005BA8B00912901 /* FaceImageObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FaceImageObject.h; sourceTree = "<group>"; };
-		2A68EF3B2005BA8B00912901 /* FaceImageObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FaceImageObject.m; sourceTree = "<group>"; };
+		2A68EF7F200603CF00912901 /* TransformUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformUtil.h; sourceTree = "<group>"; };
+		2A68EF80200603CF00912901 /* TransformUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformUtil.m; sourceTree = "<group>"; };
 		2A6F94A41FF50B490065DB6C /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
 		2A9A80871FBAA3540000E2C5 /* RWTFlickrSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearch.h; sourceTree = "<group>"; };
 		2A9A80931FBAA79F0000E2C5 /* RWTFlickrSearchImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchImpl.h; sourceTree = "<group>"; };
@@ -784,19 +784,18 @@
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		2A68EF202005BA6300912901 /* Image */ = {
+		2A59B64320037D49007B41C2 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				2A68EF3A2005BA8B00912901 /* FaceImageObject.h */,
-				2A68EF3B2005BA8B00912901 /* FaceImageObject.m */,
+				2A59B64420037D49007B41C2 /* glfw3.h */,
+				2A59B64520037D49007B41C2 /* glfw3native.h */,
 			);
-			path = Image;
+			path = include;
 			sourceTree = "<group>";
 		};
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
 			isa = PBXGroup;
 			children = (
-				2A68EF202005BA6300912901 /* Image */,
 				2A4CA0BC2004B681003DE924 /* Filter */,
 				2AB923D11FFE428100FC9BD3 /* Util */,
 				2AB923CB1FFDFF4600FC9BD3 /* Composition */,
@@ -899,6 +898,8 @@
 			children = (
 				2AB923D21FFE430F00FC9BD3 /* PhotoUtils.h */,
 				2AB923D31FFE430F00FC9BD3 /* PhotoUtils.m */,
+				2A68EF7F200603CF00912901 /* TransformUtil.h */,
+				2A68EF80200603CF00912901 /* TransformUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1416,6 +1417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A68EF81200603CF00912901 /* TransformUtil.m in Sources */,
 				2A4CA0D82004B681003DE924 /* GPUImageBeautifyFilter.m in Sources */,
 				2AB923981FFDCFA400FC9BD3 /* MediaCompositionViewController.m in Sources */,
 				2AB119371FF34C9F0073C3A8 /* ViewController.m in Sources */,
@@ -1423,7 +1425,6 @@
 				2AB923D01FFE261000FC9BD3 /* AVFVideoCompositionEditor.m in Sources */,
 				2AB119421FF34C9F0073C3A8 /* main.m in Sources */,
 				2A344E631FFF1E2C00050387 /* VideoCompositionEditor.m in Sources */,
-				2A68EF3C2005BA8B00912901 /* FaceImageObject.m in Sources */,
 				2A344E471FFF1BEF00050387 /* GPUImageVideoCompositionEditor.m in Sources */,
 				2AB119341FF34C9F0073C3A8 /* AppDelegate.m in Sources */,
 			);

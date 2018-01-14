@@ -16,16 +16,19 @@ void processInput(GLFWwindow* window);
 
 const char *vertexShaderSource = "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
+    "out vec4 vertexColor;\n"
     "void main()\n"
     "{\n"
-    "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+        "gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+        "vertexColor = vec4(0.5, 0.0, 0.0, 1.0);\n"
     "}\n\0";
 
 const char *fragmentShaderSource = "#version 330 core\n"
+    "in vec4 vertexColor;\n"
     "out vec4 FragColor;\n"
     "void main()\n"
     "{\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+    "   FragColor = vertexColor;\n"
     "}\n\0";
 
 int main(int argc, const char * argv[]) {
@@ -122,6 +125,12 @@ int main(int argc, const char * argv[]) {
         
         glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindVertexArray(0);
+        
+#ifdef DEBUG
+        int nrAttributes;
+        glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
+        std::cout << "Maximum nr of vertex attributes supported: " << nrAttributes << std::endl;
+#endif
         
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))

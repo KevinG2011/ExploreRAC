@@ -34,6 +34,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
         // glfw: initialize and configure
         // ------------------------------
         if (!glfwInit())
@@ -137,15 +138,18 @@ int main(int argc, const char * argv[]) {
         while (!glfwWindowShouldClose(window))
         {
             /* Render here */
-            glClearColor(.0f, .0f, .0f, 1);
+            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
             processInput(window);
             
             float timeValue = glfwGetTime();
-            float greenValue = sin(timeValue);
+            float greenValue = sin(timeValue) / 2.f + 0.5f;
             int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-            glUseProgram(shaderProgram);
-            glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+            if (vertexColorLocation != -1) {
+                /*set uniform must use program first */
+                glUseProgram(shaderProgram);
+                glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+            }
             
             glBindVertexArray(VAO);
             glDrawArrays(GL_TRIANGLES, 0, 3);

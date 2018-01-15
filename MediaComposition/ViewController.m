@@ -11,9 +11,8 @@
 #import <LinqToObjectiveC/LinqToObjectiveC.h>
 #import "GPUImage.h"
 #import "PhotoUtils.h"
+#import "TransformUtil.h"
 #import "GPUImageBeautifyFilter.h"
-#import "FaceImageObject.h"
-
 
 @interface ViewController ()<GPUImageVideoCameraDelegate, AVCaptureMetadataOutputObjectsDelegate> {
     //output view
@@ -37,7 +36,8 @@
     //process label
     UILabel  *_label;
     
-    
+    //faceu image view;
+    __weak UIView *_faceuView;
     //detect queue
     dispatch_queue_t _faceDetectQueue;
     AVCaptureMetadataOutput *_metaOutput;
@@ -106,13 +106,17 @@
 
 - (UIView*)createFaceuView {
     CGSize size = self.view.bounds.size;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    view.backgroundColor = [UIColor clearColor];
     UIImage *image = [UIImage imageNamed:@"Crown"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
     imageView.tag = 101;
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    view.backgroundColor = [UIColor clearColor];
-    imageView.center = CGPointMake(view.bounds.size.width / 2, view.bounds.size.height / view.bounds.size.height);
+    imageView.center = CGPointMake(view.bounds.size.width / 2, view.bounds.size.height / 2);
     [view addSubview:imageView];
+    CATransform3D t = CATransform3DIdentity;
+    t.m34 = -1.0 / 1000;
+    view.layer.sublayerTransform = t;
+    _faceuView = view;
     return view;
 }
 
@@ -147,14 +151,30 @@
     //TODO
 }
 
+#pragma mark <AVCaptureMetadataOutputObjectsDelegate>
 - (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray< AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection {
     for (AVMetadataFaceObject *face in metadataObjects) {
-        NSLog(@"faceID :%ld, bounds :%@",(long)face.faceID, NSStringFromCGRect(face.bounds));
+//        NSLog(@"faceID :%ld, bounds :%@",(long)face.faceID, NSStringFromCGRect(face.bounds));
+        UIImageView *faceuImageV = (UIImageView*)[_faceuView viewWithTag:101];
+        if (faceuImageV) {
+            CGRect faceBounds = face.bounds;
+            CATransform3D t = CATransform3DIdentity;
+//            if ([face hasRollAngle]) {
+//                CATransform3D rollTransform = [TransformUtil transformForRollAngle:face.rollAngle];
+//                t = CATransform3DConcat(rollTransform, t);
+//            }
+//            if ([face hasYawAngle]) {
+//                CATransform3D yawTransform = [TransformUtil transformForYawAngle:face.yawAngle];
+//                t = CATransform3DConcat(yawTransform, t);
+//            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                CGRect faceRect = [TransformUtil covertMetaObjectRect:faceBounds toView:_faceuView];
+                faceuImageV.layer.transform = t;
+                faceuImageV.frame = faceRect;
+            });
+        }
+        break;
     }
-    NSArray *transformFaces = [metadataObjects linq_select:^id(AVMetadataFaceObject* face) {
-        //摄像头转视图坐标系
-//        AVMetadataObject *transformFace = _videoCamera.
-    }];
 }
 
 - (void)buildAVFaceDetector {
@@ -166,11 +186,22 @@
         _metaOutput.metadataObjectTypes = @[AVMetadataObjectTypeFace];
         [_metaOutput setMetadataObjectsDelegate:self queue:_faceDetectQueue];
     }
-    
+
     GPUImageBeautifyFilter *beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
     [_videoCamera addTarget:beautifyFilter];
     
-    [beautifyFilter addTarget:_gpuImageView];
+    GPUImageAddBlendFilter *blendFilter = [[GPUImageAddBlendFilter alloc] init];
+    [beautifyFilter addTarget:blendFilter];
+    
+    UIView *faceuView = [self createFaceuView];
+    GPUImageUIElement *uiElement = [[GPUImageUIElement alloc] initWithView:faceuView];
+    [uiElement addTarget:blendFilter];
+    
+    [beautifyFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {
+        [uiElement updateWithTimestamp:time];
+    }];
+    
+    [blendFilter addTarget:_gpuImageView];
     
     [_videoCamera rotateCamera];
     [_videoCamera startCameraCapture];
@@ -181,12 +212,12 @@
     _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
     GPUImageBeautifyFilter *beautifyFilter = [[GPUImageBeautifyFilter alloc] init];
     [_videoCamera addTarget:beautifyFilter];
-
-    UIView *faceuView = [self createFaceuView];
-    GPUImageUIElement *uiElement = [[GPUImageUIElement alloc] initWithView:faceuView];
     
     GPUImageAddBlendFilter *blendFilter = [[GPUImageAddBlendFilter alloc] init];
     [beautifyFilter addTarget:blendFilter];
+    
+    UIView *faceuView = [self createFaceuView];
+    GPUImageUIElement *uiElement = [[GPUImageUIElement alloc] initWithView:faceuView];
     [uiElement addTarget:blendFilter];
     
     [beautifyFilter setFrameProcessingCompletionBlock:^(GPUImageOutput *output, CMTime time) {

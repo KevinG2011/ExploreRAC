@@ -17,17 +17,18 @@
 
 +(CATransform3D)transformForYawAngle:(CGFloat)yawAngle {
     CGFloat yawRadians = GLKMathDegreesToRadians(yawAngle);
-    return CATransform3DMakeRotation(yawRadians, 0, -1, 0);
+    return CATransform3DMakeRotation(yawRadians, 0, 1, 0);
 }
 
 +(CGRect)covertMetaObjectRect:(CGRect)bounds toView:(UIView*)view {
+    //摄像头坐标, 横屏左上角开始.
     CGRect screen = UIScreen.mainScreen.bounds;
-//    CGRect winFrame = CGRectMake(bounds.origin.x * screen.size.width, bounds, <#CGFloat width#>, <#CGFloat height#>)
-//    
-//    CATransform3D t = CATransform3DIdentity;
-//    t = CATransform3DScale(t, 0, -1, 0);
-//    t = CATransform3DTranslate(t, 0, -winFrame.size.height, 0);
-//    
-    return CGRectZero;
+    CGRect metaRect = CGRectMake(bounds.origin.y * screen.size.width,
+                                 bounds.origin.x * screen.size.height,
+                                 bounds.size.width * screen.size.height, bounds.size.height * screen.size.width);
+    if (view) {
+        metaRect = [view convertRect:metaRect fromView:nil];
+    }
+    return metaRect;
 }
 @end

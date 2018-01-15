@@ -11,4 +11,5 @@
 @interface TransformUtil : NSObject
 +(CATransform3D)transformForRollAngle:(CGFloat)rollAngle;
 +(CATransform3D)transformForYawAngle:(CGFloat)yawAngle;
++(CGRect)covertMetaObjectRect:(CGRect)bounds toView:(UIView*)view;
 @end

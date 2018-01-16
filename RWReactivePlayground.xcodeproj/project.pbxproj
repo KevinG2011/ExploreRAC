@@ -70,6 +70,7 @@
 		2AB924011FFE459800FC9BD3 /* RevealServer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A32D36C1FB409F90085742F /* RevealServer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AB924021FFE45B200FC9BD3 /* libLinqToObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB923DC1FFE449F00FC9BD3 /* libLinqToObjectiveC.a */; };
 		2AB924051FFE45CD00FC9BD3 /* libSDWebImage iOS static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3B31FB99C2200E04677 /* libSDWebImage iOS static.a */; };
+		2ABC0416200E17C000C67583 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2ABC0414200E17C000C67583 /* Shader.cpp */; };
 		721E122718698DC100B30134 /* kitten.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 721E122618698DC100B30134 /* kitten.jpg */; };
 		72A2881E18618A2E00DDD30A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881D18618A2E00DDD30A /* Foundation.framework */; };
 		72A2882018618A2E00DDD30A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A2881F18618A2E00DDD30A /* CoreGraphics.framework */; };
@@ -493,6 +494,8 @@
 		2AB923D31FFE430F00FC9BD3 /* PhotoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoUtils.m; sourceTree = "<group>"; };
 		2AB923D51FFE449F00FC9BD3 /* LinqToObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LinqToObjectiveC.xcodeproj; path = LinqToObjectiveC/LinqToObjectiveC/LinqToObjectiveC.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2AB923E11FFE44BD00FC9BD3 /* ReactiveObjC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactiveObjC.xcodeproj; path = ReactiveObjC/ReactiveObjC.xcodeproj; sourceTree = SOURCE_ROOT; };
+		2ABC0414200E17C000C67583 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		2ABC0415200E17C000C67583 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
 		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -771,6 +774,8 @@
 			children = (
 				2A59B64220037D49007B41C2 /* Lib */,
 				2A59B63D20037D1E007B41C2 /* main.mm */,
+				2ABC0414200E17C000C67583 /* Shader.cpp */,
+				2ABC0415200E17C000C67583 /* Shader.hpp */,
 			);
 			path = GLFlow;
 			sourceTree = "<group>";
@@ -782,15 +787,6 @@
 				0B388FB12007745A00CF5782 /* glfw */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		2A59B64320037D49007B41C2 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				2A59B64420037D49007B41C2 /* glfw3.h */,
-				2A59B64520037D49007B41C2 /* glfw3native.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
@@ -1409,6 +1405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A59B63E20037D1E007B41C2 /* main.mm in Sources */,
+				2ABC0416200E17C000C67583 /* Shader.cpp in Sources */,
 				0B388FBF2007745A00CF5782 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

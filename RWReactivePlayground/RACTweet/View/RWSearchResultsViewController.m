@@ -16,9 +16,7 @@
 @property (nonatomic, strong) NSArray *tweets;
 @end
 
-@implementation RWSearchResultsViewController {
-
-}
+@implementation RWSearchResultsViewController
 
 - (void)viewDidLoad
 {

@@ -35,7 +35,7 @@
   }];
   self.executeSearch = [[RACCommand alloc]
                         initWithEnabled:validSearchSigal
-                            signalBlock:^RACSignal * _Nonnull(NSString* input) {
+                            signalBlock:^RACSignal * _Nonnull(id input) {
     return [self signalForExecuteSearch];
   }];
 }

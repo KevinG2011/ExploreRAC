@@ -109,7 +109,6 @@
                             }];
 }
 
-
 // updates the enabled state and style of the text fields based on whether the current username
 // and password combo is valid
 

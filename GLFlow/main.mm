@@ -10,27 +10,11 @@
 #include <glad/glad.h>
 #include <glfw3.h>
 #include <iostream>
+#include "Shader.hpp"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 
-const char *vertexShaderSource = "#version 330 core\n"
-    "layout (location = 0) in vec3 aPos;\n"
-    "layout (location = 1) in vec3 aColor;\n"
-    "out vec3 ourColor;\n"
-    "void main()\n"
-    "{\n"
-        "gl_Position = vec4(aPos, 1.0);\n"
-        "ourColor = aColor;\n"
-    "}\n\0";
-
-const char *fragmentShaderSource = "#version 330 core\n"
-    "out vec4 FragColor;\n"
-    "in vec3 ourColor;\n"
-    "void main()\n"
-    "{\n"
-    "   FragColor = vec4(ourColor, 1.0);\n"
-    "}\n\0";
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -68,45 +52,10 @@ int main(int argc, const char * argv[]) {
         // build and compile our shader program
         // ------------------------------------
         // vertex shader
-        unsigned int vertexShader;
-        vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-        glCompileShader(vertexShader);
+        NSString *verPath = [[NSBundle mainBundle] pathForResource:@"shader" ofType:@"vs"];
+        NSString *fragPath = [[NSBundle mainBundle] pathForResource:@"shader" ofType:@"fs"];
+        Shader shader(verPath.UTF8String, fragPath.UTF8String);
         
-        int success;
-        char infoLog[512];
-        glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-        if (!success) {
-            glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-            std::cout << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n" << infoLog << std::endl;
-        }
-        
-        //fragment shader
-        unsigned int fragmentShader;
-        fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-        glCompileShader(fragmentShader);
-
-        glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-        if (!success) {
-            glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-            std::cout << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n" << infoLog << std::endl;
-        }
-
-        //link shader
-        unsigned int shaderProgram;
-        shaderProgram = glCreateProgram();
-        glAttachShader(shaderProgram, vertexShader);
-        glAttachShader(shaderProgram, fragmentShader);
-        glLinkProgram(shaderProgram);
-        glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-        if (!success) {
-            glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-            std::cout << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n" << infoLog << std::endl;
-        }
-        
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
         // set up vertex data (and buffer(s)) and configure vertex attributes
         // ------------------------------------------------------------------
         float vertices[] = {
@@ -151,7 +100,7 @@ int main(int argc, const char * argv[]) {
 //            int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
 //            if (vertexColorLocation != -1) {
 //                /*set uniform must use program first */
-                    glUseProgram(shaderProgram);
+            shader.use();
 //                glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
 //            }
             

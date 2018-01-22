@@ -45,6 +45,8 @@
 		2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A59B64A20037F90007B41C2 /* AppKit.framework */; };
 		2A68EF81200603CF00912901 /* TransformUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A68EF80200603CF00912901 /* TransformUtil.m */; };
 		2A6F94B61FF50B4A0065DB6C /* watermark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A6F94A41FF50B490065DB6C /* watermark.png */; };
+		2A92BE1D2015794100428DE5 /* shader.vs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2A92BE1720156FD000428DE5 /* shader.vs */; };
+		2A92BE1E2015794100428DE5 /* shader.fs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2A92BE182015704300428DE5 /* shader.fs */; };
 		2A9A80951FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */; };
 		2A9A80991FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80981FBAD3CE0000E2C5 /* RWTFlickrViewModelServiceImpl.m */; };
 		2A9A80A81FBAECC50000E2C5 /* RWTFlickrPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A80A71FBAECC50000E2C5 /* RWTFlickrPhoto.m */; };
@@ -373,14 +375,16 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2A59B63920037D1E007B41C2 /* CopyFiles */ = {
+		2A92BE1C2015793400428DE5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 7;
 			files = (
+				2A92BE1D2015794100428DE5 /* shader.vs in CopyFiles */,
+				2A92BE1E2015794100428DE5 /* shader.fs in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2AB119651FF34E830073C3A8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -457,6 +461,8 @@
 		2A68EF7F200603CF00912901 /* TransformUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransformUtil.h; sourceTree = "<group>"; };
 		2A68EF80200603CF00912901 /* TransformUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransformUtil.m; sourceTree = "<group>"; };
 		2A6F94A41FF50B490065DB6C /* watermark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watermark.png; sourceTree = "<group>"; };
+		2A92BE1720156FD000428DE5 /* shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
+		2A92BE182015704300428DE5 /* shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
 		2A9A80871FBAA3540000E2C5 /* RWTFlickrSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearch.h; sourceTree = "<group>"; };
 		2A9A80931FBAA79F0000E2C5 /* RWTFlickrSearchImpl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWTFlickrSearchImpl.h; sourceTree = "<group>"; };
 		2A9A80941FBAA79F0000E2C5 /* RWTFlickrSearchImpl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWTFlickrSearchImpl.m; sourceTree = "<group>"; };
@@ -776,6 +782,8 @@
 				2A59B63D20037D1E007B41C2 /* main.mm */,
 				2ABC0414200E17C000C67583 /* Shader.cpp */,
 				2ABC0415200E17C000C67583 /* Shader.hpp */,
+				2A92BE1720156FD000428DE5 /* shader.vs */,
+				2A92BE182015704300428DE5 /* shader.fs */,
 			);
 			path = GLFlow;
 			sourceTree = "<group>";
@@ -1002,7 +1010,7 @@
 			buildPhases = (
 				2A59B63720037D1E007B41C2 /* Sources */,
 				2A59B63820037D1E007B41C2 /* Frameworks */,
-				2A59B63920037D1E007B41C2 /* CopyFiles */,
+				2A92BE1C2015793400428DE5 /* CopyFiles */,
 			);
 			buildRules = (
 			);

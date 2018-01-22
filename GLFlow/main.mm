@@ -60,9 +60,9 @@ int main(int argc, const char * argv[]) {
         // ------------------------------------------------------------------
         float vertices[] = {
             //位置            //颜色
-             0.5f, -0.5f, 0, 1.0f, 0.0f, 0.0f,
-            -0.5f, -0.5f, 0, 0.0f, 1.0f, 0.0f,
-             0.0f,  0.5f, 0, 0.0f, 0.0f, 1.0f,
+             0.5f, 0.5f, 0, 1.0f, 0.0f, 0.0f,
+            -0.5f, 0.5f, 0, 0.0f, 1.0f, 0.0f,
+             0.0f,  -0.5f, 0, 0.0f, 0.0f, 1.0f,
         };
     
         unsigned int VBO, VAO;
@@ -86,7 +86,8 @@ int main(int argc, const char * argv[]) {
         glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
         std::cout << "Maximum nr of vertex attributes supported: " << nrAttributes << std::endl;
 #endif
-
+        double lastTimeValue = glfwGetTime();
+        int sign = 1;
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))
         {
@@ -95,14 +96,25 @@ int main(int argc, const char * argv[]) {
             glClear(GL_COLOR_BUFFER_BIT);
             processInput(window);
             
-//            float timeValue = glfwGetTime();
+
+            double timeInterval = glfwGetTime() - lastTimeValue;
+            double sinValue = sin(timeInterval);
+            float offsetValue = sign * 1.6f * sinValue;
+            NSLog(@"sinValue : %f, offsetValue: %f",sinValue, offsetValue);
+            if (sinValue > 0.99) {
+                sign = -1;
+            } else if (sinValue < -0.99) {
+                sign = 1;
+            }
 //            float greenValue = sin(timeValue) / 2.f + 0.5f;
 //            int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-//            if (vertexColorLocation != -1) {
-//                /*set uniform must use program first */
             shader.use();
+            int vertexOffsetLocation = glGetUniformLocation(shader.ID, "xOffset");
+            if (vertexOffsetLocation != -1) {
+                /*set uniform must use program first */
 //                glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
-//            }
+                glUniform1f(vertexOffsetLocation, offsetValue);
+            }
             
             glBindVertexArray(VAO);
             glDrawArrays(GL_TRIANGLES, 0, 3);

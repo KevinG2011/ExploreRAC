@@ -12,9 +12,14 @@
 		0B12C7D11FB36109001738A0 /* ReactiveObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; };
 		0B12C7D21FB36109001738A0 /* ReactiveObjC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12C7C61FB360E3001738A0 /* ReactiveObjC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B1496381FC1C9320084BA60 /* CETableViewBindingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1496351FC1C9310084BA60 /* CETableViewBindingHelper.m */; };
-		0B388FBE2007745A00CF5782 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FB52007745A00CF5782 /* libglfw3.a */; };
 		0B388FBF2007745A00CF5782 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 0B388FBD2007745A00CF5782 /* glad.c */; };
 		0B388FC3200777A500CF5782 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FC2200777A500CF5782 /* IOKit.framework */; };
+		0B5F03AD202708E200E613D0 /* libGLTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5F03AC202708E200E613D0 /* libGLTools.a */; };
+		0B5F03B520270BD300E613D0 /* glfwkit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B5F03B420270BD300E613D0 /* glfwkit.mm */; };
+		0B5F03B920270BF100E613D0 /* glutkit.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B5F03B720270BF100E613D0 /* glutkit.mm */; };
+		0B5F03BA2027113400E613D0 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FB52007745A00CF5782 /* libglfw3.a */; };
+		0B5F03BB2027119C00E613D0 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5F03652027065500E613D0 /* GLUT.framework */; };
+		0B5F03BC202711A300E613D0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FC02007779800CF5782 /* OpenGL.framework */; };
 		0BDC4F461FB82A94001AE26A /* libLinqToObjectiveC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5550541FB6A91B005DC829 /* libLinqToObjectiveC.a */; };
 		2A32D33F1FB3ECC00085742F /* RWSearchFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */; };
 		2A32D3421FB3ECD50085742F /* RWSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3411FB3ECD50085742F /* RWSearchResultsViewController.m */; };
@@ -419,6 +424,26 @@
 		0B388FC02007779800CF5782 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework; sourceTree = DEVELOPER_DIR; };
 		0B388FC2200777A500CF5782 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/IOKit.framework; sourceTree = DEVELOPER_DIR; };
 		0B55504D1FB6A91B005DC829 /* LinqToObjectiveC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LinqToObjectiveC.xcodeproj; path = LinqToObjectiveC/LinqToObjectiveC/LinqToObjectiveC.xcodeproj; sourceTree = SOURCE_ROOT; };
+		0B5F03652027065500E613D0 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/GLUT.framework; sourceTree = DEVELOPER_DIR; };
+		0B5F039E202708E200E613D0 /* glew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glew.h; sourceTree = "<group>"; };
+		0B5F039F202708E200E613D0 /* glxew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glxew.h; sourceTree = "<group>"; };
+		0B5F03A0202708E200E613D0 /* wglew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wglew.h; sourceTree = "<group>"; };
+		0B5F03A1202708E200E613D0 /* GLBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBatch.h; sourceTree = "<group>"; };
+		0B5F03A2202708E200E613D0 /* GLBatchBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBatchBase.h; sourceTree = "<group>"; };
+		0B5F03A3202708E200E613D0 /* GLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFrame.h; sourceTree = "<group>"; };
+		0B5F03A4202708E200E613D0 /* GLFrustum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFrustum.h; sourceTree = "<group>"; };
+		0B5F03A5202708E200E613D0 /* GLGeometryTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLGeometryTransform.h; sourceTree = "<group>"; };
+		0B5F03A6202708E200E613D0 /* GLMatrixStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatrixStack.h; sourceTree = "<group>"; };
+		0B5F03A7202708E200E613D0 /* GLShaderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLShaderManager.h; sourceTree = "<group>"; };
+		0B5F03A8202708E200E613D0 /* GLTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTools.h; sourceTree = "<group>"; };
+		0B5F03A9202708E200E613D0 /* GLTriangleBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTriangleBatch.h; sourceTree = "<group>"; };
+		0B5F03AA202708E200E613D0 /* math3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math3d.h; sourceTree = "<group>"; };
+		0B5F03AB202708E200E613D0 /* StopWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StopWatch.h; sourceTree = "<group>"; };
+		0B5F03AC202708E200E613D0 /* libGLTools.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGLTools.a; sourceTree = "<group>"; };
+		0B5F03B320270BD300E613D0 /* glfwkit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glfwkit.h; sourceTree = "<group>"; };
+		0B5F03B420270BD300E613D0 /* glfwkit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = glfwkit.mm; sourceTree = "<group>"; };
+		0B5F03B720270BF100E613D0 /* glutkit.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = glutkit.mm; sourceTree = "<group>"; };
+		0B5F03B820270BF100E613D0 /* glutkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glutkit.h; sourceTree = "<group>"; };
 		2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSearchFormViewController.m; sourceTree = "<group>"; };
 		2A32D33E1FB3ECC00085742F /* RWSearchFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSearchFormViewController.h; sourceTree = "<group>"; };
 		2A32D3401FB3ECD50085742F /* RWSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSearchResultsViewController.h; sourceTree = "<group>"; };
@@ -454,7 +479,7 @@
 		2A4CA0BD2004B681003DE924 /* GPUImageBeautifyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUImageBeautifyFilter.h; sourceTree = "<group>"; };
 		2A4CA0BE2004B681003DE924 /* GPUImageBeautifyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUImageBeautifyFilter.m; sourceTree = "<group>"; };
 		2A4CA0DB2004BA69003DE924 /* Crown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Crown@2x.png"; sourceTree = "<group>"; };
-		2A59B63B20037D1E007B41C2 /* GLFlow */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GLFlow; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A59B63B20037D1E007B41C2 /* OpenGLVisual */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OpenGLVisual; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A59B63D20037D1E007B41C2 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		2A59B64820037F7E007B41C2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
 		2A59B64A20037F90007B41C2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -503,7 +528,7 @@
 		2ABC0414200E17C000C67583 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		2ABC0415200E17C000C67583 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		721E122618698DC100B30134 /* kitten.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten.jpg; sourceTree = "<group>"; };
-		72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RWReactivePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72A2881A18618A2E00DDD30A /* RACMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RACMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A2881D18618A2E00DDD30A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		72A2881F18618A2E00DDD30A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		72A2882118618A2E00DDD30A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -527,10 +552,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5F03BC202711A300E613D0 /* OpenGL.framework in Frameworks */,
+				0B5F03BB2027119C00E613D0 /* GLUT.framework in Frameworks */,
 				0B388FC3200777A500CF5782 /* IOKit.framework in Frameworks */,
 				2A59B64B20037F91007B41C2 /* AppKit.framework in Frameworks */,
 				2A59B64920037F7E007B41C2 /* CoreVideo.framework in Frameworks */,
-				0B388FBE2007745A00CF5782 /* libglfw3.a in Frameworks */,
+				0B5F03AD202708E200E613D0 /* libGLTools.a in Frameworks */,
+				0B5F03BA2027113400E613D0 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +699,71 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		0B5F039B202708E200E613D0 /* glut */ = {
+			isa = PBXGroup;
+			children = (
+				0B5F039C202708E200E613D0 /* include */,
+				0B5F03AC202708E200E613D0 /* libGLTools.a */,
+			);
+			path = glut;
+			sourceTree = "<group>";
+		};
+		0B5F039C202708E200E613D0 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0B5F039D202708E200E613D0 /* GL */,
+				0B5F03A1202708E200E613D0 /* GLBatch.h */,
+				0B5F03A2202708E200E613D0 /* GLBatchBase.h */,
+				0B5F03A3202708E200E613D0 /* GLFrame.h */,
+				0B5F03A4202708E200E613D0 /* GLFrustum.h */,
+				0B5F03A5202708E200E613D0 /* GLGeometryTransform.h */,
+				0B5F03A6202708E200E613D0 /* GLMatrixStack.h */,
+				0B5F03A7202708E200E613D0 /* GLShaderManager.h */,
+				0B5F03A8202708E200E613D0 /* GLTools.h */,
+				0B5F03A9202708E200E613D0 /* GLTriangleBatch.h */,
+				0B5F03AA202708E200E613D0 /* math3d.h */,
+				0B5F03AB202708E200E613D0 /* StopWatch.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		0B5F039D202708E200E613D0 /* GL */ = {
+			isa = PBXGroup;
+			children = (
+				0B5F039E202708E200E613D0 /* glew.h */,
+				0B5F039F202708E200E613D0 /* glxew.h */,
+				0B5F03A0202708E200E613D0 /* wglew.h */,
+			);
+			path = GL;
+			sourceTree = "<group>";
+		};
+		0B5F03AE20270A7A00E613D0 /* kit */ = {
+			isa = PBXGroup;
+			children = (
+				0B5F03B620270BDC00E613D0 /* glutkit */,
+				0B5F03B220270BD300E613D0 /* glfwkit */,
+			);
+			path = kit;
+			sourceTree = "<group>";
+		};
+		0B5F03B220270BD300E613D0 /* glfwkit */ = {
+			isa = PBXGroup;
+			children = (
+				0B5F03B320270BD300E613D0 /* glfwkit.h */,
+				0B5F03B420270BD300E613D0 /* glfwkit.mm */,
+			);
+			path = glfwkit;
+			sourceTree = "<group>";
+		};
+		0B5F03B620270BDC00E613D0 /* glutkit */ = {
+			isa = PBXGroup;
+			children = (
+				0B5F03B820270BF100E613D0 /* glutkit.h */,
+				0B5F03B720270BF100E613D0 /* glutkit.mm */,
+			);
+			path = glutkit;
+			sourceTree = "<group>";
+		};
 		2A4770C51FBC2E5600B4618A /* RACTweet */ = {
 			isa = PBXGroup;
 			children = (
@@ -775,26 +868,28 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
-		2A59B63C20037D1E007B41C2 /* GLFlow */ = {
+		2A59B63C20037D1E007B41C2 /* OpenGLVisual */ = {
 			isa = PBXGroup;
 			children = (
-				2A59B64220037D49007B41C2 /* Lib */,
+				2A59B64220037D49007B41C2 /* lib */,
+				0B5F03AE20270A7A00E613D0 /* kit */,
 				2A59B63D20037D1E007B41C2 /* main.mm */,
 				2ABC0414200E17C000C67583 /* Shader.cpp */,
 				2ABC0415200E17C000C67583 /* Shader.hpp */,
 				2A92BE1720156FD000428DE5 /* shader.vs */,
 				2A92BE182015704300428DE5 /* shader.fs */,
 			);
-			path = GLFlow;
+			path = OpenGLVisual;
 			sourceTree = "<group>";
 		};
-		2A59B64220037D49007B41C2 /* Lib */ = {
+		2A59B64220037D49007B41C2 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				0B5F039B202708E200E613D0 /* glut */,
 				0B388FB62007745A00CF5782 /* glad */,
 				0B388FB12007745A00CF5782 /* glfw */,
 			);
-			path = Lib;
+			path = lib;
 			sourceTree = "<group>";
 		};
 		2AB119311FF34C9F0073C3A8 /* MediaComposition */ = {
@@ -937,7 +1032,7 @@
 			children = (
 				72A2882318618A2E00DDD30A /* RWReactivePlayground */,
 				2AB119311FF34C9F0073C3A8 /* MediaComposition */,
-				2A59B63C20037D1E007B41C2 /* GLFlow */,
+				2A59B63C20037D1E007B41C2 /* OpenGLVisual */,
 				72A2881C18618A2E00DDD30A /* Frameworks */,
 				72A2881B18618A2E00DDD30A /* Products */,
 			);
@@ -946,9 +1041,9 @@
 		72A2881B18618A2E00DDD30A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */,
+				72A2881A18618A2E00DDD30A /* RACMVVM.app */,
 				2AB119301FF34C9F0073C3A8 /* MediaComposition.app */,
-				2A59B63B20037D1E007B41C2 /* GLFlow */,
+				2A59B63B20037D1E007B41C2 /* OpenGLVisual */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -956,6 +1051,7 @@
 		72A2881C18618A2E00DDD30A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B5F03652027065500E613D0 /* GLUT.framework */,
 				0B388FC2200777A500CF5782 /* IOKit.framework */,
 				0B388FC02007779800CF5782 /* OpenGL.framework */,
 				2A59B64A20037F90007B41C2 /* AppKit.framework */,
@@ -1004,9 +1100,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A59B63A20037D1E007B41C2 /* GLFlow */ = {
+		2A59B63A20037D1E007B41C2 /* OpenGLVisual */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "GLFlow" */;
+			buildConfigurationList = 2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "OpenGLVisual" */;
 			buildPhases = (
 				2A59B63720037D1E007B41C2 /* Sources */,
 				2A59B63820037D1E007B41C2 /* Frameworks */,
@@ -1016,9 +1112,9 @@
 			);
 			dependencies = (
 			);
-			name = GLFlow;
+			name = OpenGLVisual;
 			productName = GLFlow;
-			productReference = 2A59B63B20037D1E007B41C2 /* GLFlow */;
+			productReference = 2A59B63B20037D1E007B41C2 /* OpenGLVisual */;
 			productType = "com.apple.product-type.tool";
 		};
 		2AB1192F1FF34C9F0073C3A8 /* MediaComposition */ = {
@@ -1043,9 +1139,9 @@
 			productReference = 2AB119301FF34C9F0073C3A8 /* MediaComposition.app */;
 			productType = "com.apple.product-type.application";
 		};
-		72A2881918618A2E00DDD30A /* RWReactivePlayground */ = {
+		72A2881918618A2E00DDD30A /* RACMVVM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 72A2884C18618A2E00DDD30A /* Build configuration list for PBXNativeTarget "RWReactivePlayground" */;
+			buildConfigurationList = 72A2884C18618A2E00DDD30A /* Build configuration list for PBXNativeTarget "RACMVVM" */;
 			buildPhases = (
 				72A2881618618A2E00DDD30A /* Sources */,
 				72A2881718618A2E00DDD30A /* Frameworks */,
@@ -1062,9 +1158,9 @@
 				0B12C7D01FB360FB001738A0 /* PBXTargetDependency */,
 				0B12C7D41FB36109001738A0 /* PBXTargetDependency */,
 			);
-			name = RWReactivePlayground;
+			name = RACMVVM;
 			productName = RWReactivePlayground;
-			productReference = 72A2881A18618A2E00DDD30A /* RWReactivePlayground.app */;
+			productReference = 72A2881A18618A2E00DDD30A /* RACMVVM.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1135,9 +1231,9 @@
 			);
 			projectRoot = "";
 			targets = (
-				72A2881918618A2E00DDD30A /* RWReactivePlayground */,
+				72A2881918618A2E00DDD30A /* RACMVVM */,
 				2AB1192F1FF34C9F0073C3A8 /* MediaComposition */,
-				2A59B63A20037D1E007B41C2 /* GLFlow */,
+				2A59B63A20037D1E007B41C2 /* OpenGLVisual */,
 			);
 		};
 /* End PBXProject section */
@@ -1413,7 +1509,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A59B63E20037D1E007B41C2 /* main.mm in Sources */,
+				0B5F03B920270BF100E613D0 /* glutkit.mm in Sources */,
 				2ABC0416200E17C000C67583 /* Shader.cpp in Sources */,
+				0B5F03B520270BD300E613D0 /* glfwkit.mm in Sources */,
 				0B388FBF2007745A00CF5782 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1563,11 +1661,13 @@
 				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/GLFlow/Lib/**";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/$(TARGETNAME)/lib/**";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GLFlow/Lib",
-					"$(PROJECT_DIR)/GLFlow/Lib/glfw",
+					"$(PROJECT_DIR)/$(TARGETNAME)/lib",
+					"$(PROJECT_DIR)/$(TARGETNAME)/lib/glfw",
+					"$(PROJECT_DIR)/$(TARGETNAME)/lib/glut",
+					"$(PROJECT_DIR)/OpenGLVisual/lib/glfw",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -1592,11 +1692,13 @@
 				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/GLFlow/Lib/**";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/$(TARGETNAME)/lib/**";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/GLFlow/Lib",
-					"$(PROJECT_DIR)/GLFlow/Lib/glfw",
+					"$(PROJECT_DIR)/$(TARGETNAME)/lib",
+					"$(PROJECT_DIR)/$(TARGETNAME)/lib/glfw",
+					"$(PROJECT_DIR)/$(TARGETNAME)/lib/glut",
+					"$(PROJECT_DIR)/OpenGLVisual/lib/glfw",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1855,7 +1957,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "GLFlow" */ = {
+		2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "OpenGLVisual" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A59B64020037D1E007B41C2 /* Debug */,
@@ -1882,7 +1984,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		72A2884C18618A2E00DDD30A /* Build configuration list for PBXNativeTarget "RWReactivePlayground" */ = {
+		72A2884C18618A2E00DDD30A /* Build configuration list for PBXNativeTarget "RACMVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				72A2884D18618A2E00DDD30A /* Debug */,

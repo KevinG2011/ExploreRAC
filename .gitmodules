@@ -13,3 +13,6 @@
 [submodule "GPUImage"]
 	path = GPUImage
 	url = https://github.com/BradLarson/GPUImage.git
+[submodule "BlocksKit"]
+	path = BlocksKit
+	url = https://github.com/BlocksKit/BlocksKit.git

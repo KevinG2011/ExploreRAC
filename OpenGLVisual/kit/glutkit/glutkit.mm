@@ -17,7 +17,8 @@ void glutkitFramebufferSizeCallback(int w, int h);
 GLBatch triangleBatch;
 GLShaderManager shaderManager;
 
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 int glutkitRun(int argc,const char *argv[]) {
     //设置当前工作目录，针对MAC OS X
     gltSetWorkingDirectory(argv[0]);
@@ -50,6 +51,7 @@ int glutkitRun(int argc,const char *argv[]) {
     glutMainLoop();
     return 0;
 }
+#pragma clang diagnostic pop
 
 void glutkitSetup() {
     //设置背影颜色
@@ -60,13 +62,9 @@ void glutkitSetup() {
     
     //设置三角形，其中数组vVert包含所有3个顶点的x,y,笛卡尔坐标对。
     GLfloat vVerts[] = {
-        
         -0.5f,0.0f,0.0f,
-        
         0.5f,0.0f,0.0f,
-        
         0.0f,0.5f,0.0f,
-        
     };
     
     //批次处理
@@ -82,7 +80,7 @@ void glutkitRenderScene() {
     //设置一组浮点数来表示红色
     GLfloat vRed[] = {1.0f,0.0f,0.0f,1.0f};
     
-    //传递到存储着色器，即GLT_SHADER_IDENTITY着色器，这个着色器只是使用指定颜色以默认笛卡尔坐标第在屏幕上渲染几何图形
+    //传递到存储着色器，即GLT_SHADER_IDENTITY着色器，这个着色器只是使用指定颜色以默认笛卡尔坐标在屏幕上渲染几何图形
     shaderManager.UseStockShader(GLT_SHADER_IDENTITY,vRed);
     
     //提交着色器
@@ -95,3 +93,6 @@ void glutkitRenderScene() {
 void glutkitFramebufferSizeCallback(int w, int h) {
     glViewport(0, 0, w, h);
 }
+
+
+

@@ -41,8 +41,7 @@
     
     [movAsset loadValuesAsynchronouslyForKeys:@[@"duration"] completionHandler:^{
         NSError *error = nil;
-        AVKeyValueStatus status =
-        [movAsset statusOfValueForKey:@"duration" error:&error];
+        AVKeyValueStatus status = [movAsset statusOfValueForKey:@"duration" error:&error];
         switch (status) {
             case AVKeyValueStatusLoaded: {
                 NSArray *times = @[[NSValue valueWithCMTime:movAsset.duration]];

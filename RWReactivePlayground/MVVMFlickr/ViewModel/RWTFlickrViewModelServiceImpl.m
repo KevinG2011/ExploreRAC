@@ -30,7 +30,6 @@
 -(void)pushViewModel:(id)viewModel {
   id viewController;
   if ([viewModel isKindOfClass:RWTFlickrSearchResultsViewModel.class]) {
-    
     viewController = [[RWTFlickrSearchResultsViewController alloc] initWithViewModel:viewModel];
   }
   [self.navigationController pushViewController:viewController animated:YES];

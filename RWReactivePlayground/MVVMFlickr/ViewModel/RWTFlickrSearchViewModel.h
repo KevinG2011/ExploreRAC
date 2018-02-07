@@ -13,6 +13,6 @@
 @interface RWTFlickrSearchViewModel : NSObject
 @property (nonatomic, strong) NSString         *searchText;
 @property (nonatomic, strong) NSString         *title;
-@property (nonatomic, strong) RACCommand       *executeSearch;
+@property (nonatomic, strong) RACCommand       *searchCommand;
 - (instancetype)initWithService:(id<RWTFlickrViewModelService>)service;
 @end

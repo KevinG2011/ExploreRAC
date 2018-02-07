@@ -33,7 +33,7 @@
   [validSearchSigal subscribeNext:^(NSNumber*  _Nullable x) {
     NSLog(@"search text is valid: %@",x);
   }];
-  self.executeSearch = [[RACCommand alloc]
+  self.searchCommand = [[RACCommand alloc]
                         initWithEnabled:validSearchSigal
                             signalBlock:^RACSignal * _Nonnull(id input) {
     return [self signalForExecuteSearch];

@@ -19,14 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZc-k4-1sn">
-                                <rect key="frame" x="156" y="328" width="62" height="30"/>
-                                <state key="normal" title="购买续订"/>
+                                <rect key="frame" x="141" y="200" width="92" height="30"/>
+                                <state key="normal" title="自动续费订阅"/>
                                 <connections>
-                                    <action selector="purchaseClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aln-3J-Oum"/>
+                                    <action selector="purchaseAutoRenewableClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WW2-ZW-aFX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXJ-dd-SEv">
+                                <rect key="frame" x="133" y="249" width="108" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="非自动续费订阅"/>
+                                <connections>
+                                    <action selector="purchaseNonRenewableClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W2m-pD-WkS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFB-lx-w9v">
-                                <rect key="frame" x="156" y="366" width="62" height="30"/>
+                                <rect key="frame" x="156" y="302" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="校验"/>
                                 <connections>
@@ -37,7 +45,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rZc-k4-1sn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gVO-wN-VTn"/>
-                            <constraint firstItem="rZc-k4-1sn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="hds-Rs-Hq5"/>
+                            <constraint firstItem="rZc-k4-1sn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-128.5" id="hds-Rs-Hq5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

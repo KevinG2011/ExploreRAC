@@ -27,7 +27,7 @@
     
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     
-    _productIdentifiers = @[@"clubfee1",@"bean6"];
+    _productIdentifiers = @[@"clubfee1",@"clubfee2",@"bean6"];
     
     _productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:[NSSet setWithArray:_productIdentifiers]];
     _productsRequest.delegate = self;
@@ -83,9 +83,15 @@
 }
 
 
-- (IBAction)purchaseClicked:(id)sender {
+- (IBAction)purchaseAutoRenewableClicked:(id)sender {
     if (_orderProducts) {
         [self purchaseWithSKProduct:_orderProducts.firstObject];
+    }
+}
+
+- (IBAction)purchaseNonRenewableClicked:(id)sender {
+    if (_orderProducts) {
+        [self purchaseWithSKProduct:_orderProducts[1]];
     }
 }
 

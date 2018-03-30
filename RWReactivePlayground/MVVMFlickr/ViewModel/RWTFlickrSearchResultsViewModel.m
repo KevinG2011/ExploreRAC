@@ -5,7 +5,7 @@
 //  Created by lijia on 2017/11/15.
 //  Copyright © 2017年 Colin Eberhardt. All rights reserved.
 //
-#import <LinqToObjectiveC/NSArray+LinqExtensions.h>
+#import <BlocksKit/BlocksKit.h>
 #import "RWTFlickrSearchResultsViewModel.h"
 #import "RWTFlickrSearchResultsItemViewModel.h"
 
@@ -20,8 +20,10 @@
     if (self) {
         _title = results.searchString;
         _service = service;
-        _searchResults = [results.photos linq_select:^id(RWTFlickrPhoto* photo) {
-          return [[RWTFlickrSearchResultsItemViewModel alloc] initWithPhotos: photo service: _service];
+        __weak typeof(self) wself = self;
+        _searchResults = [results.photos bk_map:^id(RWTFlickrPhoto* photo) {
+            __strong typeof(self) sself = wself;
+            return [[RWTFlickrSearchResultsItemViewModel alloc] initWithPhotos: photo service: sself.service];
         }];
     }
     return self;

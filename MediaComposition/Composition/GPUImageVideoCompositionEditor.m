@@ -7,8 +7,8 @@
 //
 
 #import "GPUImageVideoCompositionEditor.h"
-#import <LinqToObjectiveC/LinqToObjectiveC.h>
 #import "GPUImage.h"
+#import <BlocksKit/BlocksKit.h>
 
 @interface GPUImageVideoCompositionEditor ()
 @property (nonatomic) NSArray<GPUImageMovie*>    *movies;
@@ -22,7 +22,7 @@
     _filter = [[GPUImageDissolveBlendFilter alloc] init];
     _filter.mix = 0.5f;
     
-    self.movies = [self.urls linq_select:^id(NSURL *url) {
+    self.movies = [self.urls bk_map:^id(NSURL *url) {
         GPUImageMovie *movie = [[GPUImageMovie alloc] initWithURL:url];
         movie.runBenchmark = YES;
         movie.playAtActualSpeed = YES;

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Colin Eberhardt. All rights reserved.
 //
 
-#import <LinqToObjectiveC/LinqToObjectiveC.h>
+#import <BlocksKit/BlocksKit.h>
 #import "RWTFlickrSearchImpl.h"
 #import "ObjectiveFlickr.h"
 #import "RWTFlickrSearchResults.h"
@@ -85,7 +85,7 @@
       results.totalResults = [[response valueForKeyPath:@"photos.total"] integerValue];
       
       NSArray *photos = [response valueForKeyPath:@"photos.photo"];
-      results.photos = [photos linq_select:^id(NSDictionary* jsonPhoto) {
+      results.photos = [photos bk_map:^id(NSDictionary* jsonPhoto) {
         RWTFlickrPhoto* photo = [[RWTFlickrPhoto alloc] init];
         photo.title = jsonPhoto[@"title"];
         photo.identifier = jsonPhoto[@"id"];

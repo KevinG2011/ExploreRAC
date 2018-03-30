@@ -12,7 +12,7 @@
 #import "RWSearchFormViewController.h"
 #import "RWSearchResultsViewController.h"
 #import "RWTweet.h"
-#import <LinqToObjectiveC/LinqToObjectiveC.h>
+#import <BlocksKit/BlocksKit.h>
 
 typedef NS_ENUM(NSInteger, RWTwitterInstantError) {
   RWTwitterInstantErrorAccessDenied,
@@ -68,7 +68,7 @@ static NSString * const RWTwitterInstantDomain = @"TwitterInstant";
        subscribeNext:^(NSDictionary* responseDict) {
         NSLog(@"%@",responseDict);
         NSArray* statuses = responseDict[@"statuses"];
-        NSArray* tweets = [statuses linq_select:^id(NSDictionary* item) {
+        NSArray* tweets = [statuses bk_map:^id(NSDictionary* item) {
           return [RWTweet tweetWithStatus:item];
         }];
         [self.resultsViewController displayTweets:tweets];

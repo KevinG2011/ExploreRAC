@@ -7,7 +7,7 @@
 //
 
 #import "AVFVideoCompositionEditor.h"
-#import <LinqToObjectiveC/LinqToObjectiveC.h>
+#import <BlocksKit/BlocksKit.h>
 
 @implementation AVFVideoCompositionEditor
 
@@ -19,7 +19,7 @@
     
     NSMutableArray *layerInstructions = [NSMutableArray arrayWithCapacity:self.urls.count];
     
-    self.assets = [self.urls linq_select:^id(NSURL *url) {
+    self.assets = [self.urls bk_map:^id(NSURL *url) {
         AVAsset *asset = [[AVURLAsset alloc] initWithURL:url options:nil];
         //视频轨道
         AVMutableCompositionTrack *compVideoTrack = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid];

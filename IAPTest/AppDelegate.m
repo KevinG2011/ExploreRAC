@@ -7,16 +7,81 @@
 //
 
 #import "AppDelegate.h"
+#include <pthread.h>
+
+static pthread_mutex_t theLock;
 
 @interface AppDelegate ()
-
+@property (nonatomic, copy) NSString         *name;
 @end
 
 @implementation AppDelegate
 
 
+void *threadMethord1() {
+    pthread_mutex_lock(&theLock);
+    printf("线程1\n");
+    sleep(2);
+    pthread_mutex_unlock(&theLock);
+    printf("线程1解锁成功\n");
+    return 0;
+}
+
+void *threadMethord2() {
+    sleep(1);
+    pthread_mutex_lock(&theLock);
+    printf("线程2\n");
+    pthread_mutex_unlock(&theLock);
+    return 0;
+}
+
+static dispatch_queue_t q = nil;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSString *str = @"Alice";
+    self.name = str;
+    NSString *str2 = self.name;
+    NSLog(@"%p", str);
+    NSLog(@"%p", _name);
+    NSLog(@"%p", str2);
+//    q = dispatch_queue_create("com.iaptest", DISPATCH_QUEUE_SERIAL);
+//    dispatch_async(q, ^{
+//        NSLog(@"222");
+//    });
+//    dispatch_async(q, ^{
+//        NSLog(@"333");
+//    });
+//    NSLog(@"1");
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        NSLog(@"run2");
+//    });
+
+//    dispatch_semaphore_t signal = dispatch_semaphore_create(1);
+//    dispatch_time_t overTime = dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC);
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        dispatch_semaphore_wait(signal, overTime);
+//        sleep(2);
+//        NSLog(@"线程1");
+//        dispatch_semaphore_signal(signal);
+//    });
+//    
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        sleep(1);
+//        dispatch_semaphore_wait(signal, overTime);
+//        NSLog(@"线程2");
+//        dispatch_semaphore_signal(signal);
+//    });
+    
+//    pthread_mutex_init(&theLock, NULL);
+//
+//    pthread_t thread;
+//    pthread_create(&thread, NULL, threadMethord1, NULL);
+//
+//    pthread_t thread2;
+//    pthread_create(&thread2, NULL, threadMethord2, NULL);
+    
+    
     return YES;
 }
 

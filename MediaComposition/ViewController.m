@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import <LinqToObjectiveC/LinqToObjectiveC.h>
 #import "GPUImage.h"
 #import "PhotoUtils.h"
 #import "TransformUtil.h"
@@ -51,14 +50,14 @@
     [super viewDidLoad];
     [self setupView];
     [self setupBasePipeline];
-//    [self buildVideoWatermarkPipeline];
+    [self buildVideoWatermarkPipeline];
 //    [self buildImageWatermarkPipeline];
 //    [self buildVideoImageWatermarkPipeline];
 //    [self buildVideoComposition];
 //    [self buildVideOutputTexture];
 //    [self buildBeautifyFaceDetector];
-    [self buildAVFaceDetector];
-    [self setupDisplayLink];
+//    [self buildAVFaceDetector];
+//    [self setupDisplayLink];
 }
 
 - (void)setupView {

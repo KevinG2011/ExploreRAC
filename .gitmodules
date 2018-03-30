@@ -13,3 +13,6 @@
 [submodule "BlocksKit"]
 	path = BlocksKit
 	url = https://github.com/BlocksKit/BlocksKit.git
+[submodule "realm-cocoa"]
+	path = realm-cocoa
+	url = https://github.com/realm/realm-cocoa.git

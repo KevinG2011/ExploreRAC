@@ -22,6 +22,11 @@
 		0B5F03BA2027113400E613D0 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FB52007745A00CF5782 /* libglfw3.a */; };
 		0B5F03BB2027119C00E613D0 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5F03652027065500E613D0 /* GLUT.framework */; };
 		0B5F03BC202711A300E613D0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FC02007779800CF5782 /* OpenGL.framework */; };
+		2A13EB09206E2873008A54A8 /* RWDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A13EB08206E2873008A54A8 /* RWDatabaseManager.m */; };
+		2A13EB0B206E29D7008A54A8 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EB0A206E29D6008A54A8 /* libc++.1.tbd */; };
+		2A13EB0F206E2A75008A54A8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EAEF206E2636008A54A8 /* Realm.framework */; };
+		2A13EB12206E2ABA008A54A8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EAEF206E2636008A54A8 /* Realm.framework */; };
+		2A13EB13206E2ABA008A54A8 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EAEF206E2636008A54A8 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A32D33F1FB3ECC00085742F /* RWSearchFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */; };
 		2A32D3421FB3ECD50085742F /* RWSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3411FB3ECD50085742F /* RWSearchResultsViewController.m */; };
 		2A32D3471FB3ECE90085742F /* RWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A32D3431FB3ECE90085742F /* RWTableViewCell.m */; };
@@ -218,6 +223,76 @@
 			remoteGlobalIDString = DB9B96361B3A52E500940D20;
 			remoteInfo = BlocksKit;
 		};
+		2A13EAEE206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D659ED91BE04556006515A0;
+			remoteInfo = Realm;
+		};
+		2A13EAF0206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5DD755CF1BE056DE002800DA;
+			remoteInfo = "Realm iOS static";
+		};
+		2A13EAF2206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8D89BA31955FC6D00CF2B9A;
+			remoteInfo = Tests;
+		};
+		2A13EAF4206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E8267FED1D90B79000E001C7;
+			remoteInfo = ObjectServerTests;
+		};
+		2A13EAF6206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E856D1DF195614A400FB2FCF;
+			remoteInfo = "iOS static tests";
+		};
+		2A13EAF8206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F1A5E721992EB7400F45F4C;
+			remoteInfo = TestHost;
+		};
+		2A13EAFA206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D660FCC1BE98C560021E04F;
+			remoteInfo = RealmSwift;
+		};
+		2A13EAFC206E2636008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D660FD81BE98C7C0021E04F;
+			remoteInfo = "RealmSwift Tests";
+		};
+		2A13EB10206E2A7E008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D659E7D1BE04556006515A0;
+			remoteInfo = Realm;
+		};
+		2A13EB14206E2ABA008A54A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D659E7D1BE04556006515A0;
+			remoteInfo = Realm;
+		};
 		2A48C5B11FB99DF5007EABD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2AB6D3801FB99B3500E04677 /* ObjectiveFlickr.xcodeproj */;
@@ -402,6 +477,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2A13EB13206E2ABA008A54A8 /* Realm.framework in Embed Frameworks */,
 				2A32D36E1FB409FA0085742F /* RevealServer.framework in Embed Frameworks */,
 				0B21140C20275FBA006F6EDB /* BlocksKit.framework in Embed Frameworks */,
 				0B12C7D21FB36109001738A0 /* ReactiveObjC.framework in Embed Frameworks */,
@@ -473,6 +549,11 @@
 		0B5F03B420270BD300E613D0 /* glfwkit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = glfwkit.mm; sourceTree = "<group>"; };
 		0B5F03B720270BF100E613D0 /* glutkit.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = glutkit.mm; sourceTree = "<group>"; };
 		0B5F03B820270BF100E613D0 /* glutkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glutkit.h; sourceTree = "<group>"; };
+		2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Realm.xcodeproj; path = "realm-cocoa/Realm.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		2A13EB07206E2873008A54A8 /* RWDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWDatabaseManager.h; sourceTree = "<group>"; };
+		2A13EB08206E2873008A54A8 /* RWDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWDatabaseManager.m; sourceTree = "<group>"; };
+		2A13EB0A206E29D6008A54A8 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		2A13EB0C206E29E4008A54A8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		2A32D3371FB3ECBF0085742F /* RWSearchFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RWSearchFormViewController.m; sourceTree = "<group>"; };
 		2A32D33E1FB3ECC00085742F /* RWSearchFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSearchFormViewController.h; sourceTree = "<group>"; };
 		2A32D3401FB3ECD50085742F /* RWSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RWSearchResultsViewController.h; sourceTree = "<group>"; };
@@ -625,6 +706,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A13EB12206E2ABA008A54A8 /* Realm.framework in Frameworks */,
+				2A13EB0F206E2A75008A54A8 /* Realm.framework in Frameworks */,
+				2A13EB0B206E29D7008A54A8 /* libc++.1.tbd in Frameworks */,
 				2A48C5B71FB99F30007EABD7 /* SystemConfiguration.framework in Frameworks */,
 				2AB6D3C01FB99C3400E04677 /* libSDWebImage iOS static.a in Frameworks */,
 				2AB6D3A51FB99B8800E04677 /* libObjectiveFlickr.a in Frameworks */,
@@ -643,6 +727,7 @@
 		0B12C7B61FB360DC001738A0 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */,
 				0B2113F420275F9B006F6EDB /* BlocksKit.xcodeproj */,
 				2AB6D3A91FB99C2200E04677 /* SDWebImage.xcodeproj */,
 				2AB6D3801FB99B3500E04677 /* ObjectiveFlickr.xcodeproj */,
@@ -823,6 +908,30 @@
 			path = glutkit;
 			sourceTree = "<group>";
 		};
+		2A13EAE1206E2635008A54A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A13EAEF206E2636008A54A8 /* Realm.framework */,
+				2A13EAF1206E2636008A54A8 /* Realm.framework */,
+				2A13EAF3206E2636008A54A8 /* Tests.xctest */,
+				2A13EAF5206E2636008A54A8 /* ObjectServerTests.xctest */,
+				2A13EAF7206E2636008A54A8 /* iOS static tests.xctest */,
+				2A13EAF9206E2636008A54A8 /* TestHost.app */,
+				2A13EAFB206E2636008A54A8 /* RealmSwift.framework */,
+				2A13EAFD206E2636008A54A8 /* RealmSwift Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A13EB06206E2873008A54A8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				2A13EB07206E2873008A54A8 /* RWDatabaseManager.h */,
+				2A13EB08206E2873008A54A8 /* RWDatabaseManager.m */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		2A4770C51FBC2E5600B4618A /* RACTweet */ = {
 			isa = PBXGroup;
 			children = (
@@ -836,6 +945,7 @@
 		2A4770C61FBC2E8100B4618A /* MVVMFlickr */ = {
 			isa = PBXGroup;
 			children = (
+				2A13EB06206E2873008A54A8 /* Database */,
 				0B1496251FC1C9210084BA60 /* Util */,
 				2A4770CC1FBC2F1D00B4618A /* ViewModel */,
 				2A4770CB1FBC2F1800B4618A /* View */,
@@ -1130,6 +1240,8 @@
 		72A2881C18618A2E00DDD30A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A13EB0C206E29E4008A54A8 /* libc++.tbd */,
+				2A13EB0A206E29D6008A54A8 /* libc++.1.tbd */,
 				0B5F03652027065500E613D0 /* GLUT.framework */,
 				0B388FC2200777A500CF5782 /* IOKit.framework */,
 				0B388FC02007779800CF5782 /* OpenGL.framework */,
@@ -1241,16 +1353,19 @@
 				72A2881818618A2E00DDD30A /* Resources */,
 				2A32D2E31FB2B14D0085742F /* Embed Frameworks */,
 				2A32D36F1FB40A640085742F /* Integrate Reveal Server */,
+				2A13EB0E206E2A40008A54A8 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2A13EB11206E2A7E008A54A8 /* PBXTargetDependency */,
 				0B21141020276214006F6EDB /* PBXTargetDependency */,
 				2A48C5B21FB99DF5007EABD7 /* PBXTargetDependency */,
 				2AB6D3BF1FB99C2E00E04677 /* PBXTargetDependency */,
 				0B12C7D01FB360FB001738A0 /* PBXTargetDependency */,
 				0B12C7D41FB36109001738A0 /* PBXTargetDependency */,
 				0B21140E20275FBA006F6EDB /* PBXTargetDependency */,
+				2A13EB15206E2ABA008A54A8 /* PBXTargetDependency */,
 			);
 			name = RACMVVM;
 			productName = RWReactivePlayground;
@@ -1322,6 +1437,10 @@
 				{
 					ProductGroup = 0B12C7B81FB360E3001738A0 /* Products */;
 					ProjectRef = 0B12C7B71FB360E3001738A0 /* ReactiveObjC.xcodeproj */;
+				},
+				{
+					ProductGroup = 2A13EAE1206E2635008A54A8 /* Products */;
+					ProjectRef = 2A13EAE0206E2635008A54A8 /* Realm.xcodeproj */;
 				},
 				{
 					ProductGroup = 2AB6D3AA1FB99C2200E04677 /* Products */;
@@ -1428,6 +1547,62 @@
 			fileType = wrapper.application;
 			path = "BlocksKit Mac Demo.app";
 			remoteRef = 0B21140720275F9B006F6EDB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAEF206E2636008A54A8 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Realm.framework;
+			remoteRef = 2A13EAEE206E2636008A54A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAF1206E2636008A54A8 /* Realm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework.static;
+			path = Realm.framework;
+			remoteRef = 2A13EAF0206E2636008A54A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAF3206E2636008A54A8 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = 2A13EAF2206E2636008A54A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAF5206E2636008A54A8 /* ObjectServerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ObjectServerTests.xctest;
+			remoteRef = 2A13EAF4206E2636008A54A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAF7206E2636008A54A8 /* iOS static tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "iOS static tests.xctest";
+			remoteRef = 2A13EAF6206E2636008A54A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAF9206E2636008A54A8 /* TestHost.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestHost.app;
+			remoteRef = 2A13EAF8206E2636008A54A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAFB206E2636008A54A8 /* RealmSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RealmSwift.framework;
+			remoteRef = 2A13EAFA206E2636008A54A8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2A13EAFD206E2636008A54A8 /* RealmSwift Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "RealmSwift Tests.xctest";
+			remoteRef = 2A13EAFC206E2636008A54A8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2AB1195D1FF34E410073C3A8 /* libGPUImage.a */ = {
@@ -1618,6 +1793,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2A13EB0E206E2A40008A54A8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
 		2A32D36F1FB40A640085742F /* Integrate Reveal Server */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1699,6 +1887,7 @@
 				72A2885418620EA100DDD30A /* RWDummySignInService.m in Sources */,
 				0B1496381FC1C9320084BA60 /* CETableViewBindingHelper.m in Sources */,
 				0B01E34E1FBF28C300D0C6FD /* RWTFlickrPhotoMetadata.m in Sources */,
+				2A13EB09206E2873008A54A8 /* RWDatabaseManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1724,6 +1913,16 @@
 			isa = PBXTargetDependency;
 			name = BlocksKit;
 			targetProxy = 0B21140F20276214006F6EDB /* PBXContainerItemProxy */;
+		};
+		2A13EB11206E2A7E008A54A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Realm;
+			targetProxy = 2A13EB10206E2A7E008A54A8 /* PBXContainerItemProxy */;
+		};
+		2A13EB15206E2ABA008A54A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Realm;
+			targetProxy = 2A13EB14206E2ABA008A54A8 /* PBXContainerItemProxy */;
 		};
 		2A48C5B21FB99DF5007EABD7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

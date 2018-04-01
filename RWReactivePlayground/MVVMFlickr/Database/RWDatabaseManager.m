@@ -34,7 +34,7 @@
 //        config.objectClasses = @[MyClass.class, MyOtherClass.class];
         config.readOnly = NO;
         int currentVersion = 1.0;
-        config.schemaVersion = currentVersion;
+        config.schemaVersion = 1.0;
 
         config.migrationBlock = ^(RLMMigration *migration , uint64_t oldSchemaVersion) {
             // 这里是设置数据迁移的block

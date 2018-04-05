@@ -25,6 +25,7 @@
 		0B6773ED206FF006000E63C2 /* libObjectiveFlickr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3891FB99B3500E04677 /* libObjectiveFlickr.a */; };
 		0BECF7C12070DAD70058BDCC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EAEF206E2636008A54A8 /* Realm.framework */; };
 		0BECF7C22070DAD70058BDCC /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EAEF206E2636008A54A8 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0BECF7CC2070DC570058BDCC /* RACMVVMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BECF7CB2070DC570058BDCC /* RACMVVMTests.m */; };
 		0BF2997D206FEE450064B75B /* RWDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2997C206FEE450064B75B /* RWDog.m */; };
 		0BF29980206FEE8D0064B75B /* RWPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BF2997F206FEE8D0064B75B /* RWPerson.m */; };
 		2A13EB09206E2873008A54A8 /* RWDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A13EB08206E2873008A54A8 /* RWDatabaseManager.m */; };
@@ -228,6 +229,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5D659E7D1BE04556006515A0;
 			remoteInfo = Realm;
+		};
+		0BECF7CE2070DC570058BDCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72A2881218618A2E00DDD30A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72A2881918618A2E00DDD30A;
+			remoteInfo = RACMVVM;
 		};
 		2A13EAEE206E2636008A54A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -527,6 +535,9 @@
 		0B5F03B420270BD300E613D0 /* glfwkit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = glfwkit.mm; sourceTree = "<group>"; };
 		0B5F03B720270BF100E613D0 /* glutkit.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = glutkit.mm; sourceTree = "<group>"; };
 		0B5F03B820270BF100E613D0 /* glutkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glutkit.h; sourceTree = "<group>"; };
+		0BECF7C92070DC570058BDCC /* RACMVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACMVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BECF7CB2070DC570058BDCC /* RACMVVMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACMVVMTests.m; sourceTree = "<group>"; };
+		0BECF7CD2070DC570058BDCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BF2997B206FEE450064B75B /* RWDog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWDog.h; sourceTree = "<group>"; };
 		0BF2997C206FEE450064B75B /* RWDog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RWDog.m; sourceTree = "<group>"; };
 		0BF2997E206FEE8D0064B75B /* RWPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RWPerson.h; sourceTree = "<group>"; };
@@ -648,6 +659,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0BECF7C62070DC570058BDCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A59B63820037D1E007B41C2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -882,6 +900,15 @@
 				0B5F03B720270BF100E613D0 /* glutkit.mm */,
 			);
 			path = glutkit;
+			sourceTree = "<group>";
+		};
+		0BECF7CA2070DC570058BDCC /* RACMVVMTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BECF7CB2070DC570058BDCC /* RACMVVMTests.m */,
+				0BECF7CD2070DC570058BDCC /* Info.plist */,
+			);
+			path = RACMVVMTests;
 			sourceTree = "<group>";
 		};
 		0BF29954206FEE1A0064B75B /* Realm */ = {
@@ -1198,6 +1225,7 @@
 				2AB119311FF34C9F0073C3A8 /* MediaComposition */,
 				2A59B63C20037D1E007B41C2 /* OpenGLVisual */,
 				2ACD8E2D202BFE870040047E /* IAPTest */,
+				0BECF7CA2070DC570058BDCC /* RACMVVMTests */,
 				72A2881C18618A2E00DDD30A /* Frameworks */,
 				72A2881B18618A2E00DDD30A /* Products */,
 			);
@@ -1210,6 +1238,7 @@
 				2AB119301FF34C9F0073C3A8 /* MediaComposition.app */,
 				2A59B63B20037D1E007B41C2 /* OpenGLVisual */,
 				2ACD8E2C202BFE870040047E /* IAPTest.app */,
+				0BECF7C92070DC570058BDCC /* RACMVVMTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1264,6 +1293,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0BECF7C82070DC570058BDCC /* RACMVVMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BECF7D02070DC570058BDCC /* Build configuration list for PBXNativeTarget "RACMVVMTests" */;
+			buildPhases = (
+				0BECF7C52070DC570058BDCC /* Sources */,
+				0BECF7C62070DC570058BDCC /* Frameworks */,
+				0BECF7C72070DC570058BDCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BECF7CF2070DC570058BDCC /* PBXTargetDependency */,
+			);
+			name = RACMVVMTests;
+			productName = RACMVVMTests;
+			productReference = 0BECF7C92070DC570058BDCC /* RACMVVMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2A59B63A20037D1E007B41C2 /* OpenGLVisual */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "OpenGLVisual" */;
@@ -1357,6 +1404,12 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "Colin Eberhardt";
 				TargetAttributes = {
+					0BECF7C82070DC570058BDCC = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = 8DHLQ2UE6S;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 72A2881918618A2E00DDD30A;
+					};
 					2A59B63A20037D1E007B41C2 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = 8DHLQ2UE6S;
@@ -1424,6 +1477,7 @@
 				2AB1192F1FF34C9F0073C3A8 /* MediaComposition */,
 				2A59B63A20037D1E007B41C2 /* OpenGLVisual */,
 				2ACD8E2B202BFE870040047E /* IAPTest */,
+				0BECF7C82070DC570058BDCC /* RACMVVMTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1698,6 +1752,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0BECF7C72070DC570058BDCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2AB1192E1FF34C9F0073C3A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1773,6 +1834,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0BECF7C52070DC570058BDCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BECF7CC2070DC570058BDCC /* RACMVVMTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2A59B63720037D1E007B41C2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1871,6 +1940,11 @@
 			name = Realm;
 			targetProxy = 0BECF7C32070DAD70058BDCC /* PBXContainerItemProxy */;
 		};
+		0BECF7CF2070DC570058BDCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72A2881918618A2E00DDD30A /* RACMVVM */;
+			targetProxy = 0BECF7CE2070DC570058BDCC /* PBXContainerItemProxy */;
+		};
 		2A13EB15206E2ABA008A54A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Realm;
@@ -1955,6 +2029,59 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0BECF7D12070DC570058BDCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = RACMVVMTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yingxiang.RACMVVMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RACMVVM.app/RACMVVM";
+			};
+			name = Debug;
+		};
+		0BECF7D22070DC570058BDCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8DHLQ2UE6S;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = RACMVVMTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yingxiang.RACMVVMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RACMVVM.app/RACMVVM";
+			};
+			name = Release;
+		};
 		2A59B64020037D1E007B41C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2318,6 +2445,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0BECF7D02070DC570058BDCC /* Build configuration list for PBXNativeTarget "RACMVVMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BECF7D12070DC570058BDCC /* Debug */,
+				0BECF7D22070DC570058BDCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2A59B63F20037D1E007B41C2 /* Build configuration list for PBXNativeTarget "OpenGLVisual" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

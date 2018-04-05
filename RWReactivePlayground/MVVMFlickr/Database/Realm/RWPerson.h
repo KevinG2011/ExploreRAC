@@ -9,6 +9,8 @@
 #import <Realm/Realm.h>
 #import "RWDog.h"
 
+RLM_ARRAY_TYPE(RWDog)
 @interface RWPerson : RLMObject
-
+@property NSString             *name;
+@property RLMArray<RWDog>      *dogs;
 @end

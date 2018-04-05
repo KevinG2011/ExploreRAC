@@ -10,4 +10,7 @@
 
 @implementation RWDog
 
++(NSArray<NSString *> *)requiredProperties {
+    return @[@"name"];
+}
 @end

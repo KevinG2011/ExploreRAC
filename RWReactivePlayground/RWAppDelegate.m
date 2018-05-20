@@ -7,6 +7,7 @@
 //
 
 #import "RWAppDelegate.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 @interface RWAppDelegate ()
 
 @end
@@ -15,14 +16,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // style the navigation bar
-  UIColor* navColor = [UIColor colorWithRed:0.175f green:0.458f blue:0.831f alpha:1.0f];
-  [[UINavigationBar appearance] setBarTintColor:navColor];
-  [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-  [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+  RACSignal *databaseSignal = [[RACSignal return:@1] subscribeOn:[RACScheduler scheduler]];
+  RACSignal *fileSignal = [RACSignal startEagerlyWithScheduler:[RACScheduler scheduler] block:^(id subscriber) {
+    [subscriber sendNext:@2];
+    [subscriber sendCompleted];
+  }];
+//  [[RACSignal
+//    combineLatest:@[ databaseSignal, fileSignal ]
+//    reduce:^ id (NSNumber *n1, NSNumber *n2) {
+//      return nil;
+//    }]
+//   subscribeCompleted:^{
+//     NSLog(@"Done processing");
+//   }];
   
-  // make the status bar white
-  [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    /* ======================================= */
+    // style the navigation bar
+    UIColor* navColor = [UIColor colorWithRed:0.175f green:0.458f blue:0.831f alpha:1.0f];
+    [[UINavigationBar appearance] setBarTintColor:navColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+
+    // make the status bar white
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
   
   
   return YES;

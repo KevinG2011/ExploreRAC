@@ -23,6 +23,7 @@
 		0B5F03BB2027119C00E613D0 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B5F03652027065500E613D0 /* GLUT.framework */; };
 		0B5F03BC202711A300E613D0 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B388FC02007779800CF5782 /* OpenGL.framework */; };
 		0B6773ED206FF006000E63C2 /* libObjectiveFlickr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6D3891FB99B3500E04677 /* libObjectiveFlickr.a */; };
+		0B811D3B20B0376D00A2BDA7 /* AutoLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B811D3A20B0376D00A2BDA7 /* AutoLayoutViewController.m */; };
 		0BECF7C12070DAD70058BDCC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EAEF206E2636008A54A8 /* Realm.framework */; };
 		0BECF7C22070DAD70058BDCC /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A13EAEF206E2636008A54A8 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0BECF7CC2070DC570058BDCC /* RACMVVMTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BECF7CB2070DC570058BDCC /* RACMVVMTests.m */; };
@@ -535,6 +536,8 @@
 		0B5F03B420270BD300E613D0 /* glfwkit.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = glfwkit.mm; sourceTree = "<group>"; };
 		0B5F03B720270BF100E613D0 /* glutkit.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = glutkit.mm; sourceTree = "<group>"; };
 		0B5F03B820270BF100E613D0 /* glutkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glutkit.h; sourceTree = "<group>"; };
+		0B811D3920B0376D00A2BDA7 /* AutoLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayoutViewController.h; sourceTree = "<group>"; };
+		0B811D3A20B0376D00A2BDA7 /* AutoLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutViewController.m; sourceTree = "<group>"; };
 		0BECF7C92070DC570058BDCC /* RACMVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RACMVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BECF7CB2070DC570058BDCC /* RACMVVMTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACMVVMTests.m; sourceTree = "<group>"; };
 		0BECF7CD2070DC570058BDCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1134,8 +1137,8 @@
 			children = (
 				2A48C5C81FB9A45D007EABD7 /* comment.png */,
 				2A48C5C71FB9A45D007EABD7 /* fave.png */,
-				72A2883518618A2E00DDD30A /* Images.xcassets */,
 				721E122618698DC100B30134 /* kitten.jpg */,
+				72A2883518618A2E00DDD30A /* Images.xcassets */,
 				2A32D3491FB3F0C90085742F /* background.jpg */,
 			);
 			path = Resources;
@@ -1209,6 +1212,8 @@
 				2ACD8E62202C37F20040047E /* Receipt.h */,
 				2ACD8E31202BFE870040047E /* ViewController.h */,
 				2ACD8E32202BFE870040047E /* ViewController.m */,
+				0B811D3920B0376D00A2BDA7 /* AutoLayoutViewController.h */,
+				0B811D3A20B0376D00A2BDA7 /* AutoLayoutViewController.m */,
 				2ACD8E34202BFE870040047E /* Main.storyboard */,
 				2ACD8E37202BFE870040047E /* Assets.xcassets */,
 				2ACD8E39202BFE870040047E /* LaunchScreen.storyboard */,
@@ -1878,6 +1883,7 @@
 				2ACD8E33202BFE870040047E /* ViewController.m in Sources */,
 				2ACD8E3E202BFE870040047E /* main.m in Sources */,
 				2ACD8E30202BFE870040047E /* AppDelegate.m in Sources */,
+				0B811D3B20B0376D00A2BDA7 /* AutoLayoutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -109,7 +109,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59F-iH-PMm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1085" y="197"/>
+            <point key="canvasLocation" x="-1111" y="-175"/>
         </scene>
         <!--Login-->
         <scene sceneID="Tc9-Kw-bBy">
@@ -253,7 +253,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qd8-63-1j4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-491.5" y="627.5"/>
+            <point key="canvasLocation" x="759" y="-176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rWC-Vh-mOa">
@@ -269,7 +269,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jMc-XZ-gs6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1087" y="1487"/>
+            <point key="canvasLocation" x="-1112" y="661"/>
         </scene>
         <!--Flickr Search View Controller-->
         <scene sceneID="vSb-P7-lCw">
@@ -318,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPt-9i-1MD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-383" y="1487"/>
+            <point key="canvasLocation" x="-491" y="661"/>
         </scene>
     </scenes>
     <resources>

@@ -16,3 +16,6 @@
 [submodule "realm-cocoa"]
 	path = realm-cocoa
 	url = https://github.com/realm/realm-cocoa.git
+[submodule "RxSwiftTrip/RxSwift"]
+	path = RxSwiftTrip/RxSwift
+	url = https://github.com/ReactiveX/RxSwift.git

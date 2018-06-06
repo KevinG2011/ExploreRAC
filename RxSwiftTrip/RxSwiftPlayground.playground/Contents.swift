@@ -3,59 +3,6 @@
 import UIKit
 import RxSwift
 
-var str = "Hello, playground"
-_ = Observable.of("Hello world!")
-let o1 = Observable.just(episodeI)
-
-let o2 = Observable.of(episodeII, episodeIII)
-let o3 = Observable.of([episodeII, episodeIV, episodeV])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public func example(of description: String, action: () -> Void) {
   print("\n--- Example of:", description, "---")
   action()
@@ -73,4 +20,78 @@ public let episodeVI = "Return Of The Jedi"
 public let episodeVII = "The Force Awakens"
 public let episodeVIII = "The Last Jedi"
 public let episodeIX = "Episode IX"
+
+
+
+
+
+example(of: "observable") {
+  _ = Observable.of("Hello world!")
+  let o1 = Observable.just(episodeI)
+  let o2 = Observable.of(episodeII, episodeIII)
+  let o3 = Observable.of([episodeII, episodeIV, episodeV])
+}
+
+example(of: "subscribe") {
+  let o1 = Observable.of(episodeII, episodeIV, episodeV)
+  o1.subscribe(onNext: { ele in
+    print(ele)
+  }, onCompleted: {
+    print("success")
+  })
+}
+
+example(of: "disposeBag") {
+  let disposeBag = DisposeBag();
+  let o1 = Observable.of(episodeII, episodeIV, episodeV)
+  let subscription = o1.subscribe(onNext: {
+    print($0)
+  })
+  subscription.disposed(by: disposeBag);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

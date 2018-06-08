@@ -50,8 +50,33 @@ example(of: "disposeBag") {
   subscription.disposed(by: disposeBag);
 }
 
+example(of: "create") {
+  enum Driod: Error {
+    case OU812
+  }
+  let disposeBag = DisposeBag()
+  Observable<String>.create({ observer -> Disposable in
+    observer.onNext("R2-D2");
+    observer.onCompleted();
+    return Disposables.create()
+  })
+  .subscribe(onNext: {
+    print($0)
+  })
+  .disposed(by: disposeBag)
+}
 
-
+example(of: "challenge") {
+  let disposeBag = DisposeBag()
+  Observable.never()
+    .do(onSubscribe: {
+      print("do Next")
+    })
+    .subscribe(onNext: {
+      print("on Next");
+    })
+    .disposed(by: disposeBag)
+}
 
 
 

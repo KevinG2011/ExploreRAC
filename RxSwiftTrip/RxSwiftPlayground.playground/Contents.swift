@@ -22,7 +22,7 @@ public let episodeVIII = "The Last Jedi"
 public let episodeIX = "Episode IX"
 
 
-
+let disposeBag = DisposeBag()
 
 
 example(of: "observable") {
@@ -42,7 +42,6 @@ example(of: "subscribe") {
 }
 
 example(of: "disposeBag") {
-  let disposeBag = DisposeBag();
   let o1 = Observable.of(episodeII, episodeIV, episodeV)
   let subscription = o1.subscribe(onNext: {
     print($0)
@@ -54,7 +53,6 @@ example(of: "create") {
   enum Driod: Error {
     case OU812
   }
-  let disposeBag = DisposeBag()
   Observable<String>.create({ observer -> Disposable in
     observer.onNext("R2-D2");
     observer.onCompleted();
@@ -67,7 +65,6 @@ example(of: "create") {
 }
 
 example(of: "challenge") {
-  let disposeBag = DisposeBag()
   Observable.never()
     .do(onSubscribe: {
       print("do Next")
@@ -78,6 +75,27 @@ example(of: "challenge") {
     .disposed(by: disposeBag)
 }
 
+example(of: "BehaviorSubject") {
+  let quotes = BehaviorSubject(value: episodeV);
+  let subscription = quotes
+    .subscribe {
+      print($0);
+    }
+  subscription.disposed(by: disposeBag);
+}
+
+example(of: "ReplaySubject") {
+  let quotes = ReplaySubject<String>.create(bufferSize: 2);
+  quotes.onNext(episodeVI);
+  quotes.onNext(episodeVII);
+  quotes.subscribe(onNext: {
+    print($0);
+  })
+    .disposed(by: disposeBag)
+  
+  quotes.onNext(episodeVIII);
+  
+}
 
 
 

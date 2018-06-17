@@ -94,11 +94,21 @@ example(of: "Dealt") {
     }
     
     // Add code to update dealtHand here
-    dealtHand
+    if points(for: hand) > 21 {
+      dealtHand.onError(HandError.busted)
+    } else {
+      dealtHand.onNext(hand)
+    }
   }
   
   // Add subscription to dealtHand here
-  
+  dealtHand.subscribe(onNext:  { hand in
+    print(cardString(for: hand), "for", points(for: hand), "points")
+  },
+  onError: { error in
+    print(String(describing: error))
+  })
+  .disposed(by: disposeBag)
   
   deal(3)
 }
